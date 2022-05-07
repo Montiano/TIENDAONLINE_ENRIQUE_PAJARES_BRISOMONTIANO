@@ -61,8 +61,8 @@ public class ProductoController {
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model modelo) {
 		Producto producto = new Producto();
-		Optional<Producto> optionalProducto = productoService.get(id);
-		producto = optionalProducto.get();
+		Optional<Producto> productoOptional = productoService.get(id);
+		producto = productoOptional.get();
 		
 		LOGGER.info("Producto buscado: {}", producto);
 		
