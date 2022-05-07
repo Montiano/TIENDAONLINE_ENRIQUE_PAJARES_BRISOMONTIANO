@@ -21,10 +21,12 @@ public class DetallePedido {
 	@Column(name = "id_producto")
 	private int idProducto;
 	@Column(name = "precio_unidad")
-	private float precioUnidad;
+	private double precioUnidad;
 	private int unidades;
 	private float impuesto;
 	private double total;
+	
+	private String nombre;
 	
 	@OneToOne
 	private Pedido pedido;
@@ -37,7 +39,7 @@ public class DetallePedido {
 		super();
 	}
 
-	public DetallePedido(Long id, int idPedido, int idProducto, float precioUnidad, int unidades, float impuesto,
+	public DetallePedido(Long id, int idPedido, int idProducto, double precioUnidad, int unidades, float impuesto,
 			double total) {
 		super();
 		this.id = id;
@@ -47,6 +49,16 @@ public class DetallePedido {
 		this.unidades = unidades;
 		this.impuesto = impuesto;
 		this.total = total;
+	}
+	
+	
+	public DetallePedido(Long id, double precioUnidad, int unidades, double total, String nombre) {
+		super();
+		this.id = id;
+		this.precioUnidad = precioUnidad;
+		this.unidades = unidades;
+		this.total = total;
+		this.nombre = nombre;
 	}
 
 	public Long getId() {
@@ -73,11 +85,11 @@ public class DetallePedido {
 		this.idProducto = idProducto;
 	}
 
-	public float getPrecioUnidad() {
+	public double getPrecioUnidad() {
 		return precioUnidad;
 	}
 
-	public void setPrecioUnidad(float precioUnidad) {
+	public void setPrecioUnidad(double precioUnidad) {
 		this.precioUnidad = precioUnidad;
 	}
 
@@ -119,6 +131,14 @@ public class DetallePedido {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	@Override
