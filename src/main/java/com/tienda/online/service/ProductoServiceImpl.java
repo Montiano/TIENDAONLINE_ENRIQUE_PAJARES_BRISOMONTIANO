@@ -10,7 +10,7 @@ import com.tienda.online.model.Producto;
 import com.tienda.online.repository.ProductoRepository;
 
 @Service
-public class ProductoServiceImpl implements ProductoService{
+public class ProductoServiceImpl implements IProductoService{
 
 	// Inyectamos a la clase un objeto
 	@Autowired
