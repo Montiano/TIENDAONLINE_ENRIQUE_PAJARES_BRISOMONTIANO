@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Spring eCommerce</title>
+  <title>Tienda Online</title>
 
 
 <!-- Bootstrap core CSS -->
@@ -29,7 +29,7 @@
 
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Resumen del pedido</small>
+        Tienda Online <small>Resumen del pedido</small>
       </h1>
 
       <ol class="breadcrumb">
@@ -84,7 +84,7 @@
 
           <ul class="list-group">
             <li class="list-group-item"><h5 th:text="'Total: '+${pedido.total}"></h5></li>
-            <a th:href="@{/saveOrder}" class="btn btn-dark">Generar</a>
+            <li class="list-group-item"><a th:href="@{/saveOrder}" class="btn btn-dark">Generar</a></li>
           </ul>
         </div>
       </div>
