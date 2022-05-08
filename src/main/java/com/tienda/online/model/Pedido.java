@@ -3,6 +3,7 @@ package com.tienda.online.model;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,8 +35,8 @@ public class Pedido {
 	@ManyToOne
 	private Usuario usuario;
 	
-	@OneToOne(mappedBy = "pedido")
-	private DetallePedido detalle;
+	@OneToMany(mappedBy = "pedido")
+	private List<DetallePedido> detalle;
 	
 	public Pedido() {
 		super();
@@ -118,11 +120,11 @@ public class Pedido {
 		this.usuario = usuario;
 	}
 
-	public DetallePedido getDetalle() {
+	public List<DetallePedido> getDetalle() {
 		return detalle;
 	}
 
-	public void setDetalle(DetallePedido detalle) {
+	public void setDetalle(List<DetallePedido> detalle) {
 		this.detalle = detalle;
 	}
 

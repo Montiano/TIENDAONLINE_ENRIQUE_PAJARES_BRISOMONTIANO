@@ -28,7 +28,7 @@ public class DetallePedido {
 	
 	private String nombre;
 	
-	@OneToOne
+	@ManyToOne
 	private Pedido pedido;
 	
 	@ManyToOne

@@ -3,6 +3,8 @@ package com.tienda.online.controller;
 import java.io.IOException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tienda.online.model.Producto;
 import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IProductoService;
+import com.tienda.online.service.IUsuarioService;
 import com.tienda.online.service.UploadFileService;
 
 @Controller
@@ -27,6 +30,9 @@ public class ProductoController {
 	
 	@Autowired
 	private IProductoService productoService;
+	
+	@Autowired
+	private IUsuarioService usuarioService;
 	
 	@Autowired
 	private UploadFileService upload;
@@ -43,9 +49,10 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/save")
-	public String save(Producto producto, @RequestParam("img") MultipartFile file) throws IOException {
+	public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession sesion) throws IOException {
 		LOGGER.info("Este es el objeto producto de la vista {}", producto);
-		Usuario u = new Usuario(1L, 0, null, null, null, null, null, null, null, null, null, null);
+		
+		Usuario u = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
 		producto.setUsuario(u);
 		
 		// En caso de que creamos un producto

@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +56,14 @@ public class HomeController {
 	
 	
 	@GetMapping("")
-	public String home(Model modelo) {	
+	public String home(Model modelo, HttpSession sesion) {
+		
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
+		
 		modelo.addAttribute("listaProductos", productoService.findAll());
+		
+		modelo.addAttribute("sesion", sesion.getAttribute("idUsuario"));
+		
 		return "usuario/home";
 	}
 	
@@ -152,19 +160,21 @@ public class HomeController {
 	}
 	
 	@GetMapping("/getCart")
-	public String getCart(Model modelo) {
+	public String getCart(Model modelo, HttpSession sesion) {
 		
 		modelo.addAttribute("detallesPedido", detallesPedido);
 		modelo.addAttribute("pedido", pedido);
+		
+		modelo.addAttribute("sesion", sesion.getAttribute("idUsuario"));
 		
 		return "/usuario/carrito";
 	}
 	
 	@GetMapping("/order")
-	public String order(Model modelo) {	
+	public String order(Model modelo, HttpSession sesion) {	
 		
-		Usuario usuario = usuarioService.findById(2L).get();
-		
+		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
+				
 		modelo.addAttribute("detallesPedido", detallesPedido);
 		modelo.addAttribute("pedido", pedido);
 		modelo.addAttribute("usuario", usuario);
@@ -173,12 +183,12 @@ public class HomeController {
 	}
 	
 	@GetMapping("/saveOrder")
-	public String saveOrder() {
+	public String saveOrder(HttpSession sesion) {
 		Date fechaCreacion = new Date();
 		pedido.setFecha(fechaCreacion);
 		pedido.setNumFactura(pedidoService.generateNumFra());
 		
-		Usuario usuario = usuarioService.findById(2L).get();
+		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
 		
 		// Se guarda el pedido
 		pedido.setUsuario(usuario);

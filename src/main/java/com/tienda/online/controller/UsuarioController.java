@@ -1,5 +1,6 @@
 package com.tienda.online.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -8,11 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tienda.online.model.Pedido;
 import com.tienda.online.model.Usuario;
+import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IUsuarioService;
 
 @Controller
@@ -23,6 +28,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
+	
+	@Autowired
+	private IPedidoService pedidoService;
 	
 	@GetMapping("/registro")
 	public String create() {
@@ -61,6 +69,40 @@ public class UsuarioController {
 		} else {
 			LOGGER.info("Usuario no existe");
 		}
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/shopping")
+	public String shopping(Model modelo, HttpSession sesion) {
+		
+		modelo.addAttribute("sesion", sesion.getAttribute("idUsuario"));
+		
+		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
+		List<Pedido> pedidos = pedidoService.findByUsuario(usuario);
+		
+		modelo.addAttribute("pedidos", pedidos);
+		
+		return "usuario/compras";
+	}
+	
+	@GetMapping("/detalle/{id}")
+	public String purchaseDetail(@PathVariable Long id, HttpSession sesion, Model modelo) {	
+		LOGGER.info("Id del pedido: {}", id);
+		
+		Optional<Pedido> pedido = pedidoService.findById(id);
+		
+		modelo.addAttribute("detalles", pedido.get().getDetalle());
+		
+		modelo.addAttribute("sesion", sesion.getAttribute("idUsuario"));
+		
+		return "usuario/detalle_compra";
+	}
+	
+	@GetMapping("/cerrar")
+	public String cerrarSesion(HttpSession sesion) {
+		
+		sesion.removeAttribute("idUsuario");
 		
 		return "redirect:/";
 	}
