@@ -24,7 +24,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">Spring eCommerce</a>
+			<a class="navbar-brand" th:href="@{/}">Spring eCommerce</a>
 
 			<form class="form-inline my-2 my-lg-0" method="post" action="#">
 				<input class="form-control mr-sm-2" type="search"
@@ -83,7 +83,7 @@
 									<td th:text="${detalle.precioUnidad}"></td>
 									<td th:text="${detalle.unidades}"></td>
 									<td th:text="${detalle.total}"></td>
-									<td><a href="#" class="btn btn-danger">Quitar</a></td>
+									<td><a th:href="@{/delete/cart/}+${detalle.producto.id}" class="btn btn-danger">Quitar</a></td>
 								</tr>
 							</tbody>
 						</table>
