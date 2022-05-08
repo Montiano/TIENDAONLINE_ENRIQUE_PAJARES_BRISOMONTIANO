@@ -21,7 +21,7 @@ public class Usuario {
 	@Column(name = "id_rol")
 	private int idRol;
 	private String email;
-	private String clave;
+	private String password;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
@@ -30,6 +30,7 @@ public class Usuario {
 	private String localidad;
 	private String telefono;
 	private String dni;
+	private String tipo;
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Producto> productos;
@@ -40,18 +41,18 @@ public class Usuario {
 	public Usuario() {
 		super();
 	}
-	public Usuario(String email, String clave) {
+	public Usuario(String email, String password) {
 		super();
 		this.email = email;
-		this.clave = clave;
+		this.password = password;
 	}
-	public Usuario(Long id, int idRol, String email, String clave, String nombre, String apellido1, String apellido2,
+	public Usuario(Long id, int idRol, String email, String password, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
 		super();
 		this.id = id;
 		this.idRol = idRol;
 		this.email = email;
-		this.clave = clave;
+		this.password = password;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
@@ -62,11 +63,11 @@ public class Usuario {
 		this.dni = dni;
 	}
 	
-	public Usuario(Long id, String email, String clave, String nombre, String direccion, String dni) {
+	public Usuario(Long id, String email, String password, String nombre, String direccion, String dni) {
 		super();
 		this.id = id;
 		this.email = email;
-		this.clave = clave;
+		this.password = password;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.dni = dni;
@@ -89,11 +90,11 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getClave() {
-		return clave;
+	public String getPassword() {
+		return password;
 	}
-	public void setClave(String clave) {
-		this.clave = clave;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getNombre() {
 		return nombre;
@@ -143,12 +144,34 @@ public class Usuario {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
+	
+	public List<Producto> getProductos() {
+		return productos;
+	}
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", idRol=" + idRol + ", email=" + email + ", clave=" + clave + ", nombre=" + nombre
+		return "Usuario [id=" + id + ", idRol=" + idRol + ", email=" + email + ", password=" + password + ", nombre=" + nombre
 				+ ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", direccion=" + direccion + ", provincia="
-				+ provincia + ", localidad=" + localidad + ", telefono=" + telefono + ", dni=" + dni + "]";
+				+ provincia + ", localidad=" + localidad + ", telefono=" + telefono + ", dni=" + dni + ", tipo=" + tipo
+				+ "]";
 	}
+
 	
 
 	

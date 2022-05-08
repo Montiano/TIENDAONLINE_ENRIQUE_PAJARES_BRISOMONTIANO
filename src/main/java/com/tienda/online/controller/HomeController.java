@@ -1,8 +1,11 @@
 package com.tienda.online.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +22,8 @@ import com.tienda.online.model.DetallePedido;
 import com.tienda.online.model.Pedido;
 import com.tienda.online.model.Producto;
 import com.tienda.online.model.Usuario;
+import com.tienda.online.service.IDetallePedidoService;
+import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IProductoService;
 import com.tienda.online.service.IUsuarioService;
 
@@ -34,9 +39,19 @@ public class HomeController {
 	@Autowired
 	private IUsuarioService usuarioService;
 	
+	@Autowired
+	private IPedidoService pedidoService;
+	
+	@Autowired
+	private IDetallePedidoService detallePedidoService;
+	
+	
+	
 	List<DetallePedido> detallesPedido = new ArrayList<DetallePedido>();
 	
 	Pedido pedido = new Pedido();
+	
+	
 	
 	@GetMapping("")
 	public String home(Model modelo) {	
@@ -147,6 +162,7 @@ public class HomeController {
 	
 	@GetMapping("/order")
 	public String order(Model modelo) {	
+		
 		Usuario usuario = usuarioService.findById(2L).get();
 		
 		modelo.addAttribute("detallesPedido", detallesPedido);
@@ -156,7 +172,38 @@ public class HomeController {
 		return "usuario/resumen_pedido";
 	}
 	
+	@GetMapping("/saveOrder")
+	public String saveOrder() {
+		Date fechaCreacion = new Date();
+		pedido.setFecha(fechaCreacion);
+		pedido.setNumFactura(pedidoService.generateNumFra());
+		
+		Usuario usuario = usuarioService.findById(2L).get();
+		
+		// Se guarda el pedido
+		pedido.setUsuario(usuario);
+		pedidoService.save(pedido);
+		
+		// Se guarda el detalle del pedido
+		for (DetallePedido detallePedido : detallesPedido) {
+			detallePedido.setPedido(pedido);
+			detallePedidoService.save(detallePedido);
+		}
+		// Limpiamos el pedido y la lista de detalles
+		pedido = new Pedido();
+		detallesPedido.clear();
+		
+		return "redirect:/";
+	}
 	
 	
-	
+	@PostMapping("/search")
+	public String searchProduct(@RequestParam String nombre, Model modelo) {
+		LOGGER.info("Nombre del producto: {}", nombre);
+		// Cogemos todos los productos a través de stream y utilizamos filter para filtrar la búsqueda y lo pasamos a lista
+		List<Producto> listaProductos = productoService.findAll().stream().filter(p->p.getNombre().contains(nombre)).collect(Collectors.toList());
+		modelo.addAttribute("listaProductos", listaProductos);
+		
+		return "usuario/home";
+	}
 }

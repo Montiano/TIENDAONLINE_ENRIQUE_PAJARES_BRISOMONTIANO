@@ -1,7 +1,8 @@
 package com.tienda.online.model;
 
 import java.sql.Timestamp;
-
+import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ public class Pedido {
 	private Long id;
 	@Column(name="id_usuario")
 	private int idUsuario;
-	private Timestamp fecha;
+	private Date fecha;
 	@Column(name = "metodo_pago")
 	private String metodoPago;
 	private String estado;
@@ -39,7 +40,7 @@ public class Pedido {
 		super();
 	}
 
-	public Pedido(Long id, int idUsuario, Timestamp fecha, String metodoPago, String estado, String numFactura,
+	public Pedido(Long id, int idUsuario, Date fecha, String metodoPago, String estado, String numFactura,
 			Double total) {
 		super();
 		this.id = id;
@@ -69,12 +70,12 @@ public class Pedido {
 		this.idUsuario = idUsuario;
 	}
 
-	public Timestamp getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Timestamp fecha) {
-		this.fecha = fecha;
+	public void setFecha(Date fechaCreacion) {
+		this.fecha = fechaCreacion;
 	}
 
 	public String getMetodoPago() {

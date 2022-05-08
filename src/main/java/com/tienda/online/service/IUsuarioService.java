@@ -8,4 +8,8 @@ public interface IUsuarioService {
 
 	public Optional<Usuario> findById(Long id);
 	
+	public Usuario save(Usuario usuario);
+	
+	public Optional<Usuario> findByEmail(String email);
+	
 }
