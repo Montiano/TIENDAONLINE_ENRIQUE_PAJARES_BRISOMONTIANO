@@ -9,6 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
+
+
+
 
 @Entity
 @Table(name = "usuarios")
@@ -20,6 +26,10 @@ public class Usuario {
 	
 	@Column(name = "id_rol")
 	private int idRol;
+	
+	//@Unique
+	@Email
+	@NotNull
 	private String email;
 	private String password;
 	private String nombre;
