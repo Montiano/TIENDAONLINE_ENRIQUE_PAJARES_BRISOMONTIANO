@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,8 @@ public class UsuarioController {
 	@Autowired
 	private IPedidoService pedidoService;
 	
+	BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
+	
 	@GetMapping("/registro")
 	public String create() {
 		return "usuario/registro";
@@ -41,8 +44,10 @@ public class UsuarioController {
 	@PostMapping("/save")
 	public String save(Usuario usuario) {
 		LOGGER.info("Usuario registro: {}", usuario);
+		Rol rol = new Rol(2L,"USER");
 		usuario.setTipo("USER");
-		usuario.setRol(new Rol(2L, "USER"));
+		usuario.setRol(rol);
+		usuario.setPassword(passEncode.encode(usuario.getPassword()));
 		usuarioService.save(usuario);
 		return "redirect:/";
 	}
@@ -52,11 +57,11 @@ public class UsuarioController {
 		return "usuario/login";
 	}
 	
-	@PostMapping("/access")
+	@GetMapping("/access")
 	public String access(Usuario usuario, HttpSession sesion) {
 		LOGGER.info("Acceso: {}", usuario);
 		
-		Optional<Usuario> user = usuarioService.findByEmail(usuario.getEmail());
+		Optional<Usuario> user = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString()));
 		
 		//LOGGER.info("Usuario de base de datos: {}", user.get());
 		// Con optional nos permite hacer estas validaciones
