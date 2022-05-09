@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,10 +15,6 @@ public class DetallePedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "id_pedido")
-	private int idPedido;
-	@Column(name = "id_producto")
-	private int idProducto;
 	@Column(name = "precio_unidad")
 	private double precioUnidad;
 	private int unidades;
@@ -39,19 +34,23 @@ public class DetallePedido {
 		super();
 	}
 
-	public DetallePedido(Long id, int idPedido, int idProducto, double precioUnidad, int unidades, float impuesto,
-			double total) {
+	
+	
+	public DetallePedido(Long id, double precioUnidad, int unidades, float impuesto, double total, String nombre,
+			Pedido pedido, Producto producto) {
 		super();
 		this.id = id;
-		this.idPedido = idPedido;
-		this.idProducto = idProducto;
 		this.precioUnidad = precioUnidad;
 		this.unidades = unidades;
 		this.impuesto = impuesto;
 		this.total = total;
+		this.nombre = nombre;
+		this.pedido = pedido;
+		this.producto = producto;
 	}
-	
-	
+
+
+
 	public DetallePedido(Long id, double precioUnidad, int unidades, double total, String nombre) {
 		super();
 		this.id = id;
@@ -67,22 +66,6 @@ public class DetallePedido {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public int getIdPedido() {
-		return idPedido;
-	}
-
-	public void setIdPedido(int idPedido) {
-		this.idPedido = idPedido;
-	}
-
-	public int getIdProducto() {
-		return idProducto;
-	}
-
-	public void setIdProducto(int idProducto) {
-		this.idProducto = idProducto;
 	}
 
 	public double getPrecioUnidad() {
@@ -141,11 +124,15 @@ public class DetallePedido {
 		this.nombre = nombre;
 	}
 
+
 	@Override
 	public String toString() {
-		return "DetallePedido [id=" + id + ", idPedido=" + idPedido + ", idProducto=" + idProducto + ", precioUnidad="
-				+ precioUnidad + ", unidades=" + unidades + ", impuesto=" + impuesto + ", total=" + total + "]";
+		return "DetallePedido [id=" + id + ", precioUnidad=" + precioUnidad + ", unidades=" + unidades + ", impuesto="
+				+ impuesto + ", total=" + total + ", nombre=" + nombre + ", pedido=" + pedido + ", producto=" + producto
+				+ "]";
 	}
+
+
 	
 	
 }
