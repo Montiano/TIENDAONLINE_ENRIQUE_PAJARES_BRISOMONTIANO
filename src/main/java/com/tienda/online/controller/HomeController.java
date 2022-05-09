@@ -173,13 +173,21 @@ public class HomeController {
 	@GetMapping("/order")
 	public String order(Model modelo, HttpSession sesion) {	
 		
-		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
-				
-		modelo.addAttribute("detallesPedido", detallesPedido);
-		modelo.addAttribute("pedido", pedido);
-		modelo.addAttribute("usuario", usuario);
+//		if(sesion==null) {
+//			LOGGER.info("Usuario no identificado");
+//			return "redirect:/usuario/login";
+//			return "usuario/login";
+//			
+//		} else {
 		
-		return "usuario/resumen_pedido";
+			Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
+					
+			modelo.addAttribute("detallesPedido", detallesPedido);
+			modelo.addAttribute("pedido", pedido);
+			modelo.addAttribute("usuario", usuario);
+					
+			return "usuario/resumen_pedido";
+	//	}
 	}
 	
 	@GetMapping("/saveOrder")
