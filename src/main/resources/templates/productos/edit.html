@@ -33,7 +33,7 @@
       </h1>
 
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="@{/}">Home</a></li>
         <li class="breadcrumb-item active">Actualizar Producto</li>
       </ol>
 
@@ -44,28 +44,28 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="nombre">Nombre:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto" required autocomplete="off" th:value="${producto.nombre}">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduzca el nombre del producto" required autocomplete="off" th:value="${producto.nombre}">
             <div id="prueba"></div>  
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="descripcion">Descripción:</label>
           <div class="col-sm-10">          
-            <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la descripcion del producto" required autocomplete="off" th:text="${producto.descripcion}"> </textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Introduzca la descripcion del producto" required autocomplete="off" th:text="${producto.descripcion}"> </textarea>
           </div>
         </div>
 
         <div class="form-group">
           <label class="control-label col-sm-2" for="cantidad">Stock:</label>
           <div class="col-sm-10">          
-            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad del producto" th:value="${producto.stock}" required autocomplete="off">
+            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Introduzca la cantidad del producto" th:value="${producto.stock}" required autocomplete="off">
           </div>
         </div>
 
         <div class="form-group">
           <label class="control-label col-sm-2" for="precio">Precio:</label>
           <div class="col-sm-10">          
-            <input type="number" class="form-control" step="any"  id="precio" name="precio" placeholder="Ingrese el precio del producto" th:value="${producto.precio}" required autocomplete="off">
+            <input type="number" class="form-control" step="any"  id="precio" name="precio" placeholder="Introduzca el precio del producto" th:value="${producto.precio}" required autocomplete="off">
           </div>
         </div>
 
