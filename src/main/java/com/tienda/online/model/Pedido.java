@@ -32,7 +32,7 @@ public class Pedido {
 	@ManyToOne
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
 	private List<DetallePedido> detalle;
 	
 	public Pedido() {

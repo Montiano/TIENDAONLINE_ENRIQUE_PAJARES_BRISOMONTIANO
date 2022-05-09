@@ -2,11 +2,11 @@ package com.tienda.online.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -20,30 +20,39 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "id_rol")
-	private int idRol;
-	
 	//@Unique
 	@Email
 	@NotNull
 	private String email;
+	@NotNull
 	private String password;
+	@NotNull
 	private String nombre;
+	@NotNull
 	private String apellido1;
+	
 	private String apellido2;
+	@NotNull
 	private String direccion;
+	@NotNull
 	private String provincia;
+	@NotNull
 	private String localidad;
+	
 	private String telefono;
+	@NotNull
 	private String dni;
+	
 	private String tipo;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", orphanRemoval = true)
 	private List<Producto> productos;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", orphanRemoval = true)
 	private List<Pedido> pedidos;
+	
+	@ManyToOne
+	private Rol rol;
 	
 	public Usuario() {
 		super();
@@ -53,11 +62,13 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 	}
-	public Usuario(Long id, int idRol, String email, String password, String nombre, String apellido1, String apellido2,
-			String direccion, String provincia, String localidad, String telefono, String dni) {
+
+	
+	public Usuario(Long id, @Email @NotNull String email, String password, String nombre, String apellido1,
+			String apellido2, String direccion, String provincia, String localidad, String telefono, String dni,
+			String tipo, List<Producto> productos, List<Pedido> pedidos, Rol rol) {
 		super();
 		this.id = id;
-		this.idRol = idRol;
 		this.email = email;
 		this.password = password;
 		this.nombre = nombre;
@@ -68,8 +79,11 @@ public class Usuario {
 		this.localidad = localidad;
 		this.telefono = telefono;
 		this.dni = dni;
+		this.tipo = tipo;
+		this.productos = productos;
+		this.pedidos = pedidos;
+		this.rol = rol;
 	}
-	
 	public Usuario(Long id, String email, String password, String nombre, String direccion, String dni) {
 		super();
 		this.id = id;
@@ -84,12 +98,6 @@ public class Usuario {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public int getIdRol() {
-		return idRol;
-	}
-	public void setIdRol(int idRol) {
-		this.idRol = idRol;
 	}
 	public String getEmail() {
 		return email;
@@ -171,16 +179,20 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 	
+	public Rol getRol() {
+		return rol;
+	}
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", idRol=" + idRol + ", email=" + email + ", password=" + password + ", nombre=" + nombre
+		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + ", nombre=" + nombre
 				+ ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", direccion=" + direccion + ", provincia="
 				+ provincia + ", localidad=" + localidad + ", telefono=" + telefono + ", dni=" + dni + ", tipo=" + tipo
-				+ "]";
+				+ ", productos=" + productos + ", pedidos=" + pedidos + ", rol=" + rol + "]";
 	}
-
 	
-
 	
 	
 }

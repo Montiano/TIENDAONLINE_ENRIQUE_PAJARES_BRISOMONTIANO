@@ -1,6 +1,7 @@
 package com.tienda.online.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,8 +19,6 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name="id_categoria")
-	private int idCategoria;
 	private String nombre;
 	private String descripcion;
 	private double precio;
@@ -33,6 +33,13 @@ public class Producto {
 	@ManyToOne
 	private Usuario usuario;
 	
+	@ManyToOne
+	private Categoria categoria;
+	
+	@OneToMany(mappedBy = "producto", orphanRemoval = true)
+	private List<DetallePedido> detalle;
+	
+	
 	public Producto() {
 		super();
 	}
@@ -40,11 +47,12 @@ public class Producto {
 		super();
 	}
 	
-	public Producto(Long id, int idCategoria, String nombre, String descripcion, double precio, int stock,
-			Timestamp fechaAlta, Timestamp fechaBaja, float impuesto, String imagen) {
+	
+	
+	public Producto(Long id, String nombre, String descripcion, double precio, int stock, Timestamp fechaAlta,
+			Timestamp fechaBaja, float impuesto, String imagen, Usuario usuario, Categoria categoria) {
 		super();
 		this.id = id;
-		this.idCategoria = idCategoria;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -53,8 +61,9 @@ public class Producto {
 		this.fechaBaja = fechaBaja;
 		this.impuesto = impuesto;
 		this.imagen = imagen;
+		this.usuario = usuario;
+		this.categoria = categoria;
 	}
-	
 	public Producto(Long id, String nombre, String descripcion, double precio, int stock, String imagen) {
 		super();
 		this.id = id;
@@ -65,21 +74,7 @@ public class Producto {
 		this.imagen = imagen;
 	}
 	
-	public Producto(Long id, int idCategoria, String nombre, String descripcion, double precio, int stock,
-			Timestamp fechaAlta, Timestamp fechaBaja, float impuesto, String imagen, Usuario usuario) {
-		super();
-		this.id = id;
-		this.idCategoria = idCategoria;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		this.stock = stock;
-		this.fechaAlta = fechaAlta;
-		this.fechaBaja = fechaBaja;
-		this.impuesto = impuesto;
-		this.imagen = imagen;
-		this.usuario = usuario;
-	}
+	
 	
 	
 	public Long getId() {
@@ -87,12 +82,6 @@ public class Producto {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public int getIdCategoria() {
-		return idCategoria;
-	}
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
 	}
 	public String getNombre() {
 		return nombre;
@@ -148,14 +137,15 @@ public class Producto {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", idCategoria=" + idCategoria + ", nombre=" + nombre + ", descripcion="
-				+ descripcion + ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja="
-				+ fechaBaja + ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
+		return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
+				+ ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja=" + fechaBaja + ", impuesto="
+				+ impuesto + ", imagen=" + imagen + ", usuario=" + usuario + ", categoria=" + categoria + "]";
 	}
+	
+	
+
 	
 	
 	

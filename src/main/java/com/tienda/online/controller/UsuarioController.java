@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tienda.online.model.Pedido;
+import com.tienda.online.model.Rol;
 import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IUsuarioService;
@@ -41,7 +42,7 @@ public class UsuarioController {
 	public String save(Usuario usuario) {
 		LOGGER.info("Usuario registro: {}", usuario);
 		usuario.setTipo("USER");
-		usuario.setIdRol(2);
+		usuario.setRol(new Rol(2L, "USER"));
 		usuarioService.save(usuario);
 		return "redirect:/";
 	}

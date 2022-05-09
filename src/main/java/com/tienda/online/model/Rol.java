@@ -1,9 +1,12 @@
 package com.tienda.online.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,10 +18,25 @@ public class Rol {
 	private Long id;
 	
 	private String tipo;
+	
+	@OneToMany(mappedBy = "rol", orphanRemoval = true)
+	private List<Usuario> usuario;
 
 	public Rol() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Rol(Long id, String tipo) {
+		super();
+		this.id = id;
+		this.tipo = tipo;
+	}
+
+	public Rol(Long id, String tipo, List<Usuario> usuario) {
+		super();
+		this.id = id;
+		this.tipo = tipo;
+		this.usuario = usuario;
 	}
 
 	public Long getId() {
@@ -35,6 +53,19 @@ public class Rol {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Rol [id=" + id + ", tipo=" + tipo + ", usuario=" + usuario + "]";
 	}
 	
 	
