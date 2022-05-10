@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tienda.online.model.DetallePedido;
 import com.tienda.online.model.Pedido;
@@ -67,8 +68,14 @@ public class HomeController {
 	}
 	
 	@GetMapping("producto_home/{id}")
-	public String productoHome(@PathVariable Long id, Model modelo) {
+	public String productoHome(@PathVariable Long id, Model modelo, HttpSession sesion) {
 		LOGGER.info("Id producto enviado por parámetro {}", id);
+		
+		/*
+		 * if(sesion.getAttribute("idUsuario")=="ADMIN") {
+		 * modelo.addAttribute("administrador", true); }
+		 */
+		
 		Producto producto = new Producto();
 		Optional<Producto> productoOptional = productoService.get(id);
 		producto = productoOptional.get();
@@ -160,6 +167,7 @@ public class HomeController {
 	
 	@GetMapping("/getCart")
 	public String getCart(Model modelo, HttpSession sesion) {
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		
 		modelo.addAttribute("detallesPedido", detallesPedido);
 		modelo.addAttribute("pedido", pedido);
@@ -170,12 +178,14 @@ public class HomeController {
 	}
 	
 	@GetMapping("/order")
-	public String order(Model modelo, HttpSession sesion) {	
+	public String order(Model modelo, HttpSession sesion, RedirectAttributes flash) {	
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		
-		if(sesion.getAttribute("isUsuario")==null) {
+		if(sesion.getAttribute("idUsuario")==null) {
 			LOGGER.info("Usuario no identificado");
-			//return "redirect:/usuario/login";
-			return "usuario/login";
+			flash.addFlashAttribute("mensajeNoLogeado", "Lo sentimos, no se puede añadir el producto... Primero necesita loggearse");
+			return "redirect:/usuario/login";
+			//return "usuario/login";
 			
 		} else {
 		
@@ -191,6 +201,7 @@ public class HomeController {
 	
 	@GetMapping("/saveOrder")
 	public String saveOrder(HttpSession sesion) {
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		Date fechaCreacion = new Date();
 		pedido.setFecha(fechaCreacion);
 		pedido.setNumFactura(pedidoService.generateNumFra());

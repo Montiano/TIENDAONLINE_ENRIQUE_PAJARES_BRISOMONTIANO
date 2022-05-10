@@ -20,7 +20,6 @@ public class DetallePedido {
 	private int unidades;
 	private float impuesto;
 	private double total;
-	
 	private String nombre;
 	
 	@ManyToOne
@@ -125,12 +124,15 @@ public class DetallePedido {
 	}
 
 
+
 	@Override
 	public String toString() {
 		return "DetallePedido [id=" + id + ", precioUnidad=" + precioUnidad + ", unidades=" + unidades + ", impuesto="
-				+ impuesto + ", total=" + total + ", nombre=" + nombre + ", pedido=" + pedido + ", producto=" + producto
-				+ "]";
+				+ impuesto + ", total=" + total + ", nombre=" + nombre + "]";
 	}
+
+
+	
 
 
 	

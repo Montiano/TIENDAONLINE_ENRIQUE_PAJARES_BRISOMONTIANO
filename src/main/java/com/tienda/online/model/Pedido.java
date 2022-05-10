@@ -19,8 +19,7 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name="id_usuario")
-	private int idUsuario;
+
 	private Date fecha;
 	@Column(name = "metodo_pago")
 	private String metodoPago;
@@ -39,11 +38,10 @@ public class Pedido {
 		super();
 	}
 
-	public Pedido(Long id, int idUsuario, Date fecha, String metodoPago, String estado, String numFactura,
+	public Pedido(Long id, Date fecha, String metodoPago, String estado, String numFactura,
 			Double total) {
 		super();
 		this.id = id;
-		this.idUsuario = idUsuario;
 		this.fecha = fecha;
 		this.metodoPago = metodoPago;
 		this.estado = estado;
@@ -59,14 +57,6 @@ public class Pedido {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
 	}
 
 	public Date getFecha() {
@@ -127,10 +117,10 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", idUsuario=" + idUsuario + ", fecha=" + fecha + ", metodoPago=" + metodoPago
-				+ ", estado=" + estado + ", numFactura=" + numFactura + ", total=" + total + ", usuario=" + usuario
-				+ "]";
+		return "Pedido [id=" + id + ", fecha=" + fecha + ", metodoPago=" + metodoPago + ", estado=" + estado
+				+ ", numFactura=" + numFactura + ", total=" + total + "]";
 	}
+
 
 
 

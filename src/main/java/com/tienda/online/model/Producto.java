@@ -137,12 +137,15 @@ public class Producto {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
 				+ ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja=" + fechaBaja + ", impuesto="
-				+ impuesto + ", imagen=" + imagen + ", usuario=" + usuario + ", categoria=" + categoria + "]";
+				+ impuesto + ", imagen=" + imagen + "]";
 	}
+
+	
 	
 	
 

@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" >
 
-<head th:replace="administrador/template_admin.html :: head">
-
-  <meta charset="utf-8">
-  
-  <title>Tienda Online Enr. Pajares</title>
-
-
-  <!-- Bootstrap core CSS -->
-  <!-- <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"> -->
-  <!-- Custom styles for this template -->
-  <!-- <link th:href="@{/css/heroic-features.css}" rel="stylesheet"> -->
-
+<head th:replace="plantillas/plantilla_header_footer.html :: head">
 </head>
 
 <body>
 
 	<!-- Navigation -->
- 	<div th:include="administrador/template_admin.html :: header"></div>
+ 	<!-- <div th:include="administrador/template_admin.html :: header"></div> -->
+ 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+
+<!-- 	<div class="alert alert-info alert-dismissible fade show"
+				role="alert" th:if="${sesionCerrada != null}">
+			<label th:text="${sesionCerrada}"></label>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+			</button>
+	</div> -->
 
     <!-- Page Content -->
     <div class="container">
 
       <!-- Jumbotron Header -->
-      <header class="jumbotron my-4">
-        <h1 class="display-3">Bienvenido a la Tienda Online de Enrique Pajares</h1>
-        <p class="lead">Tu tienda de productos en Línea</p>
+      <header class="jumbotron my-3 text-center text-success">
+        <h3>Gestión de la tienda online:</h3>
       </header>
-
+		<span th:text="${session.username == null} ?: ''" ></span>
       <!-- Page Features -->
       <div class="row text-center">
 
@@ -53,10 +51,11 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <div th:include="administrador/template_admin.html :: footer"></div>
+    <footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
+   <!--  <div th:include="administrador/template_admin.html :: footer"></div>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-	
+	 -->
     <!-- Bootstrap core JavaScript -->
     <!-- <script th:src="@{/jquery/jquery.min.js}"></script>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script> -->

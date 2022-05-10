@@ -65,8 +65,10 @@ public class Rol {
 
 	@Override
 	public String toString() {
-		return "Rol [id=" + id + ", tipo=" + tipo + ", usuario=" + usuario + "]";
+		return "Rol [id=" + id + ", tipo=" + tipo + "]";
 	}
+
+
 	
 	
 	

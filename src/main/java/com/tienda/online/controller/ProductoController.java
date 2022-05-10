@@ -50,6 +50,7 @@ public class ProductoController {
 	
 	@PostMapping("/save")
 	public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession sesion) throws IOException {
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		LOGGER.info("Este es el objeto producto de la vista {}", producto);
 		
 		Usuario u = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
