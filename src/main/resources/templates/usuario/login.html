@@ -42,6 +42,16 @@
     		<h2>Acceso a la tienda:</h2>
   		</div>
         <div class="card-body">
+        <div th:if="${param.error}">
+			<div class="alert alert-danger alert-dismissible fade show"
+				role="alert">
+				Usuario o contraseña incorrectos
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+				</button>
+			</div>
+		</div>
             <form th:action="@{/usuario/login}" method="post">
 		      <div class="form-group">
 		        <label for="email"> Email:  </label>      
