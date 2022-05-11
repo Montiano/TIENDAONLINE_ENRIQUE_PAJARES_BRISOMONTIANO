@@ -46,7 +46,10 @@
                   <td th:text="${pedido.numFactura}"></td>
                   <td th:text="${pedido.fecha}"></td>
                   <td th:text="${pedido.total}"></td>
-                  <td><a th:href="@{/usuario/detalle/}+${pedido.id}" class="btn btn-success">Ver Detalle</a></td>
+                  <td>
+                  	 <a th:href="@{/usuario/detalle/}+${pedido.id}" class="btn btn-success">Ver Detalle</a>
+                 	 <a class="btn btn-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">Exportar factura a PDF</a>
+                  </td>
                 </tr>
               </tbody>
             </table>

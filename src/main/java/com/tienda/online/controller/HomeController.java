@@ -118,8 +118,11 @@ public class HomeController {
 			
 			pedido.setTotal(sumaTotal);
 			
-			producto.setStock(stock-unidades);
+			// Cambiamos el stock y lo guardamos en la bd
+			producto.setStock(stock-unidades);			
+			productoService.save(producto);
 			
+			modelo.addAttribute("producto", producto);
 			modelo.addAttribute("detallesPedido", detallesPedido);
 			modelo.addAttribute("pedido", pedido);
 			

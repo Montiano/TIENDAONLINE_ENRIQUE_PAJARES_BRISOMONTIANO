@@ -1,8 +1,13 @@
 package com.tienda.online.controller;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -17,11 +22,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.itextpdf.text.DocumentException;
+import com.tienda.online.model.DetallePedido;
 import com.tienda.online.model.Pedido;
 import com.tienda.online.model.Rol;
 import com.tienda.online.model.Usuario;
+import com.tienda.online.service.IDetallePedidoService;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IUsuarioService;
+import com.tienda.online.utils.FacturaExporterPDF;
 
 @Controller
 @RequestMapping("/usuario")
@@ -34,6 +43,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private IPedidoService pedidoService;
+	
+	@Autowired
+	private IDetallePedidoService detallePedidoService;
 	
 	BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
 	
@@ -120,6 +132,25 @@ public class UsuarioController {
 		flash.addFlashAttribute("sesionCerrada", "Se ha cerrado la sesión correctamente");
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/exportarFacturaPDF/{id}")
+	public void exportarFacturaPDF(@PathVariable Long id, HttpServletResponse response) throws DocumentException, IOException {
+		
+		response.setContentType("application/pdf");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		String fechaActual = dateFormatter.format(new Date());
+		
+		String cabecera = "Content-Disposition";
+		String valor = "attachment; filename=Detalle_Pedido_".concat(fechaActual).concat(".pdf");
+		
+		response.setHeader(cabecera, valor);
+		
+		List<DetallePedido> detallesPedido = detallePedidoService.findById(id);
+		
+		FacturaExporterPDF exporter = new FacturaExporterPDF(detallesPedido);
+		exporter.exportar(response);
+		
 	}
 	
 }
