@@ -86,6 +86,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
 		</button>
 	</div>
+	<div class="alert alert-danger alert-dismissible fade show"
+					role="alert" th:if="${errorStock != null}">
+		<label th:text="${errorStock}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
 	
 
 </header>

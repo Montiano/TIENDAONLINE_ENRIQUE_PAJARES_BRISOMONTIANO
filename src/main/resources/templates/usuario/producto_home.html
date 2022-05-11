@@ -46,10 +46,16 @@
                   <li class="list-group-item">
                     <p th:text="'Descripción: ' + ${producto.descripcion}"></p>
                   </li>
-                  <li class="list-group-item"><h6>
-                    Unidades: <input type="number" id="unidades" name="unidades" autocomplete="off"
-                    min="1" max="10" value="1">
-                  </h6></li>
+                  <li class="list-group-item">
+	                  <h6>
+	                    Unidades: <input type="number" id="unidades" name="unidades" autocomplete="off"
+	                    min="1" max="10" value="1">&emsp;
+	                    <label class="text-danger font-italic">Stock: </label>
+	                    <input class="text-danger font-italic border-0" id="stock"
+	                     name="stock" th:value="${producto.stock}" ></input>
+	                  </h6>
+                  	  
+                  </li>
                 </ul><br>	
                 <button type="submit" class="btn btn-primary">Añadir al carrito </button>
               </form>

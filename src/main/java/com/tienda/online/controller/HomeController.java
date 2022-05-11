@@ -86,7 +86,7 @@ public class HomeController {
 	}
 	
 	@PostMapping("/cart")
-	public String addCart(@RequestParam Long id, @RequestParam int unidades, Model modelo) {
+	public String addCart(@RequestParam Long id, @RequestParam int unidades, @RequestParam int stock, Model modelo, RedirectAttributes flash) {
 		DetallePedido detallePedido = new DetallePedido();
 		Producto producto = new Producto();
 		double sumaTotal = 0;
@@ -96,6 +96,39 @@ public class HomeController {
 		LOGGER.info("Unidades: {}", unidades);
 		producto = productoOptional.get();
 		
+		if(stock>unidades) {
+			System.err.println("No se podría");
+			detallePedido.setUnidades(unidades);
+			detallePedido.setPrecioUnidad(producto.getPrecio());
+			detallePedido.setNombre(producto.getNombre());
+			detallePedido.setTotal(producto.getPrecio()*unidades);
+			detallePedido.setProducto(producto);
+			
+			// Validar para que solo haya un producto por lista y no se añada dos veces
+			Long idProducto = producto.getId();
+			// Función anónima con la que recorremos toda la lista y si coinciden los ids ya existe
+			boolean existe = detallesPedido.stream().anyMatch(p->p.getProducto().getId()==idProducto);
+			// Si no existe lo añade, si no, no
+			if(!existe) {
+				detallesPedido.add(detallePedido);
+			}
+				
+			// Función anónima con la que cogemos todos los productos y los sumamos
+			sumaTotal = detallesPedido.stream().mapToDouble(dt->dt.getTotal()).sum();
+			
+			pedido.setTotal(sumaTotal);
+			
+			producto.setStock(stock-unidades);
+			
+			modelo.addAttribute("detallesPedido", detallesPedido);
+			modelo.addAttribute("pedido", pedido);
+			
+			return "usuario/carrito";
+		}
+		else {
+			flash.addFlashAttribute("errorStock", "Lo sentimos, no hay stock suficiente de este producto");
+			return "redirect:/producto_home/".concat(id.toString());
+		}
 //		int posicion = 0;
 //		if(detallesPedido.size()>0) {
 //			for (int i = 0; i < detallesPedido.size(); i++) {
@@ -115,30 +148,7 @@ public class HomeController {
 //			detallesPedido.add(detallePedido);
 //		}
 		
-		detallePedido.setUnidades(unidades);
-		detallePedido.setPrecioUnidad(producto.getPrecio());
-		detallePedido.setNombre(producto.getNombre());
-		detallePedido.setTotal(producto.getPrecio()*unidades);
-		detallePedido.setProducto(producto);
 		
-		// Validar para que solo haya un producto por lista y no se añada dos veces
-		Long idProducto = producto.getId();
-		// Función anónima con la que recorremos toda la lista y si coinciden los ids ya existe
-		boolean existe = detallesPedido.stream().anyMatch(p->p.getProducto().getId()==idProducto);
-		// Si no existe lo añade, si no, no
-		if(!existe) {
-			detallesPedido.add(detallePedido);
-		}
-			
-		// Función anónima con la que cogemos todos los productos y los sumamos
-		sumaTotal = detallesPedido.stream().mapToDouble(dt->dt.getTotal()).sum();
-		
-		pedido.setTotal(sumaTotal);
-		
-		modelo.addAttribute("detallesPedido", detallesPedido);
-		modelo.addAttribute("pedido", pedido);
-		
-		return "usuario/carrito";
 	}
 	
 	@GetMapping("/delete/cart/{id}")

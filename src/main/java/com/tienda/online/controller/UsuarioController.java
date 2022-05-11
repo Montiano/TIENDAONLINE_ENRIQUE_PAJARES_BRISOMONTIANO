@@ -62,7 +62,9 @@ public class UsuarioController {
 	public String access(Usuario usuario, HttpSession sesion) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		LOGGER.info("Acceso: {}", usuario);
-		System.out.println("Dayo del usuario es: " + sesion.getAttribute("idUsuario"));
+		System.out.println("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
+		
+		//int id = Integer.parseInt(sesion.getAttribute("idUsuario").toString());	
 		
 		Optional<Usuario> user = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString()));
 		
