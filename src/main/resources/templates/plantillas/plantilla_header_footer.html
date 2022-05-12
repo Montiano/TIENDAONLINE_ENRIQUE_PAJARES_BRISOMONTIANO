@@ -28,54 +28,67 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	    </form>
 	  <div class="collapse navbar-collapse" id="navbarCollapse">
 	  
-	    <ul class="navbar-nav mr-auto">
-	    
-	    
-	      <li sec:authorize="hasRole('ADMIN')" class="nav-item active mx-3">
-	        <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/productos}">Productos</a>						
-	      </li>
-	      <li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3">
-	        <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/administrador/usuarios}">Usuarios</a>					
-	      </li>
-	       <li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3">
-	        <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/administrador/pedidos}">Pedidos</a>					
-	      </li>
-	      <li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3">
-			<a class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/usuario/cerrar}">Salir</a>
-		  </li>
-		  <li sec:authorize="hasRole('ADMIN')"class="nav-item mx-3">
-			<a class="navbar-brand text-warning" th:href="@{/administrador}"> ADMIN: [[${#httpServletRequest.remoteUser}]]</a>
-		  </li>
+	  <p th:text="${idUsuario}"></p>
+	  
+	  <div th:if="${session.sessionActive} == 1 ">
+		    <ul class="navbar-nav mr-auto">
+	
+			      <li sec:authorize="hasRole('ADMIN')" class="nav-item active mx-3">
+			        <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/productos}">Productos</a>						
+			      </li>
+			      <li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3">
+			        <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/administrador/usuarios}">Usuarios</a>					
+			      </li>
+			       <li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3">
+			        <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/administrador/pedidos}">Pedidos</a>					
+			      </li>
+			      <li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3">
+					<a class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/usuario/cerrar}">Salir</a>
+				  </li>
+				  <li sec:authorize="hasRole('ADMIN')"class="nav-item mx-3">
+					<a class="navbar-brand text-warning" th:href="@{/administrador}"> ADMIN: [[${#httpServletRequest.remoteUser}]]</a>
+				  </li>
+				 
+			 <!-- 
+			 th:if="${sesionAtributo}!=null"
+			 th:if="${sesionAtributo}==2" -->
+			 </ul>	 
+	   </div>
+	   
+	   <div th:if="${session.sessionActive} == 2 ">
+		     <ul class="navbar-nav mr-auto"> 
+	
+				  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
+					<a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/usuario/shopping}">Compras</a>
+				  </li>	
+				  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
+					<a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/getCart}"><i class="bi bi-cart3"></i>Carrito</a>
+				  </li>	
+				  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
+					<a class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/usuario/cerrar}">Salir</a>
+				  </li>
+				  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
+					<a class="navbar-brand text-warning" th:href="@{/}"> USER: [[${#httpServletRequest.remoteUser}]]</a>
+				  </li>	  
+				  
+			  </ul>
+		</div>
 		  
-	     
-		  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
-			<a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/usuario/shopping}">Compras</a>
-		  </li>	
-		  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
-			<a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/getCart}"><i class="bi bi-cart3"></i>Carrito</a>
-		  </li>	
-		  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
-			<a class="btn btn-outline-danger my-2 my-sm-0" th:href="@{/usuario/cerrar}">Salir</a>
-		  </li>
-		  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
-			<a class="navbar-brand text-warning" th:href="@{/}"> USER: [[${#httpServletRequest.remoteUser}]]</a>
-		  </li>	  
-		  
-		  </ul>
-		  
-		  
-		   
-	      <a class="nav-link" href="#">Link</a>
-   
-	      <a class="nav-link" th:href="@{/getCart}"><span><i class="bi bi-cart3"></i></span>Carrito</a>
-	      
-		  <a class="btn btn-outline-warning my-2 my-sm-0" th:href="@{/usuario/login}">Login / Register</a>
-		  
+		
+			
+		      <a class="nav-link" href="#">Link</a>
+	   
+		      <a class="nav-link" th:href="@{/getCart}"><span><i class="bi bi-cart3"></i></span>Carrito</a>
+		      
+			  <a class="btn btn-outline-warning my-2 my-sm-0" th:href="@{/usuario/login}">Login / Register</a>
+			
+		
 		    
 	    
 	    
 	  </div>
 	</nav>
+	
 	
 	<!-- Mensajes flash -->
 	<div class="alert alert-info alert-dismissible fade show"
@@ -95,7 +108,18 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 		</button>
 	</div>
 	
-
+	
+	<!-- <p th:text="${session.sessionActive}"></p>
+	<p>[[${#httpServletRequest.remoteUser}]]</p>
+	<p>Separador</p>
+	<p th:text="${#httpServletRequest.remoteUser}"></p>
+	<span th:text="${sesion.getAttribute('idUsuario').toString()}">Esto es el get attribute</span>
+	<p th:text="${session}"></p>
+	<p th:text="${session.username}"></p>
+	
+	<p th:text="${sesionAtributo}"></p>
+	<p>Separador</p>
+	<p th:text="${sessionActive}"></p> -->
 </header>
 
 

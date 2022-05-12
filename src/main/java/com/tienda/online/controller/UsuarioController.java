@@ -74,7 +74,7 @@ public class UsuarioController {
 	public String access(Usuario usuario, HttpSession sesion) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		LOGGER.info("Acceso: {}", usuario);
-		System.out.println("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
+		System.err.println("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
 		
 		//int id = Integer.parseInt(sesion.getAttribute("idUsuario").toString());	
 		
@@ -85,11 +85,17 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			sesion.setAttribute("idUsuario", user.get().getId());
 			if(user.get().getTipo().equals("ADMIN")) {
+				sesion.setAttribute("sessionActive", 1);
+				System.err.println("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 				return "redirect:/administrador";
 			} else {
+				sesion.setAttribute("sessionActive", 2);
+				System.err.println("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 				return "redirect:/";
 			}
 		} else {
+			sesion.setAttribute("sessionActive", null);
+			System.err.println("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 			LOGGER.info("Usuario no existe");
 		}
 		
@@ -103,6 +109,7 @@ public class UsuarioController {
 		
 		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
 		List<Pedido> pedidos = pedidoService.findByUsuario(usuario);
+		
 		
 		modelo.addAttribute("pedidos", pedidos);
 		
@@ -146,10 +153,12 @@ public class UsuarioController {
 		
 		response.setHeader(cabecera, valor);
 		
-		List<DetallePedido> detallesPedido = detallePedidoService.findById(id);
-		
-		FacturaExporterPDF exporter = new FacturaExporterPDF(detallesPedido);
-		exporter.exportar(response);
+		Optional<Pedido> pedido = pedidoService.findById(id);
+		  //List<DetallePedido> detallesPedido = detallePedidoService.findById(id);
+		  
+		 FacturaExporterPDF exporter = new FacturaExporterPDF(pedido.get().getDetalle());
+		 exporter.exportar(response);
+		 
 		
 	}
 	

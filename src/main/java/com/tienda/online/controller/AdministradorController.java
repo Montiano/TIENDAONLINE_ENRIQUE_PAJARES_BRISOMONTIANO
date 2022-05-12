@@ -2,6 +2,8 @@ package com.tienda.online.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +34,13 @@ public class AdministradorController {
 	@Autowired
 	private IPedidoService pedidoService;
 	
+	
 	@GetMapping("")
-	public String home(Model modelo) {
+	public String home(Model modelo, HttpSession sesion) {
 		
 		List<Producto> listaProductos = productoService.findAll();
 		modelo.addAttribute("listaProductos", listaProductos);
+		
 		
 		return "administrador/home";
 	}

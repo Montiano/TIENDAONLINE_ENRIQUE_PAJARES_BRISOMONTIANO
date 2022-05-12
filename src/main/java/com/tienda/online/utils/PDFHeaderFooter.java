@@ -44,8 +44,11 @@ public class PDFHeaderFooter extends PdfPageEventHelper {
 	    		    	
 	    	//texto
     		//Agregamos un texto
-    		txtCabecera = new Phrase("titulo");
-	    	ColumnText.showTextAligned(cb, Element.ALIGN_RIGHT, txtCabecera, (document.right() - document.left()), document.top(), 0);
+    		txtCabecera = new Phrase("Factura");
+	    	ColumnText.showTextAligned(cb, Element.ALIGN_LEFT, txtCabecera, (document.right() - document.left()), document.top(), 0);
+	    	
+	    	txtCabecera = new Phrase("Empresa: SERBATIC");
+	    	ColumnText.showTextAligned(cb, Element.ALIGN_LEFT, txtCabecera, (document.right() - document.left()), document.top(), 0);
 	      		    	
 	    	//linea de arriba
 	    	linea = new Phrase();
