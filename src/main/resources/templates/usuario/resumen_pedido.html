@@ -71,12 +71,16 @@
           <ul class="list-group">
             <li class="list-group-item"><h5 th:text="'Total: '+${pedido.total}"></h5></li>
             <li class="list-group-item"><i class="bi bi-wallet"></i>
-            	<select id="metodoPago" name="metodoPago">
-            		<option>Tarjeta</option>
-            		<option>PayPal</option>
-            	</select>
+            	<form th:action="@{/saveOrder}" method="GET">
+	            	<select id="metodoPago" name="metodoPago">
+	            		<option th:value="tarjeta">Tarjeta</option>
+	            		<option th:value="paypal">PayPal</option>
+	            	</select>
+	            <button type="submit" class="btn btn-primary">Realizar pedido </button>	
+            	</form>
+            	
             </li>
-            <li class="list-group-item"><a th:href="@{/saveOrder}" class="btn btn-dark">Realizar pedido</a></li>
+            <!-- <li class="list-group-item"><a th:href="@{/saveOrder}" class="btn btn-dark">Realizar pedido</a></li> -->
           </ul>
         </div>
       </div>

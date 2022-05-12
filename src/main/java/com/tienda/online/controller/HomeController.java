@@ -85,7 +85,7 @@ public class HomeController {
 		LOGGER.info("Id producto enviado por parámetro {}", id);
 
 		/*
-		 * if(sesion.getAttribute("idUsuario")=="ADMIN") {
+		 * if(sesion.getAttribute("idUsuario")==1) {
 		 * modelo.addAttribute("administrador", true); }
 		 */
 
@@ -110,7 +110,7 @@ public class HomeController {
 		producto = productoOptional.get();
 
 		if(stock>unidades) {
-			System.err.println("No se podría");
+			
 			detallePedido.setUnidades(unidades);
 			detallePedido.setPrecioUnidad(producto.getPrecio());
 			detallePedido.setNombre(producto.getNombre());

@@ -30,7 +30,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	  
 	  <p th:text="${idUsuario}"></p>
 	  
-	  <div th:if="${session.sessionActive} == 1 ">
+	  <!-- <div th:if="${session.sessionActive} == 1 "> -->
 		    <ul class="navbar-nav mr-auto">
 	
 			      <li sec:authorize="hasRole('ADMIN')" class="nav-item active mx-3">
@@ -53,9 +53,9 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 			 th:if="${sesionAtributo}!=null"
 			 th:if="${sesionAtributo}==2" -->
 			 </ul>	 
-	   </div>
+	   <!-- </div> -->
 	   
-	   <div th:if="${session.sessionActive} == 2 ">
+	   <!-- <div th:if="${session.sessionActive} == 2 "> -->
 		     <ul class="navbar-nav mr-auto"> 
 	
 				  <li sec:authorize="hasRole('USER')" class="nav-item mx-3">
@@ -72,7 +72,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 				  </li>	  
 				  
 			  </ul>
-		</div>
+		<!-- </div> -->
 		  
 		
 			
