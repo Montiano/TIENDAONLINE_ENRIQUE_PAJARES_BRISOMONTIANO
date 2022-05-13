@@ -21,6 +21,7 @@
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
 			<a class="navbar-brand" th:href="@{/}">Tienda Online</a>
+			<div style="width: 120px;"></div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -33,10 +34,11 @@
 					autocomplete="off">
 				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
 			</form>
+			<div style="width: 300px;"></div>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 
-				<div th:if="${session.idUsuario} == 2 "> 
+				<div th:if="${session.idUsuario} == 1 "> 
 					<ul class="navbar-nav mr-auto">
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item active mx-3">
 							<a class="btn btn-outline-success my-2 my-sm-0"
@@ -53,39 +55,37 @@
 							th:href="@{/usuario/cerrar}">Salir</a></li>
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3"><a
 							class="navbar-brand text-warning" th:href="@{/administrador}">
-								ADMIN: [[${#httpServletRequest.remoteUser}]]</a></li>
+								Gestión: [[${#httpServletRequest.remoteUser}]]</a></li>
 					</ul>
 				</div> 
 
-				<div th:if="${session.idUsuario} != 2 "> 
+				<div th:if="${session.idUsuario} != 1 "> 
 					<div th:if="${session.idUsuario} != null ">
 						<ul class="navbar-nav mr-auto">
 		
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
 								class="btn btn-outline-success my-2 my-sm-0"
 								th:href="@{/usuario/shopping}">Compras</a></li>
-							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
+							<!-- <li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
 								class="btn btn-outline-success my-2 my-sm-0" th:href="@{/getCart}"><i
-									class="bi bi-cart3"></i>Carrito</a></li>
+									class="bi bi-cart3"></i>Carrito</a></li> -->
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
 								class="btn btn-outline-danger my-2 my-sm-0"
 								th:href="@{/usuario/cerrar}">Salir</a></li>
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
-								class="navbar-brand text-warning" th:href="@{/}"> USER:
+								class="navbar-brand text-warning" th:href="@{/}"> Bienvenido:
 									[[${#httpServletRequest.remoteUser}]]</a></li>
 		
 						</ul>
 					 </div> 
 				 </div>
 
-
-				<a class="nav-link" href="#">Link</a> <a class="nav-link"
-					th:href="@{/getCart}"><span><i class="bi bi-cart3"></i></span>Carrito</a>
-
+				<a class="btn btn-info my-2 my-sm-0" th:href="@{/getCart}" th:if="${session.idUsuario} != 1 "><span><i class="bi bi-cart3"></i></span>Carrito</a>
+				&emsp;
 				<a class="btn btn-outline-warning my-2 my-sm-0"
-					th:href="@{/usuario/login}">Login / Register</a>
+					th:href="@{/usuario/login}" th:if="${session.idUsuario} == null ">Login / Register</a>
 
-
+			
 
 
 
@@ -105,6 +105,14 @@
 		<div class="alert alert-danger alert-dismissible fade show"
 			role="alert" th:if="${errorStock != null}">
 			<label th:text="${errorStock}"></label>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+			</button>
+		</div>
+		<div class="alert alert-success alert-dismissible fade show"
+			role="alert" th:if="${pedidoRealizado != null}">
+			<label th:text="${pedidoRealizado}"></label>
 			<button type="button" class="close" data-dismiss="alert"
 				aria-label="Close">
 				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>

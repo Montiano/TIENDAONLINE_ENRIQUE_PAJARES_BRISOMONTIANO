@@ -6,45 +6,61 @@
 
 <body>
 
-  <!-- Navigation -->
-  <!-- <div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
+	<!-- Navigation -->
+	<!-- <div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
   
   <div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div> -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
-	
 
-    <!-- Page Content -->
-    <div class="container">
 
-      <!-- Jumbotron Header -->
-      <header class="jumbotron my-3 text-center text-success">
-        <h3>¡¡¡ Bienvenido a la Tienda Online de Enrique Pajares !!!</h3>
-      </header>
+	<!-- Page Content -->
+	<div class="container">
 
-      <!-- Page Features -->
-      <div class="row text-center">
+		<!-- Jumbotron Header -->
+		<header class="jumbotron my-3 text-center text-success">
+			<h3>¡¡¡ Bienvenido a la Tienda Online de Enrique Pajares !!!</h3>
+		</header>
 
-         <div class="col-lg-3 col-md-6 mb-4" th:each="producto:${listaProductos}">
-          <div class="card h-100">
-            <img class="card-img-top" th:src="@{/images/} + ${producto.imagen}" alt="imagen">
-            <div class="card-body">
-              <p class="card-text" th:text="${producto.nombre}"></p>
-            </div>
-            <div class="card-footer">
-              <a th:href="@{/producto_home/} + ${producto.id}" class="btn btn-success">Ver producto</a>
-            </div>
-          </div>
-        </div>
+		<!-- Page Features -->
+		<div class="row text-center">
 
-      </div>
-      <!-- /.row -->
+			<div class="col-lg-3 col-md-6 mb-4"
+				th:each="producto:${listaProductos}">
+				<div class="card h-100">
+					<img class="card-img-top" th:src="@{/images/} + ${producto.imagen}"
+						alt="imagen">
+					<div class="card-body">
+						<p class="card-text" th:text="${producto.nombre}"></p>
+					</div>
+					<div class="card-footer">
+						<a th:href="@{/producto_home/} + ${producto.id}"
+							class="btn btn-success">Ver producto</a>
+					</div>
+				</div>
+			</div>
 
-    </div>
-    <!-- /.container -->
-	
-    <!-- Footer -->
-    <!-- <div th:include="usuario/template_usuario.html::footer"></div> -->
+		</div>
+		<!-- /.row -->
+		<div class="d-flex justify-content-center">
+			<nav aria-label="pagination">
+				<ul class="pagination">
+					<li class="page-item disabled"><span class="page-link">Anterior</span>
+					</li>
+					
+					<li class="page-item active" aria-current="page"><span
+						class="page-link"> 1 <span class="sr-only">(current)</span>
+					</span></li>
+					
+					<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<!-- <div th:include="usuario/template_usuario.html::footer"></div> -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
-    </body>
+</body>
 
-  </html>
+</html>

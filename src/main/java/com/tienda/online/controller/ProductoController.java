@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tienda.online.model.Producto;
 import com.tienda.online.model.Usuario;
@@ -49,7 +50,7 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/save")
-	public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession sesion) throws IOException {
+	public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession sesion, RedirectAttributes flash) throws IOException {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		LOGGER.info("Este es el objeto producto de la vista {}", producto);
 		
@@ -61,6 +62,8 @@ public class ProductoController {
 			String nombreImagen = upload.saveImage(file);
 			producto.setImagen(nombreImagen);
 		} 
+		
+		flash.addFlashAttribute("productoGuardado", "Producto guardado correctamente");
 		
 		productoService.save(producto);
 		return "redirect:/productos";
@@ -80,7 +83,7 @@ public class ProductoController {
 	}
 	
 	@PostMapping("/update")
-	public String update(Producto producto, @RequestParam("img") MultipartFile file) throws IOException {
+	public String update(Producto producto, @RequestParam("img") MultipartFile file, RedirectAttributes flash) throws IOException {
 		Producto p = new Producto();
 		p = productoService.get(producto.getId()).get();
 		
@@ -98,12 +101,15 @@ public class ProductoController {
 			producto.setImagen(nombreImagen);
 		}
 		producto.setUsuario(p.getUsuario());
+		
+		flash.addFlashAttribute("productoEditado", "Producto editado correctamente");
+		
 		productoService.update(producto);
 		return "redirect:/productos";
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable Long id) {
+	public String delete(@PathVariable Long id, RedirectAttributes flash) {
 		Producto p = new Producto();
 		p = productoService.get(id).get();
 		
@@ -111,6 +117,8 @@ public class ProductoController {
 		if(!p.getImagen().equals("producto.png")) {
 			upload.deleteImage(p.getImagen());
 		}
+		
+		flash.addFlashAttribute("productoEliminado", "Producto eliminado correctamente");
 		
 		productoService.delete(id);
 		return "redirect:/productos";

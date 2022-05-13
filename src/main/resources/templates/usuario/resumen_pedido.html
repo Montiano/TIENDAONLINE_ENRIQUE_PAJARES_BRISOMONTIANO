@@ -35,7 +35,7 @@
               <h6 th:text="'Nombre: '+${usuario.nombre}"></h6>
               <h6 th:text="'Email: '+${usuario.email}"> </h6>
               <h6 th:text="'Dirección: '+${usuario.direccion} + ' (' + ${usuario.localidad} + ')'"></h6>
-
+				<hr>
               <h5 class="card-title">
                 PRODUCTOS
               </h5>
@@ -69,13 +69,15 @@
           <h2 class="card-title">Resumen pedido</h2>
 
           <ul class="list-group">
-            <li class="list-group-item"><h5 th:text="'Total: '+${pedido.total}"></h5></li>
-            <li class="list-group-item"><i class="bi bi-wallet"></i>
+            <li class="list-group-item"><h5 th:text="'Total: '+${pedido.total}+ ' €'"></h5></li>
+            <li class="list-group-item">
             	<form th:action="@{/saveOrder}" method="GET">
+            	<i class="bi bi-credit-card-2-back-fill"></i>
 	            	<select id="metodoPago" name="metodoPago">
+	            	
 	            		<option th:value="tarjeta">Tarjeta</option>
 	            		<option th:value="paypal">PayPal</option>
-	            	</select>
+	            	</select><hr>
 	            <button type="submit" class="btn btn-primary">Realizar pedido </button>	
             	</form>
             	

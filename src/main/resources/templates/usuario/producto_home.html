@@ -57,7 +57,7 @@
                   	  
                   </li>
                 </ul><br>	
-                <button type="submit" class="btn btn-primary">Añadir al carrito </button>
+                <button type="submit" class="btn btn-primary" th:if="${session.idUsuario} != 1">Añadir al carrito </button>
               </form>
             </div>
           </div>

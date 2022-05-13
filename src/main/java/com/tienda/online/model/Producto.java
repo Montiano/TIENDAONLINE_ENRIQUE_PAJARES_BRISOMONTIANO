@@ -3,6 +3,7 @@ package com.tienda.online.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Producto {
 	@ManyToOne
 	private Categoria categoria;
 	
-	@OneToMany(mappedBy = "producto", orphanRemoval = true)
+	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
 	private List<DetallePedido> detalle;
 	
 	

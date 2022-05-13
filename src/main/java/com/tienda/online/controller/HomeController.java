@@ -108,7 +108,7 @@ public class HomeController {
 		LOGGER.info("Unidades: {}", unidades);
 		producto = productoOptional.get();
 
-		if(stock>unidades) {
+		if(stock>=unidades) {
 			
 			detallePedido.setUnidades(unidades);
 			detallePedido.setPrecioUnidad(producto.getPrecio());
@@ -225,7 +225,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/saveOrder")
-	public String saveOrder(HttpSession sesion, @RequestParam String metodoPago) {
+	public String saveOrder(HttpSession sesion, @RequestParam String metodoPago, RedirectAttributes flash) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		Date fechaCreacion = new Date();
 		pedido.setFecha(fechaCreacion);
@@ -247,6 +247,8 @@ public class HomeController {
 		// Limpiamos el pedido y la lista de detalles
 		pedido = new Pedido();
 		detallesPedido.clear();
+		
+		flash.addFlashAttribute("pedidoRealizado", "Pedido realizado correctamente");
 
 		return "redirect:/";
 	}
