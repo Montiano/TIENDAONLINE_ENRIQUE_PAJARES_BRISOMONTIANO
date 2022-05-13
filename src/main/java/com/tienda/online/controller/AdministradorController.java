@@ -40,7 +40,7 @@ public class AdministradorController {
 		
 		List<Producto> listaProductos = productoService.findAll();
 		modelo.addAttribute("listaProductos", listaProductos);
-		
+		modelo.addAttribute("sesion", sesion.getAttribute("idUsuario"));
 		
 		return "administrador/home";
 	}
