@@ -34,7 +34,15 @@
 					</div>
 					<div class="card-footer">
 						<a th:href="@{/producto_home/} + ${producto.id}"
-							class="btn btn-success">Ver producto</a>
+							class="btn btn-outline-info">Ver producto</a>
+						<hr>
+						<form th:action="@{/cart}" method="POST">	
+							<input type="hidden" th:value="${producto.id}" name="id">
+							<input type="hidden" id="stock" name="stock" th:value="${producto.stock}">
+							<button type="submit" th:href="@{/cart/} + ${producto.id}"
+							class="btn btn-success" th:if="${session.idUsuario} != 1">Añadir al carrito</button>
+						</form>	
+							
 					</div>
 				</div>
 			</div>

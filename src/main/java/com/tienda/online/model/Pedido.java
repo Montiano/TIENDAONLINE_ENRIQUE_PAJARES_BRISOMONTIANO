@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 @Table(name="pedidos")
 public class Pedido {
@@ -19,7 +22,7 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date fecha;
 	@Column(name = "metodo_pago")
 	private String metodoPago;

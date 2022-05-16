@@ -98,7 +98,7 @@ public class HomeController {
 	}
 
 	@PostMapping("/cart")
-	public String addCart(@RequestParam Long id, @RequestParam int unidades, @RequestParam int stock, Model modelo, RedirectAttributes flash) {
+	public String addCart(@RequestParam Long id, @RequestParam(defaultValue = "1") int unidades, @RequestParam int stock, Model modelo, RedirectAttributes flash) {
 		DetallePedido detallePedido = new DetallePedido();
 		Producto producto = new Producto();
 		double sumaTotal = 0;
