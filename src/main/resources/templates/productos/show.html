@@ -35,7 +35,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 			</button>
 		</div>
 		
-		<div class="alert alert-info alert-dismissible fade show" role="alert"
+		<div class="alert alert-warning alert-dismissible fade show" role="alert"
 			th:if="${productoEditado != null}">
 			<label th:text="${productoEditado}"></label>
 			<button type="button" class="close" data-dismiss="alert"
@@ -44,7 +44,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 			</button>
 		</div>
 		
-		<div class="alert alert-warning alert-dismissible fade show" role="alert"
+		<div class="alert alert-danger alert-dismissible fade show" role="alert"
 			th:if="${productoEliminado != null}">
 			<label th:text="${productoEliminado}"></label>
 			<button type="button" class="close" data-dismiss="alert"

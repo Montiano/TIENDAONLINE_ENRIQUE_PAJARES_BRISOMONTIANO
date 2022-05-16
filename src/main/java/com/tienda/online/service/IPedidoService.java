@@ -17,4 +17,8 @@ public interface IPedidoService {
 	public List<Pedido> findByUsuario(Usuario usuario);
 	
 	public Optional<Pedido> findById(Long id);
+	
+	public void update(Pedido pedido);
+	
+	public void delete(Long id);
 }

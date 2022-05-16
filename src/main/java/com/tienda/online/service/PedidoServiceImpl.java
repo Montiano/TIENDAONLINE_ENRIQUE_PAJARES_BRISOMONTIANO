@@ -43,4 +43,16 @@ public class PedidoServiceImpl implements IPedidoService{
 	public Optional<Pedido> findById(Long id) {
 		return pedidoRepository.findById(id);
 	}
+
+	@Override
+	public void update(Pedido pedido) {
+		pedidoRepository.save(pedido);
+		
+	}
+
+	@Override
+	public void delete(Long id) {
+		pedidoRepository.deleteById(id);
+		
+	}
 }

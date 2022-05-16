@@ -3,6 +3,7 @@ package com.tienda.online.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class Pedido {
 	@ManyToOne
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private List<DetallePedido> detalle;
 	
 	public Pedido() {

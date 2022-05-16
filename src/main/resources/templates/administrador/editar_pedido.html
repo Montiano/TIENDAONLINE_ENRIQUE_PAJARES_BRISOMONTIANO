@@ -30,54 +30,67 @@
 
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">
-        Tienda Online <small>Productos</small>
+        Tienda Online <small>Pedidos</small>
       </h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Actualizar Producto</li>
+        <li class="breadcrumb-item active">Actualizar Pedido</li>
       </ol>
 
-      <h2>Actualizar Producto</h2>
-      <form class="form-horizontal" th:action="@{/productos/update}" method="post"  enctype="multipart/form-data">
-        <input type="hidden" name="id" th:value="${producto.id}">  
+      <h2>Actualizar Pedido</h2>
+      <form class="form-horizontal" th:action="@{/administrador/pedidos/update}" method="post">
+        <input type="hidden" name="id" th:value="${pedido.id}">  
           
         <div class="form-group">
-          <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+          <label class="control-label col-sm-2" for="numFactura">Nº factura:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Introduzca el nombre del producto" required autocomplete="off" th:value="${producto.nombre}">
+            <input type="text" class="form-control" id="numFactura" name="numFactura" readonly="readonly" required autocomplete="off" th:value="${pedido.numFactura}"> 
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="descripcion">Descripción:</label>
+          <label class="control-label col-sm-2" for="total">Valor total:</label>
           <div class="col-sm-10">          
-            <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Introduzca la descripcion del producto" required autocomplete="off" th:text="${producto.descripcion}"> </textarea>
+            <input type="number" step="any" class="form-control" id="total" name="total" placeholder="Introduzca el total del pedido" required autocomplete="off" th:value="${pedido.total}">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="control-label col-sm-2" for="stock">Stock:</label>
+          <label class="control-label col-sm-2" for="estado">Estado:</label>
           <div class="col-sm-10">          
-            <input type="number" class="form-control" id="stock" name="stock" placeholder="Introduzca el stock del producto" th:value="${producto.stock}" required autocomplete="off">
+            <select class="form-control" id="estado" name="estado" th:value="${pedido.estado}" required>
+            	<option th:value="PE">PE (Pendiente de envío)</option>
+            	<option th:value="PC">PC (Pendiente de cancelación)</option>
+            	<option th:value="E">E (Enviado)</option>
+            	<option th:value="C">C (Cancelado)</option>
+            </select>
           </div>
         </div>
-
+		<div class="form-group text-center">
+			<div class="form-check form-check-inline col-auto">
+			<i class="bi bi-credit-card-2-back-fill"></i>&nbsp;
+			  <input class="form-check-input" type="radio" th:value="${pedido.metodoPago}" name="metodoPago" id="tarjeta" value="tarjeta" checked>
+			  <label class="form-check-label fw-bold" for="tarjeta">
+			    Tarjeta
+			  </label>						  
+			</div>
+			<div class="form-check form-check-inline col-auto">
+			<i class="bi bi-paypal"></i>&nbsp;
+			  <input class="form-check-input" type="radio" th:field="${pedido.metodoPago}" name="metodoPago" id="paypal" value="paypal">
+			  <label class="form-check-label fw-bold" for="paypal">
+			    Paypal
+			  </label>
+			</div>
+		</div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="precio">Precio:</label>
+          <label class="control-label col-sm-2" for="fecha">Precio:</label>
           <div class="col-sm-10">          
-            <input type="number" class="form-control" step="any"  id="precio" name="precio" placeholder="Introduzca el precio del producto" th:value="${producto.precio}" required autocomplete="off">
+            <input type="date" class="form-control" id="fecha" name="fecha"  th:value="${pedido.fecha}" required>
           </div>
         </div>
 
-        <div class="form-group">
-          <label  class="control-label col-sm-2" for="img">Imagen:</label>
-          <div class="col-sm-10">  
-            <input type="file" class="form-control-file" id="img" name="img">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-2">
+        <div class="form-group text-center">
+          <div class="control-button col-sm-2">
             <button type="submit" class="btn btn-success"> Guardar</button>
           </div>             
         </div>
