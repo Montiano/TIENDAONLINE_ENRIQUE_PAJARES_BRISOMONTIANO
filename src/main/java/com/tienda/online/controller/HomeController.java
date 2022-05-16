@@ -168,16 +168,17 @@ public class HomeController {
 
 	@GetMapping("/delete/cart/{id}")
 	public String deleteProductCart(@PathVariable Long id, Model modelo) {
-		List<DetallePedido> listaPedidosNueva = new ArrayList<DetallePedido>();
 
-		// Recorremos la lista y si el id no es igual al id pasado lo añadimos
-		for (DetallePedido detallePedido : listaPedidosNueva) {
-			if(detallePedido.getProducto().getId()!=id) {
-				listaPedidosNueva.add(detallePedido);
+		try {
+			for (DetallePedido detallePedido :  detallesPedido) {
+				if(detallePedido.getProducto().getId()==id) {
+					detallesPedido.remove(detallePedido);
+					System.err.println("eliminado bien");
+				}
 			}
+		} catch (Exception e) {
+
 		}
-		// Modificamos la lista de pedidos
-		detallesPedido = listaPedidosNueva;
 
 		double sumaTotal = 0;
 		sumaTotal = detallesPedido.stream().mapToDouble(dt->dt.getTotal()).sum();
