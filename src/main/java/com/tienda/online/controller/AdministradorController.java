@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tienda.online.model.Pedido;
 import com.tienda.online.model.Producto;
+import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IProductoService;
 import com.tienda.online.service.IUsuarioService;
@@ -113,8 +114,19 @@ public class AdministradorController {
 		pedidoService.delete(id);
 		
 		return "redirect:/administrador/pedidos";
-		
-		
-		
+			
 	}
+	
+	@GetMapping("/perfil/{id}")
+	public String mostrarPerfil (@PathVariable Long id, Model modelo) {
+		LOGGER.info("Id del usuario: {}",id);
+		
+		Usuario usuario = usuarioService.findById(id).get();
+		
+		modelo.addAttribute("usuarioLoggeado", usuario);
+		
+		return "administrador/perfil";
+	}
+	
+	
 }

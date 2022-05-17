@@ -23,6 +23,7 @@ public class Usuario {
 	private Long id;	
 	@Email
 	@NotNull
+	
 	private String email;
 	@NotNull
 	private String password;
