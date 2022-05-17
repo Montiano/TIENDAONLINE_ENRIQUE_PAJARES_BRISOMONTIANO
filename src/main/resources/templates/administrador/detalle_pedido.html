@@ -34,7 +34,7 @@
                 <tr>
                   <th scope="col">Producto</th>  
                   <th scope="col">Unidades</th>                
-                  <th scope="col">Precio</th>
+                  <th scope="col">Precio/ud</th>
                   <th scope="col">Total</th>                  
                 </tr>
               </thead>
@@ -43,7 +43,7 @@
                   <td th:text="${detalle.nombre}"></td>
                   <td th:text="${detalle.unidades}"></td>
                   <td th:text="${detalle.precioUnidad}"></td>
-                  <td th:text="${detalle.total}"></td>
+                  <td th:text="${detalle.total}+' €'"></td>
                 </tr>
               </tbody>
             </table>

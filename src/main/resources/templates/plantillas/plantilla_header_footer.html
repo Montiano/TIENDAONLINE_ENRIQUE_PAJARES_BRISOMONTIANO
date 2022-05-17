@@ -38,7 +38,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 
-				<div th:if="${session.idUsuario} == 1 "> 
+				<div th:if="${session.idUsuario} == 1 ">
 					<ul class="navbar-nav mr-auto">
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item active mx-3">
 							<a class="btn btn-outline-success my-2 my-sm-0"
@@ -54,15 +54,16 @@
 							class="btn btn-outline-danger my-2 my-sm-0"
 							th:href="@{/usuario/cerrar}">Salir</a></li>
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3"><a
-							class="navbar-brand text-warning" th:href="@{/administrador/detalle_perfil/} + ${session.idUsuario}">
+							class="navbar-brand text-warning"
+							th:href="@{/administrador/detalle_perfil/} + ${session.idUsuario}">
 								Gestión: [[${#httpServletRequest.remoteUser}]]</a></li>
 					</ul>
-				</div> 
+				</div>
 
-				<div th:if="${session.idUsuario} != 1 "> 
+				<div th:if="${session.idUsuario} != 1 ">
 					<div th:if="${session.idUsuario} != null ">
 						<ul class="navbar-nav mr-auto">
-		
+
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
 								class="btn btn-outline-success my-2 my-sm-0"
 								th:href="@{/usuario/shopping}">Compras</a></li>
@@ -73,21 +74,18 @@
 								class="btn btn-outline-danger my-2 my-sm-0"
 								th:href="@{/usuario/cerrar}">Salir</a></li>
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
-								class="navbar-brand text-warning" th:href="@{/}"> Bienvenido:
-									[[${#httpServletRequest.remoteUser}]]</a></li>
-		
+								class="navbar-brand text-warning" th:href="@{/}">
+									Bienvenido: [[${#httpServletRequest.remoteUser}]]</a></li>
 						</ul>
-					 </div> 
-				 </div>
+					</div>
+				</div>
 
-				<a class="btn btn-info my-2 my-sm-0" th:href="@{/getCart}" th:if="${session.idUsuario} != 1 "><span><i class="bi bi-cart3"></i></span>Carrito</a>
-				&emsp;
-				<a class="btn btn-outline-warning my-2 my-sm-0"
-					th:href="@{/usuario/login}" th:if="${session.idUsuario} == null ">Login / Register</a>
-
-			
-
-
+				<a class="btn btn-info my-2 my-sm-0" th:href="@{/getCart}"
+					th:if="${session.idUsuario} != 1 "><span><i
+						class="bi bi-cart3"></i></span>Carrito</a> &emsp; <a
+					class="btn btn-outline-warning my-2 my-sm-0"
+					th:href="@{/usuario/login}" th:if="${session.idUsuario} == null ">Login
+					/ Register</a>
 
 			</div>
 		</nav>
@@ -119,54 +117,28 @@
 			</button>
 		</div>
 
-
-		<!-- <p th:text="${session.sessionActive}"></p>
-	<p>[[${#httpServletRequest.remoteUser}]]</p>
-	<p>Separador</p>
-	<p th:text="${#httpServletRequest.remoteUser}"></p>
-	<span th:text="${sesion.getAttribute('idUsuario').toString()}">Esto es el get attribute</span>
-	<p th:text="${session}"></p>
-	<p th:text="${session.username}"></p>
-	
-	<p th:text="${sesionAtributo}"></p>
-	<p>Separador</p>
-	<p th:text="${sessionActive}"></p> -->
-	<!-- 	<p class="text-primary">Separador1</p>
-		<p class="text-danger" th:text="${idUsuario}"></p>
-		<p class="text-primary">Separador2</p>
-		<p class="text-danger" th:text="${sesionAtributo}"></p>
-		<p class="text-primary">Separador3</p>
-		<p class="text-danger" th:text="${session.idUsuario}"></p>
-		<p class="text-primary">Separador4</p>
-		<p class="text-danger" th:text="${session.sessionActive}"></p>
-		<p class="text-primary">Separador5</p> -->
-
 	</header>
 
 
 	<footer th:fragment="footer">
 		<div class="container mx-3">
-			<br><br>
+			<br>
+			<br>
 		</div>
 		<div class="py-3 bg-dark fixed-bottom">
 			<div class="d-flex justify-content-around text-white">
 				<span class="text-primary">Tienda <i class="bi bi-yin-yang">nline</i></span>
-				<span class="m-0">Copyright &copy; Enrique Pajares Briso-Montiano 2022</span> 
-				<span>
-					<a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>&nbsp;
+				<span class="m-0">Copyright &copy; Enrique Pajares
+					Briso-Montiano 2022</span> <span> <a
+					href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>&nbsp;
 					<a href="https://es-es.facebook.com/"><i class="bi bi-facebook"></i></a>&nbsp;
 					<a href="https://twitter.com/"><i class="bi bi-twitter"></i></a>
 				</span>
 			</div>
-			
-			<!-- Bootstrap core JavaScript -->
-			<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-	 -->
+
+
 			<script th:src="@{/jquery/jquery.min.js}"></script>
 			<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-			<!-- <script th:src="@{/jquery/jquery.min.js}"></script>
-    	<script th:src="@{/js/bootstrap.bundle.min.js}"></script> -->
 			<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
 		</div>

@@ -236,7 +236,7 @@ public class HomeController {
 
 		// Se guarda el pedido
 		pedido.setUsuario(usuario);
-		pedido.setEstado("E");
+		pedido.setEstado("PE");
 		pedido.setMetodoPago(metodoPago);
 		pedidoService.save(pedido);
 

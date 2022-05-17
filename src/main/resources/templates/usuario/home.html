@@ -18,8 +18,28 @@
 
 		<!-- Jumbotron Header -->
 		<header class="jumbotron my-3 text-center text-success">
-			<h3>¡¡¡ Bienvenido a la Tienda Online de Enrique Pajares !!!</h3>
+			<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
+			<span>Tu tienda experta en tecnología</span>
 		</header>
+
+		<form action="#" method="get">
+			<div class="form-group row d-flex justify-content-end">
+				<label class="col-form-label font-weight-bold" for="categoria">Categoría:</label>
+				<div class="col-sm-3">				
+					<select class="form-control" id="categoria" name="categoria"
+						th:value="${categoria}">
+						<option selected>Seleccione categoría...</option>
+						<option th:value="portatiles">Portátiles</option>
+						<option th:value="torres">Torres</option>
+						<option th:value="monitores">Monitores</option>
+						<option th:value="teclados">Teclados</option>
+						<option th:value="ratones">Ratones</option>
+						<option th:value="auriculares">Auriculares</option>
+						<option th:value="otros">Otros</option>
+					</select>
+				</div>
+			</div>
+		</form>
 
 		<!-- Page Features -->
 		<div class="row text-center">
