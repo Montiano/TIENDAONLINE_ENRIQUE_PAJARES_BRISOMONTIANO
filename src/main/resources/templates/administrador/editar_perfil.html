@@ -32,7 +32,7 @@
 	  </div><br>	 -->
 	<div class="d-flex justify-content-center align-self-center">
 
-		<div class="card mb-3" style="width: 26rem;">
+		<div class="card mb-3" style="width: 34rem;">
 			<div class="card-header bg-dark text-light text-center">
 				<h2>[[${#httpServletRequest.remoteUser}]]</h2>
 			</div>
@@ -44,11 +44,7 @@
 						<label for="email" class="form-label font-weight-bold">Email:</label>
 						<input type="text" class="form-control" id="email"
 							name="email" required
-							th:value="${usuario.email}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="password" class="form-label font-weight-bold">Password:</label> <input type="text" class="form-control" id="password"
-							name="password" th:value="${usuario.password}" readonly="readonly">
+							th:value="${usuario.email}" >
 					</div>
 					<div class="form-group">
 						<label for="nombre" class="form-label font-weight-bold">Nombre:</label> <input
@@ -95,9 +91,13 @@
 							type="text" class="form-control" id="tipo" name="tipo"
 							th:value="${usuario.tipo}" readonly="readonly">
 					</div>
-
+					<div class="form-group">
+						<label for="password" class="form-label font-weight-bold">Password:</label> <input type="text" class="form-control" id="password"
+							name="password" th:value="${usuario.password}" readonly="readonly">
+					</div>
 					<div class="card-footer text-center">
 						<button type="submit" class="btn btn-success">Guardar</button>
+						<a type="button" class="btn btn-outline-danger" th:href="@{/administrador/detalle_perfil/}+${usuario.id}">Cancelar</a>
 					</div>
 				</form>				
 			</div>

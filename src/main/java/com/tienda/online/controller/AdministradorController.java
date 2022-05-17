@@ -77,7 +77,7 @@ public class AdministradorController {
 	}
 	
 	
-	@GetMapping("/pedidos/editar_perfil/{id}")
+	@GetMapping("/pedidos/editar_pedido/{id}")
 	public String editarPedido(@PathVariable Long id, Model modelo) {
 		Pedido pedido = new Pedido();
 		Optional<Pedido> pedidoOpcional = pedidoService.findById(id);
