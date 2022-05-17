@@ -2,6 +2,7 @@ package com.tienda.online.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Categoria {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy = "categoria", orphanRemoval = true)
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	private List<Producto> producto;
 
 	public Categoria() {

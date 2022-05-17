@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,7 +77,7 @@ public class AdministradorController {
 	}
 	
 	
-	@GetMapping("/pedidos/editar_pedido/{id}")
+	@GetMapping("/pedidos/editar_perfil/{id}")
 	public String editarPedido(@PathVariable Long id, Model modelo) {
 		Pedido pedido = new Pedido();
 		Optional<Pedido> pedidoOpcional = pedidoService.findById(id);
@@ -117,16 +118,43 @@ public class AdministradorController {
 			
 	}
 	
-	@GetMapping("/perfil/{id}")
-	public String mostrarPerfil (@PathVariable Long id, Model modelo) {
+	@GetMapping("/detalle_perfil/{id}")
+	public String mostrarPerfil (@PathVariable Long id, Model modelo, @ModelAttribute Usuario usuario) {
 		LOGGER.info("Id del usuario: {}",id);
 		
-		Usuario usuario = usuarioService.findById(id).get();
+		usuario = usuarioService.findById(id).get();
 		
 		modelo.addAttribute("usuarioLoggeado", usuario);
 		
-		return "administrador/perfil";
+		return "administrador/detalle_perfil";
+		
+		
 	}
 	
+	@GetMapping("/detalle_perfil/editar_perfil/{id}")
+	public String editarPerfil(@PathVariable Long id, Model modelo) {
+		Usuario usuario = new Usuario();
+		Optional<Usuario> usuarioOpcional = usuarioService.findById(id);
+		usuario = usuarioOpcional.get();
+		
+		LOGGER.info("Usuario buscado: {}", usuario);
+		
+		modelo.addAttribute("usuario", usuario);
+		
+		return "administrador/editar_perfil";
+	}
+	
+	
+	@PostMapping("/detalle_perfil/update")
+	public String update(Usuario usuario, RedirectAttributes flash) {
+		Usuario usuarioModificado = new Usuario();
+		usuarioModificado = usuarioService.findById(usuario.getId()).get();
+		
+		flash.addFlashAttribute("perfilEditado", "Perfil guardado correctamente");
+		
+		usuarioService.update(usuario);
+		
+		return "redirect:/administrador/detalle_perfil/".concat(usuarioModificado.getId().toString());
+	}
 	
 }

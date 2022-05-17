@@ -35,6 +35,16 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	public List<Usuario> findAll() {
 		return usuarioRepository.findAll();
 	}
+
+	@Override
+	public void update(Usuario usuario) {
+		usuarioRepository.save(usuario);		
+	}
+
+	@Override
+	public void delete(Long id) {
+		usuarioRepository.deleteById(id);		
+	}
 	
 	
 	
