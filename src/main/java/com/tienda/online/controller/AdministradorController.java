@@ -28,7 +28,7 @@ import com.tienda.online.service.IUsuarioService;
 @RequestMapping("/administrador")
 public class AdministradorController {
 
-	private Logger LOGGER = LoggerFactory.getLogger(AdministradorController.class);
+	private final Logger LOGGER = LoggerFactory.getLogger(AdministradorController.class);
 	
 	@Autowired
 	private IProductoService productoService;
