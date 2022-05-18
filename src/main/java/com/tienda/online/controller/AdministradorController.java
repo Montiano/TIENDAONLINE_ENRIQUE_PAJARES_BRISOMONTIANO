@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +40,7 @@ public class AdministradorController {
 	@Autowired
 	private IPedidoService pedidoService;
 	
+	BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
 	
 	@GetMapping("")
 	public String home(Model modelo, HttpSession sesion) {
@@ -151,6 +153,11 @@ public class AdministradorController {
 		usuarioModificado = usuarioService.findById(usuario.getId()).get();
 		
 		flash.addFlashAttribute("perfilEditado", "Perfil guardado correctamente");
+		
+		System.out.println("usuarioModificado: " + usuarioModificado);
+		System.out.println("usuario: " + usuario);
+		
+		usuario.setPassword(passEncode.encode(usuario.getPassword()));
 		
 		usuarioService.update(usuario);
 		

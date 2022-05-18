@@ -266,4 +266,19 @@ public class HomeController {
 
 		return "usuario/home";
 	}
+	
+	@PostMapping("/search_category")
+	public String searchProductByCategory(@RequestParam String categoria, Model modelo) {
+		LOGGER.info("Categoría del producto: {}", categoria);
+		List<Producto> listaProductos;
+		if (categoria.equals("todas")) {
+			listaProductos = productoService.findAll();
+		} else {
+			listaProductos = productoService.findAll().stream().filter(p->p.getCategoria().contains(categoria)).collect(Collectors.toList());
+		}
+		
+		modelo.addAttribute("listaProductos", listaProductos);
+
+		return "usuario/home";
+	}
 }

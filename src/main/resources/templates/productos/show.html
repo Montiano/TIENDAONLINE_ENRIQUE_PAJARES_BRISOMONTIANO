@@ -77,8 +77,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         <th scope="col">Descripción</th>
         <th scope="col">Stock</th>
         <th scope="col">Precio</th>
-        <th scope="col">Fecha alta</th>
-        <th scope="col">Fecha baja</th>
+        <th scope="col">Fecha  </th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
       </tr>
@@ -91,7 +90,6 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         <td th:text="${producto.stock}"></td>
         <td th:text="${producto.precio}"></td>
         <td th:text="${producto.fechaAlta}"></td>
-        <td th:text="${producto.fechaBaja}"></td>
         <td sec:authorize="hasRole('ADMIN')"><a class="btn btn-warning" th:href="@{productos/edit/} + ${producto.id}">Editar</a> </td>
         <td sec:authorize="hasRole('ADMIN')"><a class="btn btn-danger" th:href="@{productos/delete/} + ${producto.id}" onclick="return confirm('¿Está seguro de eliminar?');">Eliminar</a> </td>
       </tr>       

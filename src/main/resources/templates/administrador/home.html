@@ -17,13 +17,12 @@
 			<h3>Gestión de la tienda online:</h3>
 		</header>
 
-		<form action="#" method="get">
+		<form th:action="@{/search_category}" method="post" id="categoria">
 			<div class="form-group row d-flex justify-content-end">
-				<label class="col-form-label font-weight-bold" for="categoria">Categoría:</label>
-				<div class="col-sm-3">				
-					<select class="form-control" id="categoria" name="categoria"
-						th:value="${categoria}">
-						<option selected>Seleccione categoría...</option>
+				<label class="col-form-label font-weight-bold" for="categoria">Seleccione categoría:</label>
+				<div class="col-sm-2">				
+					<select class="form-control" name="categoria">
+						<option th:value="todas" selected>Todas</option>
 						<option th:value="portatiles">Portátiles</option>
 						<option th:value="torres">Torres</option>
 						<option th:value="monitores">Monitores</option>
@@ -33,6 +32,7 @@
 						<option th:value="otros">Otros</option>
 					</select>
 				</div>
+				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
 			</div>
 		</form>
 
