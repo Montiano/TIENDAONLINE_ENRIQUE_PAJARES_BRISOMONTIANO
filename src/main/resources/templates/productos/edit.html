@@ -45,6 +45,24 @@
 									required autocomplete="off" th:value="${producto.nombre}">
 							</div>
 						</div>
+						
+						<div class="form-group">
+							<label class="col-form-label font-weight-bold" for="categoria">Categoría:</label>
+							<div class="col-sm-4">
+								<select class="form-control" id="categoria" name="categoria"
+									th:value="${producto.categoria}">
+									<option selected disabled>Seleccione categoría...</option>
+									<option th:value="portatiles">Portátiles</option>
+									<option th:value="torres">Torres</option>
+									<option th:value="monitores">Monitores</option>
+									<option th:value="teclado">Teclados</option>
+									<option th:value="ratones">Ratones</option>
+									<option th:value="auriculares">Auriculares</option>
+									<option th:value="otros">Otros</option>
+								</select>
+							</div>
+						</div>
+						
 						<div class="form-group">
 							<label class="form-label font-weight-bold" for="descripcion">Descripción:</label>
 							<div class="col-sm-12">

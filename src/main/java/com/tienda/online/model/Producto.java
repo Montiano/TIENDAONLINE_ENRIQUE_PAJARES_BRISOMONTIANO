@@ -1,6 +1,8 @@
 package com.tienda.online.model;
 
-import java.sql.Timestamp;
+
+
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+
+
 @Entity
 @Table(name = "productos")
 public class Producto {
@@ -22,20 +27,21 @@ public class Producto {
 	private Long id;
 	private String nombre;
 	private String descripcion;
+	private String categoria;
 	private double precio;
 	private int stock;
 	@Column(name="fecha_alta")
-	private Timestamp fechaAlta;
+	private Date fechaAlta;
 	@Column(name="fecha_baja")
-	private Timestamp fechaBaja;
+	private Date fechaBaja;
 	private float impuesto;
 	private String imagen;
 	
 	@ManyToOne
 	private Usuario usuario;
 	
-	@ManyToOne
-	private Categoria categoria;
+//	@ManyToOne
+//	private Categoria categoria;
 	
 	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
 	private List<DetallePedido> detalle;
@@ -47,24 +53,23 @@ public class Producto {
 	public Producto(Producto producto) {
 		super();
 	}
-	
-	
-	
-	public Producto(Long id, String nombre, String descripcion, double precio, int stock, Timestamp fechaAlta,
-			Timestamp fechaBaja, float impuesto, String imagen, Usuario usuario, Categoria categoria) {
+		
+
+	public Producto(Long id, String nombre, String descripcion, String categoria, double precio, int stock,
+			Date fechaAlta, Date fechaBaja, float impuesto, String imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
+		this.categoria = categoria;
 		this.precio = precio;
 		this.stock = stock;
 		this.fechaAlta = fechaAlta;
 		this.fechaBaja = fechaBaja;
 		this.impuesto = impuesto;
 		this.imagen = imagen;
-		this.usuario = usuario;
-		this.categoria = categoria;
 	}
+	
 	public Producto(Long id, String nombre, String descripcion, double precio, int stock, String imagen) {
 		super();
 		this.id = id;
@@ -108,16 +113,16 @@ public class Producto {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public Timestamp getFechaAlta() {
+	public Date getFechaAlta() {
 		return fechaAlta;
 	}
-	public void setFechaAlta(Timestamp fechaAlta) {
+	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
-	public Timestamp getFechaBaja() {
+	public Date getFechaBaja() {
 		return fechaBaja;
 	}
-	public void setFechaBaja(Timestamp fechaBaja) {
+	public void setFechaBaja(Date fechaBaja) {
 		this.fechaBaja = fechaBaja;
 	}
 	public float getImpuesto() {
@@ -138,13 +143,21 @@ public class Producto {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio
-				+ ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja=" + fechaBaja + ", impuesto="
-				+ impuesto + ", imagen=" + imagen + "]";
+		return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", categoria=" + categoria
+				+ ", precio=" + precio + ", stock=" + stock + ", fechaAlta=" + fechaAlta + ", fechaBaja=" + fechaBaja
+				+ ", impuesto=" + impuesto + ", imagen=" + imagen + "]";
 	}
+
+	
 
 	
 	

@@ -18,7 +18,6 @@ public class DetallePedido {
 	@Column(name = "precio_unidad")
 	private double precioUnidad;
 	private int unidades;
-	private float impuesto;
 	private double total;
 	private String nombre;
 	
@@ -35,13 +34,12 @@ public class DetallePedido {
 
 	
 	
-	public DetallePedido(Long id, double precioUnidad, int unidades, float impuesto, double total, String nombre,
+	public DetallePedido(Long id, double precioUnidad, int unidades, double total, String nombre,
 			Pedido pedido, Producto producto) {
 		super();
 		this.id = id;
 		this.precioUnidad = precioUnidad;
 		this.unidades = unidades;
-		this.impuesto = impuesto;
 		this.total = total;
 		this.nombre = nombre;
 		this.pedido = pedido;
@@ -83,14 +81,6 @@ public class DetallePedido {
 		this.unidades = unidades;
 	}
 
-	public float getImpuesto() {
-		return impuesto;
-	}
-
-	public void setImpuesto(float impuesto) {
-		this.impuesto = impuesto;
-	}
-
 	public double getTotal() {
 		return total;
 	}
@@ -127,8 +117,7 @@ public class DetallePedido {
 
 	@Override
 	public String toString() {
-		return "DetallePedido [id=" + id + ", precioUnidad=" + precioUnidad + ", unidades=" + unidades + ", impuesto="
-				+ impuesto + ", total=" + total + ", nombre=" + nombre + "]";
+		return "DetallePedido [id=" + id + ", precioUnidad=" + precioUnidad + ", unidades=" + unidades + ", total=" + total + ", nombre=" + nombre + "]";
 	}
 
 

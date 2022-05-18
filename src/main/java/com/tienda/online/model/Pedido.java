@@ -1,6 +1,7 @@
 package com.tienda.online.model;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,8 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+
 
 @Entity
 @Table(name="pedidos")
@@ -23,7 +24,6 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@DateTimeFormat(iso = ISO.DATE)
 	private Date fecha;
 	@Column(name = "metodo_pago")
 	private String metodoPago;

@@ -35,21 +35,26 @@
             <table class="table text-center">
               <thead>
                 <tr>
-                  <th scope="col">No. de Pedido</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Valor</th>
-                  <th scope="col">Acción</th>
+                  <th scope="col">Nº de Factura</th>
+                  <th scope="col">Valor Total</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Método de pago</th>
+                  <th scope="col">Fecha</th>                
+                  <th scope="col">Ver</th>
+                  <th scope="col">Cancelar</th>
+                  <th scope="col">Exportar</th>
                 </tr>
               </thead>
               <tbody>
                 <tr th:each="pedido:${pedidos}">
                   <td th:text="${pedido.numFactura}"></td>
-                  <td th:text="${pedido.fecha}"></td>
                   <td th:text="${pedido.total}"></td>
-                  <td>
-                  	 <a th:href="@{/usuario/detalle/}+${pedido.id}" class="btn btn-success">Ver Detalle</a>
-                 	 <a class="btn btn-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">Exportar factura a PDF</a>
-                  </td>
+                  <td th:text="${pedido.estado}"></td>
+                  <td th:text="${pedido.metodoPago}"></td>
+                  <td th:text="${pedido.fecha}"></td>     
+                  <td><a th:href="@{/usuario/detalle/}+${pedido.id}" class="btn btn-info">Detalle</a></td>
+				  <td><a th:href="@{/usuario/detalle/}+${pedido.id}" th:if="${pedido.estado != 'E'}" class="btn btn-danger" onclick="return confirm('¿Está seguro de solicitar la cancelación?');">Cancelar</a></td>	 
+                  <td><a th:if="${pedido.estado == 'E'}" class="btn btn-outline-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">PDF</a></td>
                 </tr>
               </tbody>
             </table>

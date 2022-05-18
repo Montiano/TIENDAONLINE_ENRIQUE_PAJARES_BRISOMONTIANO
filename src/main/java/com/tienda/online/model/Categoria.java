@@ -20,19 +20,21 @@ public class Categoria {
 	
 	private String nombre;
 	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	private List<Producto> producto;
+	
+//	  @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) private
+//	  List<Producto> producto;
+//	 
 
 	public Categoria() {
 		super();
 	}
 
-	public Categoria(Long id, String nombre, List<Producto> producto) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.producto = producto;
-	}
+//	public Categoria(Long id, String nombre, List<Producto> producto) {
+//		super();
+//		this.id = id;
+//		this.nombre = nombre;
+//		this.producto = producto;
+//	}
 
 	public Categoria(Long id, String nombre) {
 		super();
@@ -56,13 +58,13 @@ public class Categoria {
 		this.nombre = nombre;
 	}
 
-	public List<Producto> getProducto() {
-		return producto;
-	}
-
-	public void setProducto(List<Producto> producto) {
-		this.producto = producto;
-	}
+//	public List<Producto> getProducto() {
+//		return producto;
+//	}
+//
+//	public void setProducto(List<Producto> producto) {
+//		this.producto = producto;
+//	}
 
 	@Override
 	public String toString() {

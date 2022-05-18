@@ -1,7 +1,9 @@
 package com.tienda.online.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -173,7 +175,6 @@ public class HomeController {
 			for (DetallePedido detallePedido :  detallesPedido) {
 				if(detallePedido.getProducto().getId()==id) {
 					detallesPedido.remove(detallePedido);
-					System.err.println("eliminado bien");
 				}
 			}
 		} catch (Exception e) {
@@ -228,7 +229,8 @@ public class HomeController {
 	@GetMapping("/saveOrder")
 	public String saveOrder(HttpSession sesion, @RequestParam String metodoPago, RedirectAttributes flash) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
-		Date fechaCreacion = new Date();
+		Date fechaCreacion = new Date(Calendar.getInstance().getTimeInMillis());
+		
 		pedido.setFecha(fechaCreacion);
 		pedido.setNumFactura(pedidoService.generateNumFra());
 

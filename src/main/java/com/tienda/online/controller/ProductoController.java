@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import com.tienda.online.model.Producto;
 import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IProductoService;
@@ -56,6 +57,7 @@ public class ProductoController {
 		
 		Usuario u = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
 		producto.setUsuario(u);
+		
 		
 		// En caso de que creamos un producto
 		if(producto.getId()==null) {
