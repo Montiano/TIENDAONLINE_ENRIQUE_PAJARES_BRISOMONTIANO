@@ -101,6 +101,10 @@ public class AdministradorController {
 		
 		pedido.setUsuario(pedidoModificado.getUsuario());
 		
+		if(pedido.getEstado().equals("E")) {
+			//pedido.setNumFactura(pedidoService.generateNumFra());			
+		}
+		
 		flash.addFlashAttribute("pedidoEditado", "Pedido editado correctamente");
 		
 		pedidoService.update(pedido);
