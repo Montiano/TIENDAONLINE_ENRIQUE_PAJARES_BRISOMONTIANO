@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tienda.online.model.Pedido;
 import com.tienda.online.model.Producto;
+import com.tienda.online.model.Rol;
 import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IProductoService;
@@ -157,11 +158,15 @@ public class AdministradorController {
 		System.out.println("usuarioModificado: " + usuarioModificado);
 		System.out.println("usuario: " + usuario);
 		
+		Rol rol = new Rol(1L,"ADMIN");
+		usuario.setRol(rol);
+		usuario.setTipo("ADMIN");
 		usuario.setPassword(passEncode.encode(usuario.getPassword()));
 		
 		usuarioService.update(usuario);
 		
 		return "redirect:/administrador/detalle_perfil/".concat(usuarioModificado.getId().toString());
 	}
+	
 	
 }

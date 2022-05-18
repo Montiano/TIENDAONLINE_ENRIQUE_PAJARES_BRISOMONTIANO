@@ -74,7 +74,7 @@
 								class="btn btn-outline-danger my-2 my-sm-0"
 								th:href="@{/usuario/cerrar}">Salir</a></li>
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
-								class="navbar-brand text-warning" th:href="@{/}">
+								class="navbar-brand text-warning" th:href="@{/usuario/detalle_perfil/} + ${session.idUsuario}">
 									Bienvenido: [[${#httpServletRequest.remoteUser}]]</a></li>
 						</ul>
 					</div>

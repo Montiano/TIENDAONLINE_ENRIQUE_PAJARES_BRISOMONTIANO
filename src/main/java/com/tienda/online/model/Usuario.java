@@ -3,6 +3,7 @@ package com.tienda.online.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Usuario {
 	private Long id;	
 	@Email
 	@NotNull
-	
+	@Column(unique=true)
 	private String email;
 	@NotNull
 	private String password;

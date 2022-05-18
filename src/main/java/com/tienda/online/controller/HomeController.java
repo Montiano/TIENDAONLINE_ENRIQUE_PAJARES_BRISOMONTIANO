@@ -51,7 +51,6 @@ public class HomeController {
 	private IDetallePedidoService detallePedidoService;
 
 
-
 	List<DetallePedido> detallesPedido = new ArrayList<DetallePedido>();
 
 	Pedido pedido = new Pedido();

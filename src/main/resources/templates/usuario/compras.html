@@ -13,6 +13,14 @@
   
   <header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
+		<div class="alert alert-danger alert-dismissible fade show"
+			role="alert" th:if="${solicitudCancelacion != null}">
+			<label th:text="${solicitudCancelacion}"></label>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+			</button>
+		</div>
     <!-- Page Content -->
     <div class="container">
 
@@ -53,7 +61,7 @@
                   <td th:text="${pedido.metodoPago}"></td>
                   <td th:text="${pedido.fecha}"></td>     
                   <td><a th:href="@{/usuario/detalle/}+${pedido.id}" class="btn btn-info">Detalle</a></td>
-				  <td><a th:href="@{/usuario/detalle/}+${pedido.id}" th:if="${pedido.estado != 'E'}" class="btn btn-danger" onclick="return confirm('¿Está seguro de solicitar la cancelación?');">Cancelar</a></td>	 
+				  <td><a th:href="@{/usuario/cancelar/}+${pedido.id}" th:if="${pedido.estado == 'PE'}" class="btn btn-danger" onclick="return confirm('¿Está seguro de solicitar la cancelación?');">Cancelar</a></td>	 
                   <td><a th:if="${pedido.estado == 'E'}" class="btn btn-outline-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">PDF</a></td>
                 </tr>
               </tbody>

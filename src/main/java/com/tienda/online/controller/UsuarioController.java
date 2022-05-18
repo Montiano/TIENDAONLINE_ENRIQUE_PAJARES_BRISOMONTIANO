@@ -17,6 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,7 +75,7 @@ public class UsuarioController {
 	public String access(Usuario usuario, HttpSession sesion) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		LOGGER.info("Acceso: {}", usuario);
-		System.err.println("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
+		LOGGER.info("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
 		
 		//int id = Integer.parseInt(sesion.getAttribute("idUsuario").toString());	
 		
@@ -86,16 +87,15 @@ public class UsuarioController {
 			sesion.setAttribute("idUsuario", user.get().getId());
 			if(user.get().getTipo().equals("ADMIN")) {
 				sesion.setAttribute("sessionActive", 1);
-				System.err.println("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 				return "redirect:/administrador";
 			} else {
 				sesion.setAttribute("sessionActive", 2);
-				System.err.println("Sesión activa es: " + sesion.getAttribute("sessionActive"));
+				LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 				return "redirect:/";
 			}
 		} else {
 			sesion.setAttribute("sessionActive", null);
-			System.err.println("Sesión activa es: " + sesion.getAttribute("sessionActive"));
+			LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 			LOGGER.info("Usuario no existe");
 		}
 		
@@ -109,8 +109,7 @@ public class UsuarioController {
 		
 		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
 		List<Pedido> pedidos = pedidoService.findByUsuario(usuario);
-		
-		
+			
 		modelo.addAttribute("pedidos", pedidos);
 		
 		return "usuario/compras";
@@ -129,6 +128,28 @@ public class UsuarioController {
 		
 		return "usuario/detalle_compra";
 	}
+	
+	@GetMapping("/cancelar/{id}")
+	public String purchaseCancel(@PathVariable Long id, HttpSession sesion, Model modelo, RedirectAttributes flash) {	
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
+		LOGGER.info("Id del pedido: {}", id);
+		
+		Optional<Pedido> pedido = pedidoService.findById(id);
+		
+		pedido.get().setEstado("PC");
+		pedidoService.update(pedido.get());
+		
+		modelo.addAttribute("pedido", pedido);
+		
+		modelo.addAttribute("detalles", pedido.get().getDetalle());
+		
+		modelo.addAttribute("sesion", sesion.getAttribute("idUsuario"));
+		
+		flash.addFlashAttribute("solicitudCancelacion", "Se ha solicitado la cancelación del pedido");
+		
+		return "redirect:/usuario/shopping";
+	}
+	
 	
 	@GetMapping("/cerrar")
 	public String cerrarSesion(HttpSession sesion, RedirectAttributes flash) {
@@ -161,5 +182,53 @@ public class UsuarioController {
 		 
 		
 	}
+	
+	@GetMapping("/detalle_perfil/{id}")
+	public String mostrarPerfil (@PathVariable Long id, Model modelo, @ModelAttribute Usuario usuario) {
+		LOGGER.info("Id del usuario: {}",id);
+		
+		usuario = usuarioService.findById(id).get();
+		
+		modelo.addAttribute("usuarioLoggeado", usuario);
+		
+		return "usuario/detalle_perfil";
+		
+		
+	}
+	
+	@GetMapping("/detalle_perfil/editar_perfil/{id}")
+	public String editarPerfil(@PathVariable Long id, Model modelo) {
+		Usuario usuario = new Usuario();
+		Optional<Usuario> usuarioOpcional = usuarioService.findById(id);
+		usuario = usuarioOpcional.get();
+		
+		LOGGER.info("Usuario buscado: {}", usuario);
+		
+		modelo.addAttribute("usuario", usuario);
+		
+		return "usuario/editar_perfil";
+	}
+	
+	
+	@PostMapping("/detalle_perfil/update")
+	public String update(Usuario usuario, RedirectAttributes flash) {
+		Usuario usuarioModificado = new Usuario();
+		usuarioModificado = usuarioService.findById(usuario.getId()).get();
+		
+		flash.addFlashAttribute("perfilEditado", "Perfil guardado correctamente");
+		
+		System.out.println("usuarioModificado: " + usuarioModificado);
+		System.out.println("usuario: " + usuario);
+			
+		Rol rol = new Rol(2L,"USER");
+		usuario.setRol(rol);
+		usuario.setTipo("USER");
+		usuario.setPassword(passEncode.encode(usuario.getPassword()));
+		
+		usuarioService.update(usuario);
+		
+		return "redirect:/usuario/detalle_perfil/".concat(usuarioModificado.getId().toString());
+	}
+	
 	
 }

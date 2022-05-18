@@ -1,6 +1,7 @@
 package com.tienda.online.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,9 +31,40 @@ public class PedidoServiceImpl implements IPedidoService{
 
 	
 	public String generateNumFra() {
-		String numeracionConcatenada = "FRA.".concat(LocalDateTime.now().toString());
+//		String numeracionConcatenada = "FRA.".concat(LocalDateTime.now().toString());
+//		return numeracionConcatenada;
+		Long numero = 0L;		
+		String numeracionConcatenada = "";
+		
+		List<Pedido> pedidos = findAll();
+		List<Long> numeros = new ArrayList<Long>();
+		
+		pedidos.stream().forEach(p->numeros.add(Long.parseLong(p.getNumFactura())));
+		
+		if(pedidos.isEmpty()) {
+			numero = 1L;
+		}else {
+			numero = numeros.stream().max(Long::compare).get();
+			numero++;
+		}
+		
+		if(numero<10) {
+			numeracionConcatenada = "000000"+String.valueOf(numero);
+		}else if(numero<100){
+			numeracionConcatenada = "00000"+String.valueOf(numero);
+		}else if(numero<1000){
+			numeracionConcatenada = "0000"+String.valueOf(numero);
+		}else if(numero<10000){
+			numeracionConcatenada = "000"+String.valueOf(numero);
+		}else if(numero<100000){
+			numeracionConcatenada = "00"+String.valueOf(numero);
+		}else if(numero<1000000){
+			numeracionConcatenada = "0"+String.valueOf(numero);
+		}
+		
 		return numeracionConcatenada;
 	}
+	
 
 	@Override
 	public List<Pedido> findByUsuario(Usuario usuario) {
