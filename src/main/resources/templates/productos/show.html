@@ -1,114 +1,105 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head th:replace="plantillas/plantilla_header_footer.html :: head">
-<!-- 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Tienda Online</title>
-
-
-   Bootstrap core CSS
-  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-  Custom styles for this template
-  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
- -->
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <!-- <div th:include="administrador/template_admin.html :: header"></div> -->
-<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<!-- Navigation -->
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
-		<!-- Mensajes flash -->
-		<div class="alert alert-success alert-dismissible fade show" role="alert"
-			th:if="${productoGuardado != null}">
-			<label th:text="${productoGuardado}"></label>
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-			</button>
+	<!-- Mensajes flash -->
+	<div class="alert alert-success alert-dismissible fade show"
+		role="alert" th:if="${productoGuardado != null}">
+		<label th:text="${productoGuardado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
+
+	<div class="alert alert-warning alert-dismissible fade show"
+		role="alert" th:if="${productoEditado != null}">
+		<label th:text="${productoEditado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
+
+	<div class="alert alert-danger alert-dismissible fade show"
+		role="alert" th:if="${productoEliminado != null}">
+		<label th:text="${productoEliminado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
+
+	<!-- Page Content -->
+	<div class="container">
+
+
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3 d-flex justify-content-between align-self-center">
+			<span>Productos</span>
+				<span><a class="btn btn-primary"
+				th:href="@{/productos/create}"><i class="bi bi-clipboard2-plus-fill"></i> Crear Producto</a></span>
+		</h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+			<li class="breadcrumb-item active">Ver Productos</li>
+		</ol>
+
+
+		<div class="card mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table table-hover text-center">
+							<thead>
+								<tr>
+									<th scope="col">Nombre</th>
+									<th scope="col">Categoría</th>
+									<th scope="col">Descripción</th>
+									<th scope="col">Stock</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Fecha</th>
+									<th scope="col">Editar</th>
+									<th scope="col">Eliminar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="producto:${listaProductos}">
+									<td th:text="${producto.nombre}"></td>
+									<td th:text="${producto.categoria}"></td>
+									<td th:text="${producto.descripcion}"></td>
+									<td th:text="${producto.stock}"></td>
+									<td th:text="${producto.precio}"></td>
+									<td th:text="${producto.fechaAlta}"></td>
+									<td sec:authorize="hasRole('ADMIN')"><a
+										class="btn btn-warning"
+										th:href="@{productos/edit/} + ${producto.id}"><i class="bi bi-pencil-square"></i> Editar</a></td>
+									<td sec:authorize="hasRole('ADMIN')"><a
+										class="btn btn-danger"
+										th:href="@{productos/delete/} + ${producto.id}"
+										onclick="return confirm('¿Está seguro de eliminar?');"><i class="bi bi-trash"></i> Eliminar</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-		<div class="alert alert-warning alert-dismissible fade show" role="alert"
-			th:if="${productoEditado != null}">
-			<label th:text="${productoEditado}"></label>
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-			</button>
-		</div>
-		
-		<div class="alert alert-danger alert-dismissible fade show" role="alert"
-			th:if="${productoEliminado != null}">
-			<label th:text="${productoEliminado}"></label>
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-			</button>
-		</div>
+	</div>
+	<br><br>
+	<!-- Footer -->
+	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 
-<!-- Page Content -->
-<div class="container">
-
-
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3">
-    Tienda Online <small>Productos</small> <span class="d-flex justify-content-end"><a class="btn btn-primary" th:href="@{/productos/create}" > Crear Producto</a></span>
-  </h1>
-	
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-    <li class="breadcrumb-item active">Ver Productos</li>
-  </ol>
-
-  
-  <h2>Productos</h2>
-  <table class="table table-hover text-center">
-    <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Categoría</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Fecha  </th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="producto:${listaProductos}">
-        <td th:text="${producto.nombre}"></td>
-        <td th:text="${producto.categoria}"></td>
-        <td th:text="${producto.descripcion}"></td>
-        <td th:text="${producto.stock}"></td>
-        <td th:text="${producto.precio}"></td>
-        <td th:text="${producto.fechaAlta}"></td>
-        <td sec:authorize="hasRole('ADMIN')"><a class="btn btn-warning" th:href="@{productos/edit/} + ${producto.id}">Editar</a> </td>
-        <td sec:authorize="hasRole('ADMIN')"><a class="btn btn-danger" th:href="@{productos/delete/} + ${producto.id}" onclick="return confirm('¿Está seguro de eliminar?');">Eliminar</a> </td>
-      </tr>       
-    </tbody>
-  </table>
-
-</div>
-<!-- /.container -->
-
-<!-- Footer -->
-<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
- <!-- <div th:include="administrador/template_admin.html :: footer"></div>
-
-Bootstrap core JavaScript
-    <script th:src="@{/jquery/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.bundle.min.js}"></script> -->
-<!--     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   -->
 </body>
 
 </html>

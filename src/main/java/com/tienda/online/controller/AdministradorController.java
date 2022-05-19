@@ -173,4 +173,18 @@ public class AdministradorController {
 	}
 	
 	
+	
+	@GetMapping("/detalle_perfil/eliminar_perfil/{id}")
+	public String eliminarPerfil(@PathVariable Long id, RedirectAttributes flash) {
+		Usuario u = new Usuario();
+		u = usuarioService.findById(id).get();
+		
+		flash.addFlashAttribute("perfilEliminado", "Perfil eliminado correctamente");
+		
+		usuarioService.delete(id);
+		
+		return "redirect:/administrador/usuarios";
+			
+	}	
+	
 }

@@ -25,7 +25,14 @@
 			</div>
 		</div>
 	</nav>
-
+	<div class="alert alert-danger alert-dismissible fade show"
+			role="alert" th:if="${usuarioYaRegistrado != null}">
+		<label th:text="${usuarioYaRegistrado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
 	<br><br>
 	<!-- Page Content -->
 	<div class="d-flex justify-content-center align-self-center">

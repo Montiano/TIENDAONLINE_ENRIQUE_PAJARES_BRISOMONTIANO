@@ -20,8 +20,8 @@
 	<header th:fragment="header">
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-			<a class="navbar-brand" th:href="@{/}">Tienda Online</a>
-			<div style="width: 120px;"></div>
+			<a class="navbar-brand" th:href="@{/}">&ensp;&ensp;<i class="bi bi-shop"></i> Tienda Online</a>
+			<div style="width: 80px;"></div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,9 @@
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Buscar producto" aria-label="Search" name="nombre"
 					autocomplete="off">
-				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+				<button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="bi bi-search"></i> Buscar</button>
 			</form>
-			<div style="width: 280px;"></div>
+			<div style="width: 140px;"></div>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 
@@ -42,21 +42,21 @@
 					<ul class="navbar-nav mr-auto">
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item active mx-3">
 							<a class="btn btn-outline-success my-2 my-sm-0"
-							th:href="@{/productos}">Productos</a>
+							th:href="@{/productos}"><i class="bi bi-pc-display"></i> Productos</a>
 						</li>
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3"><a
 							class="btn btn-outline-success my-2 my-sm-0"
-							th:href="@{/administrador/usuarios}">Usuarios</a></li>
+							th:href="@{/administrador/usuarios}"><i class="bi bi-person-circle"></i> Usuarios</a></li>
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3"><a
 							class="btn btn-outline-success my-2 my-sm-0"
-							th:href="@{/administrador/pedidos}">Pedidos</a></li>
+							th:href="@{/administrador/pedidos}"><i class="bi bi-box-seam"></i> Pedidos</a></li>
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3"><a
 							class="btn btn-outline-danger my-2 my-sm-0"
-							th:href="@{/usuario/cerrar}">Salir</a></li>
+							th:href="@{/usuario/cerrar}"><i class="bi bi-x-circle"></i> Salir</a></li>
 						<li sec:authorize="hasRole('ADMIN')" class="nav-item mx-3"><a
 							class="navbar-brand text-warning"
 							th:href="@{/administrador/detalle_perfil/} + ${session.idUsuario}">
-								Gestión: [[${#httpServletRequest.remoteUser}]]</a></li>
+								Gestión: [[${#httpServletRequest.remoteUser}]] <i class="bi bi-yin-yang"></i></a></li>
 					</ul>
 				</div>
 
@@ -127,9 +127,9 @@
 		</div>
 		<div class="py-3 bg-dark fixed-bottom">
 			<div class="d-flex justify-content-around text-white">
-				<span class="text-primary">Tienda <i class="bi bi-yin-yang">nline Serbatic</i></span>
+				<span class="text-primary">Tienda Online Serbatic</span>
 				<span class="m-0">Copyright &copy; Enrique Pajares
-					Briso-Montiano 2022</span> <span> <a
+					Briso-Montiano 2022 <a href="#"><i class="bi bi-github"></i></a></span> <span> <a
 					href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>&nbsp;
 					<a href="https://es-es.facebook.com/"><i class="bi bi-facebook"></i></a>&nbsp;
 					<a href="https://twitter.com/"><i class="bi bi-twitter"></i></a>

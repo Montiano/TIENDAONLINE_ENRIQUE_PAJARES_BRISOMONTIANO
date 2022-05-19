@@ -3,7 +3,7 @@ package com.tienda.online.controller;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -176,8 +176,8 @@ public class HomeController {
 					detallesPedido.remove(detallePedido);
 				}
 			}
-		} catch (Exception e) {
-
+		} catch (ConcurrentModificationException e) {
+			
 		}
 
 		double sumaTotal = 0;

@@ -5,7 +5,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.itextpdf.text.DocumentException;
 import com.tienda.online.model.DetallePedido;
 import com.tienda.online.model.Pedido;
+import com.tienda.online.model.Producto;
 import com.tienda.online.model.Rol;
 import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IDetallePedidoService;
@@ -56,14 +59,32 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/save")
-	public String save(Usuario usuario) {
+	public String save(Usuario usuario, RedirectAttributes flash) {
 		LOGGER.info("Usuario registro: {}", usuario);
 		Rol rol = new Rol(2L,"USER");
 		usuario.setTipo("USER");
 		usuario.setRol(rol);
 		usuario.setPassword(passEncode.encode(usuario.getPassword()));
-		usuarioService.save(usuario);
-		return "redirect:/";
+		Usuario user;
+		try {
+			//List<Usuario> listaUsuarios = usuarioService.findAll().stream().filter(u->u.getEmail().contains(usuario.getEmail())).collect(Collectors.toList());
+			user = usuarioService.findByEmail(usuario.getEmail()).get();
+		} catch (NoSuchElementException e) {
+			user = null;
+		}
+		
+		// Comprobamos si el email introducido ya está registrado
+		if(user != null) {
+			LOGGER.info("Usuario encontrado: "+user);
+			flash.addFlashAttribute("usuarioYaRegistrado", "Lo sentimos, el email introducido ya está registrado, inténtelo con otro...");
+			return "redirect:/usuario/registro";
+		}else {
+			flash.addFlashAttribute("usuarioRegistrado", "Usuario registrado correctamente");
+			LOGGER.info("Usuario guardado correctamente");
+			usuarioService.save(usuario);
+			return "redirect:/usuario/login";
+		}
+			
 	}
 	
 	@GetMapping("/login")
