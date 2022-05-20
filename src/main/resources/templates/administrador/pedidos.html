@@ -73,7 +73,7 @@
               </thead>
               <tbody>
                 <tr th:each="pedido:${pedidos}">
-                  <td th:text="${pedido.numFactura}"></td>
+                  <td th:text="${pedido.estado == 'E'} ? ${pedido.numFactura} : 'S/N'" ></td>
                   <td th:text="${pedido.total}+' €'"></td>
                   <td th:text="${pedido.estado}"></td>
                   <td th:text="${pedido.metodoPago}"></td>

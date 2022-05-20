@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tienda.online.model.Pedido;
@@ -110,7 +108,7 @@ public class AdministradorController {
 		pedido.setUsuario(pedidoModificado.getUsuario());
 		
 		if(pedido.getEstado().equals("E")) {
-			//pedido.setNumFactura(pedidoService.generateNumFra());			
+			pedido.setNumFactura(pedidoService.generateNumFra());			
 		}
 		
 		flash.addFlashAttribute("pedidoEditado", "Pedido editado correctamente");
