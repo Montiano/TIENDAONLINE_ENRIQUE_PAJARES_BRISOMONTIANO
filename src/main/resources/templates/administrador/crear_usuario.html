@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="plantillas/plantilla_header_footer.html :: head">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3 d-flex justify-content-between align-self-center">
+			<span>Crear usuario</span>
+		</h1>
+
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+			<li class="breadcrumb-item"><a
+				th:href="@{/administrador/usuarios}">Ver usuarios</a></li>
+			<li class="breadcrumb-item active">Crear usuario</li>
+		</ol>
+
+		<div class="d-flex justify-content-center align-self-center">
+
+			<div class="card mb-3" style="width: 46rem;">
+				<div class="card-header bg-dark text-light text-center">
+					<h2>Crear usuario</h2>
+				</div>
+				<div class="card-body">
+
+					<form th:action="@{/administrador/usuarios/save}" method="post">
+
+						<div class="form-group">
+							<label for="nombre" class="form-label">Nombre:</label> <input
+								type="text" class="form-control" id="nombre" name="nombre"
+								placeholder="Introduzca el nombre del usuario"
+								autocomplete="off" required>
+						</div>
+						<div class="form-group">
+							<label for="apellido1" class="form-label">Primer
+								apellido:</label> <input type="text" class="form-control" id="apellido1"
+								name="apellido1" placeholder="Introduzca su primer apellido"
+								autocomplete="off" required>
+						</div>
+						<div class="form-group">
+							<label for="apellido2" class="form-label">Segundo
+								apellido:</label> <input type="text" class="form-control" id="apellido2"
+								name="apellido2" placeholder="Introduzca su segundo apellido"
+								autocomplete="off">
+						</div>
+						<div class="form-group">
+							<label for="email" class="form-label">Email:</label> <input
+								type="email" class="form-control" id="email" name="email"
+								placeholder="Introduzca su email" autocomplete="off" required> 
+						</div>
+						<div class="form-group">
+							<label for="telefono" class="form-label">Teléfono:</label> <input
+								type="text" class="form-control" id="telefono" name="telefono"
+								placeholder="Introduzca su teléfono" autocomplete="off" required pattern="[0-9]{9}" title="9 dígitos"
+								> 
+						</div>
+						<div class="form-group">
+							<label for="direccion" class="form-label">Dirección:</label> <input
+								type="text" class="form-control" id="direccion" name="direccion"
+								placeholder="Introduzca su dirección" autocomplete="off" required
+								> 
+						</div>
+						<div class="form-group">
+							<label for="localidad" class="form-label">Localidad:</label> <input
+								type="text" class="form-control" id="localidad" name="localidad"
+								placeholder="Introduzca su localidad" autocomplete="off" required
+								> 
+						</div>
+						<div class="form-group">
+							<label for="provincia" class="form-label">Provincia:</label> <input
+								type="text" class="form-control" id="provincia" name="provincia"
+								placeholder="Introduzca su provincia" autocomplete="off" required
+								>
+						</div>
+						<div class="form-group">
+							<label for="dni" class="form-label">DNI:</label> <input
+								type="text" class="form-control" id="dni" name="dni"
+								placeholder="Introduzca su dni" autocomplete="off" required
+								>
+						</div>
+						<div class="form-group">
+							<label for="password" class="form-label">Contraseña:</label> <input
+								type="password" class="form-control" id="password"
+								name="password" placeholder="Introduzca su contraseña"
+								autocomplete="off" required>
+						</div>
+						<div class="form-group">
+							<label for="dni" class="form-label">Tipo:</label> <select
+								class="form-control" id="tipo" name="tipo" th:value="${tipo}">
+									<option th:value="ADMIN">Administrador</option>
+									<option selected th:value="USER">Usuario</option>
+									<option th:value="EMPLOYEE">Empleado</option>
+								</select>
+						</div>
+						
+
+						<div class="card-footer text-center">
+							<button type="submit" class="btn btn-success">Guardar</button>
+							<a type="button" class="btn btn-outline-danger"
+								th:href="@{/usuarios}">Cancelar</a>
+						</div>
+
+
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!-- Footer -->
+	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
+
+</body>
+
+</html>

@@ -12,12 +12,13 @@
   <div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div> -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
-
+<div class="big-banner">
+		
 	<!-- Page Content -->
 	<div class="container">
 
 		<!-- Jumbotron Header -->
-		<header class="jumbotron my-3 text-center text-success">
+		<header class="jumbotron mt-4 p-3 text-center text-success">
 			<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
 			<span>Tu tienda experta en tecnología</span>
 		</header>
@@ -84,7 +85,7 @@
 		</div> -->
 	</div>
 	<!-- /.container -->
-
+</div>
 	<!-- Footer -->
 	<!-- <div th:include="usuario/template_usuario.html::footer"></div> -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>

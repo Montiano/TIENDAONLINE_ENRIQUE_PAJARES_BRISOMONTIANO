@@ -12,7 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 @Entity
@@ -23,26 +26,27 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	@Email
-	@NotNull
+	@NotEmpty
 	@Column(unique=true)
 	private String email;
-	@NotNull
+	@NotBlank(message="Debe introducir su contraseña")
 	private String password;
-	@NotNull
+	@NotBlank(message="Debe introducir su nombre")
 	private String nombre;
-	@NotNull
+	@NotBlank(message="Debe introducir su apellido")
 	private String apellido1;
 	
 	private String apellido2;
-	@NotNull
+	@NotBlank(message="Debe introducir su dirección")
 	private String direccion;
-	@NotNull
+	@NotBlank(message="Debe introducir su provincia")
 	private String provincia;
-	@NotNull
+	@NotBlank(message="Debe introducir su localidad")
 	private String localidad;
-	
+	@NotBlank(message="Debe introducir su teléfono")
+	@Pattern(regexp="[0-9]{9}")
 	private String telefono;
-	@NotNull
+	@NotBlank(message="Debe introducir su dni")
 	private String dni;
 	
 	private String tipo;

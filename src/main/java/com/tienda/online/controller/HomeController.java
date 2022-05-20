@@ -33,7 +33,7 @@ import com.tienda.online.service.IProductoService;
 import com.tienda.online.service.IUsuarioService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class HomeController {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
@@ -63,14 +63,14 @@ public class HomeController {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 
 		String sesionAtributo = String.valueOf(sesion.getAttribute("idUsuario"));
-		System.err.println("Valor del atributo es:"+sesionAtributo);
+		LOGGER.info("Valor del atributo es:"+sesionAtributo);
 
 		modelo.addAttribute("sesionAtributo", sesionAtributo);
 
 
 		if(sesion.getAttribute("sessionActive")!=null) {
 			int var = (int) sesion.getAttribute("sessionActive");
-			System.err.println("Session active redireccionada es "+var);
+			LOGGER.info("Session active redireccionada es "+var);
 		}
 
 		modelo.addAttribute("listaProductos", productoService.findAll());

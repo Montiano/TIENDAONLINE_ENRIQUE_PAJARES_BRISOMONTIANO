@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "categorias")
+//@Entity
+//@Table(name = "categorias")
 public class Categoria {
 
 	@Id

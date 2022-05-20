@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,36 +56,45 @@ public class UsuarioController {
 	BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
 	
 	@GetMapping("/registro")
-	public String create() {
+	public String create(Model modelo) {
+		modelo.addAttribute("usuario", new Usuario());
 		return "usuario/registro";
 	}
 	
 	@PostMapping("/save")
-	public String save(Usuario usuario, RedirectAttributes flash) {
+	public String save(@Valid @ModelAttribute Usuario usuario, BindingResult bindingResult, RedirectAttributes flash ) {
 		LOGGER.info("Usuario registro: {}", usuario);
-		Rol rol = new Rol(2L,"USER");
-		usuario.setTipo("USER");
-		usuario.setRol(rol);
-		usuario.setPassword(passEncode.encode(usuario.getPassword()));
-		Usuario user;
-		try {
-			//List<Usuario> listaUsuarios = usuarioService.findAll().stream().filter(u->u.getEmail().contains(usuario.getEmail())).collect(Collectors.toList());
-			user = usuarioService.findByEmail(usuario.getEmail()).get();
-		} catch (NoSuchElementException e) {
-			user = null;
+		
+		if(bindingResult.hasErrors()) {			
+			return "usuario/registro";
+		}
+		else {
+			Rol rol = new Rol(2L,"USER");
+			usuario.setTipo("USER");
+			usuario.setRol(rol);
+			usuario.setPassword(passEncode.encode(usuario.getPassword()));
+			Usuario user;
+			try {
+				//List<Usuario> listaUsuarios = usuarioService.findAll().stream().filter(u->u.getEmail().contains(usuario.getEmail())).collect(Collectors.toList());
+				user = usuarioService.findByEmail(usuario.getEmail()).get();
+			} catch (NoSuchElementException e) {
+				user = null;
+			}
+			
+			// Comprobamos si el email introducido ya está registrado
+			if(user != null) {
+				LOGGER.info("Usuario encontrado: "+user);
+				flash.addFlashAttribute("usuarioYaRegistrado", "Lo sentimos, el email introducido ya está registrado, inténtelo con otro...");
+				return "redirect:/usuario/registro";
+			}else {
+				flash.addFlashAttribute("usuarioRegistrado", "Usuario registrado correctamente");
+				LOGGER.info("Usuario guardado correctamente");
+				usuarioService.save(usuario);
+				return "redirect:/usuario/login";
+			}
 		}
 		
-		// Comprobamos si el email introducido ya está registrado
-		if(user != null) {
-			LOGGER.info("Usuario encontrado: "+user);
-			flash.addFlashAttribute("usuarioYaRegistrado", "Lo sentimos, el email introducido ya está registrado, inténtelo con otro...");
-			return "redirect:/usuario/registro";
-		}else {
-			flash.addFlashAttribute("usuarioRegistrado", "Usuario registrado correctamente");
-			LOGGER.info("Usuario guardado correctamente");
-			usuarioService.save(usuario);
-			return "redirect:/usuario/login";
-		}
+		
 			
 	}
 	

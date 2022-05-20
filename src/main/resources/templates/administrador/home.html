@@ -9,12 +9,15 @@
 	<!-- Navigation -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
+<div class="big-banner">
+
 	<!-- Page Content -->
 	<div class="container">
 
 		<!-- Jumbotron Header -->
-		<header class="jumbotron my-3 text-center text-success">
-			<h3>Gestión de la tienda online:</h3>
+		<header class="jumbotron mt-4 p-3 text-center text-success">
+			<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
+			<span>Tu tienda experta en tecnología</span>
 		</header>
 
 		<form th:action="@{/search_category}" method="post" id="categoria">
@@ -50,7 +53,7 @@
 					</div>
 					<div class="card-footer">
 						<a th:href="@{/producto_home/} + ${producto.id}"
-							class="btn btn-success">Ver producto</a>
+							class="btn btn-outline-info">Ver producto</a>
 					</div>
 				</div>
 			</div>
@@ -74,7 +77,7 @@
 			</nav>
 		</div> -->
 	</div>
-
+</div>
 	<!-- Footer -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 

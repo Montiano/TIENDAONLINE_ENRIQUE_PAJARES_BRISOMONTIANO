@@ -1,5 +1,6 @@
 package com.tienda.online.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tienda.online.model.Pedido;
@@ -57,6 +60,11 @@ public class AdministradorController {
 	public String usuarios(Model modelo) {
 		modelo.addAttribute("usuarios", usuarioService.findAll());
 		return "administrador/usuarios";
+	}
+	
+	@GetMapping("/crear_usuario")
+	public String crearUsuario() {
+		return "administrador/crear_usuario";
 	}
 	
 	@GetMapping("/pedidos")
@@ -172,8 +180,7 @@ public class AdministradorController {
 		return "redirect:/administrador/detalle_perfil/".concat(usuarioModificado.getId().toString());
 	}
 	
-	
-	
+		
 	@GetMapping("/detalle_perfil/eliminar_perfil/{id}")
 	public String eliminarPerfil(@PathVariable Long id, RedirectAttributes flash) {
 		Usuario u = new Usuario();
@@ -187,4 +194,15 @@ public class AdministradorController {
 			
 	}	
 	
+	
+	@PostMapping("/usuarios/save")
+	public String save(Usuario usuario, HttpSession sesion, RedirectAttributes flash) throws IOException {
+		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
+		LOGGER.info("Este es el objeto producto de la vista {}", usuario);
+					
+		flash.addFlashAttribute("usuarioGuardado", "Usuario guardado correctamente");
+		
+		usuarioService.save(usuario);
+		return "redirect:/administrador/usuarios";
+	}
 }
