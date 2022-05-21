@@ -1,9 +1,13 @@
 package com.tienda.online.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.itextpdf.text.DocumentException;
 import com.tienda.online.model.Pedido;
 import com.tienda.online.model.Producto;
 import com.tienda.online.model.Rol;
@@ -27,6 +32,7 @@ import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IProductoService;
 import com.tienda.online.service.IUsuarioService;
 import com.tienda.online.utils.JavaMail;
+import com.tienda.online.utils.ProductoExporterExcel;
 
 @Controller
 @RequestMapping("/administrador")
@@ -213,5 +219,24 @@ public class AdministradorController {
 		
 		usuarioService.save(usuario);
 		return "redirect:/administrador/usuarios";
+	}
+	
+	@GetMapping("/exportarProductosExcel")
+	public void exportarListadoProductosExcel(HttpServletResponse response) throws DocumentException, IOException {
+		response.setContentType("application/octet-stream");
+		
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		String fechaActual = dateFormatter.format(new Date());
+		
+		String cabecera = "Content-Disposition";
+		String valor = "attachment; filename=Productos_".concat(fechaActual).concat(".xlsx");
+		
+		response.setHeader(cabecera, valor);
+		
+		List<Producto> productos = productoService.findAll();
+		
+		ProductoExporterExcel exporter = new ProductoExporterExcel(productos);
+		exporter.exportar(response);
+		
 	}
 }

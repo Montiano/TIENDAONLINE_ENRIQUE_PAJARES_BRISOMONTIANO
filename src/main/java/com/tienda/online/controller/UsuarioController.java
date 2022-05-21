@@ -211,8 +211,7 @@ public class UsuarioController {
 		  
 		 FacturaExporterPDF exporter = new FacturaExporterPDF(pedido.get().getDetalle());
 		 exporter.exportar(response);
-		 
-		
+		 	
 	}
 	
 	@GetMapping("/detalle_perfil/{id}")
