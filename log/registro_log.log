@@ -1824,3 +1824,44 @@ java.lang.NumberFormatException: null
 2022-05-21 19:46:26.447  INFO 23500 --- [RMI TCP Connection(20)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-05-21 19:46:26.448  INFO 23500 --- [RMI TCP Connection(20)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
 2022-05-21 19:46:26.464  INFO 23500 --- [RMI TCP Connection(20)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2022-05-21 19:51:39.261  INFO 24812 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 24812 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
+2022-05-21 19:51:39.263  INFO 24812 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
+2022-05-21 19:51:39.340  INFO 24812 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Formacion\.m2\repository\javax\mail\mail\1.4\mail-1.4.jar referenced one or more files that do not exist: file:/C:/Users/Formacion/.m2/repository/javax/mail/mail/1.4/activation.jar
+2022-05-21 19:51:39.341  INFO 24812 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-21 19:51:39.341  INFO 24812 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-21 19:51:40.374  INFO 24812 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-21 19:51:40.488  INFO 24812 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 4 JPA repository interfaces.
+2022-05-21 19:51:41.665  INFO 24812 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-21 19:51:41.679  INFO 24812 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-21 19:51:41.680  INFO 24812 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-21 19:51:42.047  INFO 24812 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-21 19:51:42.047  INFO 24812 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2705 ms
+2022-05-21 19:51:42.288  INFO 24812 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-21 19:51:42.391  INFO 24812 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-05-21 19:51:42.783  INFO 24812 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-21 19:51:42.943  INFO 24812 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-21 19:51:43.736  INFO 24812 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-21 19:51:43.764  INFO 24812 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-21 19:51:45.642  INFO 24812 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-21 19:51:45.656  INFO 24812 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-21 19:51:46.479  WARN 24812 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-21 19:51:46.721  INFO 24812 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@499c66c1, org.springframework.security.web.context.SecurityContextPersistenceFilter@61c0488b, org.springframework.security.web.header.HeaderWriterFilter@2ba41ac0, org.springframework.security.web.authentication.logout.LogoutFilter@4f28c01c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@11c7f53d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@191c9be8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7da6f102, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@44c7b510, org.springframework.security.web.session.SessionManagementFilter@7c24a84c, org.springframework.security.web.access.ExceptionTranslationFilter@1794e3ac, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43f7180c]
+2022-05-21 19:51:47.320  INFO 24812 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-21 19:51:47.377  INFO 24812 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-21 19:51:47.398  INFO 24812 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Started TiendaonlineEnriquePajaresBrisomontianoApplication in 8.637 seconds (JVM running for 10.054)
+2022-05-21 19:51:49.954  INFO 24812 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-21 19:51:49.955  INFO 24812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-21 19:51:49.957  INFO 24812 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-05-21 19:53:43.825  INFO 24812 --- [http-nio-8080-exec-7] c.t.o.c.AdministradorController          : Id del usuario: 1
+2022-05-21 19:53:53.803  INFO 24812 --- [http-nio-8080-exec-4] c.t.o.c.AdministradorController          : Id del usuario: 2
+2022-05-21 19:54:02.378  INFO 24812 --- [http-nio-8080-exec-9] c.t.o.c.AdministradorController          : Id del usuario: 5
+2022-05-21 19:54:14.780  INFO 24812 --- [http-nio-8080-exec-1] c.t.o.c.AdministradorController          : Id del usuario: 2
+2022-05-21 19:54:17.339  INFO 24812 --- [http-nio-8080-exec-4] c.t.o.c.AdministradorController          : Id del usuario: 2
+2022-05-21 19:54:18.328  INFO 24812 --- [http-nio-8080-exec-8] c.t.o.c.AdministradorController          : Id del usuario: 2
+2022-05-21 19:54:19.457  INFO 24812 --- [http-nio-8080-exec-1] c.t.o.c.AdministradorController          : Id del usuario: 2
+2022-05-21 19:55:14.733  INFO 24812 --- [http-nio-8080-exec-2] c.t.o.c.AdministradorController          : Id del usuario: 5
+2022-05-21 19:55:19.342  INFO 24812 --- [http-nio-8080-exec-3] c.t.o.c.AdministradorController          : Usuario buscado: Usuario [id=5, email=kike_montiano@hotmail.com, password=$2a$10$S2KM2FiqbmfuPVdhDjRnVumrzkJV5aAz4Pirjt9JtPQ.n5TRNEFfG, nombre=ENRIQUE, apellido1=Pajares, apellido2=PAJARES, direccion=C/ M. San Millán de la Cogolla 17, provincia=VA, localidad=Valladolid, telefono=696685808, dni=12451247P, tipo=USER]
+2022-05-21 19:55:24.581  INFO 24812 --- [http-nio-8080-exec-6] c.t.online.controller.HomeController     : Id producto enviado por parámetro 3
+2022-05-21 19:55:26.694  INFO 24812 --- [http-nio-8080-exec-4] c.t.online.controller.HomeController     : Sesión del usuario: 1
+2022-05-21 19:55:26.695  INFO 24812 --- [http-nio-8080-exec-4] c.t.online.controller.HomeController     : Valor del atributo es:1
+2022-05-21 19:55:26.696  INFO 24812 --- [http-nio-8080-exec-4] c.t.online.controller.HomeController     : Session active redireccionada es 1

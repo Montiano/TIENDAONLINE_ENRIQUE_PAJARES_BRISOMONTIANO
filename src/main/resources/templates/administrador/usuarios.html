@@ -34,9 +34,6 @@
 									<th scope="col">Apellido</th>
 									<th scope="col">Email</th>
 									<th scope="col">Teléfono</th>
-									<th scope="col">Dirección</th>
-									<th scope="col">Localidad</th>
-									<th scope="col">Provincia</th>
 									<th scope="col">Tipo</th>
 									<th scope="col">Ver</th>
 									<th scope="col">Editar</th>
@@ -49,9 +46,6 @@
 									<td th:text="${usuario.apellido1}"></td>
 									<td th:text="${usuario.email}"></td>
 									<td th:text="${usuario.telefono}"></td>
-									<td th:text="${usuario.direccion}"></td>
-									<td th:text="${usuario.localidad}"></td>
-									<td th:text="${usuario.provincia}"></td>
 									<td th:text="${usuario.tipo}"></td>
 									<td><a th:href="@{/administrador/detalle_perfil/}+${usuario.id}" class="btn btn-info">Detalle</a></td>
 									<td><a th:href="@{/administrador/detalle_perfil/editar_perfil/}+${usuario.id}" class="btn btn-warning">Editar</a></td>
