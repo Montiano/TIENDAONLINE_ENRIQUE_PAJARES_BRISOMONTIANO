@@ -41,7 +41,8 @@
 							<div class="col-sm-12">
 								<input type="text" class="form-control" id="numFactura"
 									name="numFactura" readonly="readonly" required
-									autocomplete="off" th:value="${pedido.numFactura}">
+									autocomplete="off" th:value="${pedido.estado == 'E'} ? ${pedido.numFactura} : 'S/N'">
+									
 							</div>
 						</div>
 						<div class="form-group">

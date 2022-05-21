@@ -7,69 +7,69 @@
 <body>
 
 	<!-- Navigation -->
-	<!-- <div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
-  
-  <div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div> -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
-<div class="big-banner">
-		
-	<!-- Page Content -->
-	<div class="container">
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
-		<!-- Jumbotron Header -->
-		<header class="jumbotron mt-4 p-3 text-center text-success">
-			<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
-			<span>Tu tienda experta en tecnología</span>
-		</header>
+				<!-- Jumbotron Header -->
+				<header class="jumbotron mt-4 p-3 text-center text-success">
+					<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
+					<span>Tu tienda experta en tecnología</span>
+				</header>
 
-		<form th:action="@{/search_category}" method="post" id="categoria">
-			<div class="form-group row d-flex justify-content-end">
-				<label class="col-form-label font-weight-bold" for="categoria">Seleccione categoría:</label>
-				<div class="col-sm-2">				
-					<select class="form-control" name="categoria">
-						<option th:value="todas" selected>Todas</option>
-						<option th:value="portatiles">Portátiles</option>
-						<option th:value="torres">Torres</option>
-						<option th:value="monitores">Monitores</option>
-						<option th:value="teclados">Teclados</option>
-						<option th:value="ratones">Ratones</option>
-						<option th:value="auriculares">Auriculares</option>
-						<option th:value="otros">Otros</option>
-					</select>
-				</div>
-				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-			</div>
-		</form>
-
-		<div class="row text-center">
-
-			<div class="col-lg-3 col-md-6 mb-4"
-				th:each="producto:${listaProductos}">
-				<div class="card h-100">
-					<img class="card-img-top" th:src="@{/images/} + ${producto.imagen}"
-						alt="imagen">
-					<div class="card-body">
-						<p class="card-text" th:text="${producto.nombre}"></p>
+				<form th:action="@{/search_category}" method="post" id="categoria">
+					<div class="form-group row d-flex justify-content-end">
+						<label class="col-form-label font-weight-bold" for="categoria">Seleccione
+							categoría:</label>
+						<div class="col-sm-2">
+							<select class="form-control" name="categoria">
+								<option th:value="todas" selected>Todas</option>
+								<option th:value="portatiles">Portátiles</option>
+								<option th:value="torres">Torres</option>
+								<option th:value="monitores">Monitores</option>
+								<option th:value="teclados">Teclados</option>
+								<option th:value="ratones">Ratones</option>
+								<option th:value="auriculares">Auriculares</option>
+								<option th:value="otros">Otros</option>
+							</select>
+						</div>
+						<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
 					</div>
-					<div class="card-footer">
-						<a th:href="@{/producto_home/} + ${producto.id}"
-							class="btn btn-outline-info">Ver producto</a>
-						<hr>
-						<form th:action="@{/cart}" method="POST">	
-							<input type="hidden" th:value="${producto.id}" name="id">
-							<input type="hidden" id="stock" name="stock" th:value="${producto.stock}">
-							<button type="submit" th:href="@{/cart/} + ${producto.id}"
-							class="btn btn-success" th:if="${session.idUsuario} != 1">Comprar ya!</button>
-						</form>	
-							
-					</div>
-				</div>
-			</div>
+				</form>
 
-		</div>
-		<!-- /.row -->
-		<!-- <div class="d-flex justify-content-center">
+				<div class="row text-center">
+
+					<div class="col-lg-3 col-md-6 mb-4"
+						th:each="producto:${listaProductos}">
+						<div class="card h-100">
+							<img class="card-img-top"
+								th:src="@{/images/} + ${producto.imagen}" alt="imagen">
+							<div class="card-body">
+								<p class="card-text" th:text="${producto.nombre}"></p>
+							</div>
+							<div class="card-footer">
+								<a th:href="@{/producto_home/} + ${producto.id}"
+									class="btn btn-outline-info">Ver producto</a>
+								<hr>
+								<form th:action="@{/cart}" method="POST">
+									<input type="hidden" th:value="${producto.id}" name="id">
+									<input type="hidden" id="stock" name="stock"
+										th:value="${producto.stock}">
+									<button type="submit" th:href="@{/cart/} + ${producto.id}"
+										class="btn btn-success" th:if="${session.idUsuario} != 1">Comprar
+										ya!</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.row -->
+				<!-- <div class="d-flex justify-content-center">
 			<nav aria-label="pagination">
 				<ul class="pagination">
 					<li class="page-item disabled"><span class="page-link">Anterior</span>
@@ -83,11 +83,12 @@
 				</ul>
 			</nav>
 		</div> -->
+			</div>
+			<!-- /.container -->
+		</div>
 	</div>
-	<!-- /.container -->
-</div>
+
 	<!-- Footer -->
-	<!-- <div th:include="usuario/template_usuario.html::footer"></div> -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 </body>
 

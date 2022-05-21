@@ -31,6 +31,7 @@ import com.tienda.online.service.IDetallePedidoService;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IProductoService;
 import com.tienda.online.service.IUsuarioService;
+import com.tienda.online.utils.JavaMail;
 
 @Controller
 @RequestMapping("")
@@ -65,8 +66,7 @@ public class HomeController {
 		String sesionAtributo = String.valueOf(sesion.getAttribute("idUsuario"));
 		LOGGER.info("Valor del atributo es:"+sesionAtributo);
 
-		modelo.addAttribute("sesionAtributo", sesionAtributo);
-
+		modelo.addAttribute("sesionAtributo", sesionAtributo);		
 
 		if(sesion.getAttribute("sessionActive")!=null) {
 			int var = (int) sesion.getAttribute("sessionActive");

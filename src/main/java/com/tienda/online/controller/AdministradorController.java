@@ -26,6 +26,7 @@ import com.tienda.online.model.Usuario;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IProductoService;
 import com.tienda.online.service.IUsuarioService;
+import com.tienda.online.utils.JavaMail;
 
 @Controller
 @RequestMapping("/administrador")
@@ -106,9 +107,19 @@ public class AdministradorController {
 		pedidoModificado = pedidoService.findById(pedido.getId()).get();
 		
 		pedido.setUsuario(pedidoModificado.getUsuario());
-		
+			
 		if(pedido.getEstado().equals("E")) {
-			pedido.setNumFactura(pedidoService.generateNumFra());			
+			
+			pedido.setNumFactura(pedidoService.generateNumFra());
+			
+			String destinatario = pedido.getUsuario().getEmail();
+			String texto = ("Su pedido con nº de factura ".concat(pedido.getNumFactura()).concat(" ha sido enviado.\n")
+					.concat("El valor total del pedido es: ").concat(pedido.getTotal().toString().concat(" €\n"))
+					.concat("El método de pago elegido es: ").concat(pedido.getMetodoPago())
+					.concat("\nFecha de la factura: ").concat(pedido.getFecha().toString())
+					.concat("\n\nYa puede descargarse su factura en Pdf si lo desea.\n\nMuchas gracias por su compra.\nUn saludo!"));
+			JavaMail.enviarMail(destinatario, texto);
+			flash.addFlashAttribute("pedidoEditado", "Pedido editado correctamente. Se envió un email al cliente");
 		}
 		
 		flash.addFlashAttribute("pedidoEditado", "Pedido editado correctamente");

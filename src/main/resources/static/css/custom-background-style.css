@@ -1,11 +1,34 @@
 /* .big-banner{
-	background-image: url('../images/robot.jpg');
-	margin-top: -50px;
+	background-image: url('../images/robot_doble_bajo.png');
+	margin-top: 30px;
 	padding-bottom: 200px;
-	background-size: 400px;
+	background-size: 1650px;
+	background-position: top;
+	background-repeat: no-repeat;	
+} */
+
+.eva-right{
+	background-image: url('../images/eva.gif');
+	margin-top: 30px;
+	background-size: 200px;
 	background-position: right;
 	background-repeat: repeat-y;
-} */
+	
+}
+.eva-left{
+	background-image: url('../images/eva.gif');
+	margin-top: 30px;
+	background-size: 200px;
+	background-position: left;
+	background-repeat: repeat-y;
+}
+.dino{
+	background-image: url('../images/dino_google.gif');
+	/* margin-top: 30px; */
+	background-size: 200px;
+	background-position: inherit;
+	background-repeat: no-repeat;
+}
 
 /* .big-banner{
 	background-image: url('../images/matrixg.gif');

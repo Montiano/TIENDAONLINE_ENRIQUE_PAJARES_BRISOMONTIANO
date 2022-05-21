@@ -81,7 +81,7 @@
                   <td><a th:href="@{/administrador/detalle/}+${pedido.id}" class="btn btn-info">Detalle</a></td>
                   <td><a th:href="@{/administrador/pedidos/editar_pedido/}+${pedido.id}" class="btn btn-warning">Editar</a></td>
                   <td><a th:href="@{/administrador/pedidos/eliminar_pedido/}+${pedido.id}" class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar?');">Eliminar</a></td>
-                  <td><a class="btn btn-outline-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">PDF</a></td>
+                  <td><a th:if="${pedido.estado == 'E'}" class="btn btn-outline-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">PDF</a></td>
                 </tr>
               </tbody>
             </table>
