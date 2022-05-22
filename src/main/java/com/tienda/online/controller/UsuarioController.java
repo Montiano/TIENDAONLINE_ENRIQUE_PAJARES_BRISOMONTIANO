@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,12 +27,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itextpdf.text.DocumentException;
-import com.tienda.online.model.DetallePedido;
 import com.tienda.online.model.Pedido;
-import com.tienda.online.model.Producto;
 import com.tienda.online.model.Rol;
 import com.tienda.online.model.Usuario;
-import com.tienda.online.service.IDetallePedidoService;
 import com.tienda.online.service.IPedidoService;
 import com.tienda.online.service.IUsuarioService;
 import com.tienda.online.utils.FacturaExporterPDF;
@@ -50,8 +46,6 @@ public class UsuarioController {
 	@Autowired
 	private IPedidoService pedidoService;
 	
-	@Autowired
-	private IDetallePedidoService detallePedidoService;
 	
 	BCryptPasswordEncoder passEncode = new BCryptPasswordEncoder();
 	
@@ -113,7 +107,6 @@ public class UsuarioController {
 		
 		Optional<Usuario> user = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString()));
 		
-		//LOGGER.info("Usuario de base de datos: {}", user.get());
 		// Con optional nos permite hacer estas validaciones
 		if(user.isPresent()) {
 			sesion.setAttribute("idUsuario", user.get().getId());

@@ -84,11 +84,6 @@ public class HomeController {
 	public String productoHome(@PathVariable Long id, Model modelo, HttpSession sesion) {
 		LOGGER.info("Id producto enviado por parámetro {}", id);
 
-		/*
-		 * if(sesion.getAttribute("idUsuario")==1) {
-		 * modelo.addAttribute("administrador", true); }
-		 */
-
 		Producto producto = new Producto();
 		Optional<Producto> productoOptional = productoService.get(id);
 		producto = productoOptional.get();

@@ -10,7 +10,7 @@
 .eva-right{
 	background-image: url('../images/eva.gif');
 	margin-top: 30px;
-	background-size: 200px;
+	background-size: 195px;
 	background-position: right;
 	background-repeat: repeat-y;
 	
@@ -18,7 +18,7 @@
 .eva-left{
 	background-image: url('../images/eva.gif');
 	margin-top: 30px;
-	background-size: 200px;
+	background-size: 195px;
 	background-position: left;
 	background-repeat: repeat-y;
 }

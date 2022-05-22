@@ -39,9 +39,12 @@
 					<i class="bi bi-search"></i> Buscar
 				</button>
 			</form>
-			<div class="mx-2" style="width: 140px;"> <img alt="dino" style="width: 140px;" src="../images/dino_google.gif"> </div>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-
+			
+			<div class="collapse navbar-collapse d-flex justify-content-around" id="navbarCollapse">
+				<div class="mx-2" style="width: 140px;">
+					<img alt="dino" style="width: 140px;"
+					src="../images/dino_google.gif">
+				</div>
 
 				<div th:if="${session.idUsuario} == 1 ">
 					<ul class="navbar-nav mr-auto">
@@ -79,9 +82,6 @@
 								class="btn btn-outline-success my-2 my-sm-0"
 								th:href="@{/usuario/shopping}"><i class="bi bi-bag"></i>
 									Compras</a></li>
-							<!-- <li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
-								class="btn btn-outline-success my-2 my-sm-0" th:href="@{/getCart}"><i
-									class="bi bi-cart3"></i>Carrito</a></li> -->
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
 								class="btn btn-outline-danger my-2 my-sm-0"
 								th:href="@{/usuario/cerrar}"><i class="bi bi-x-circle"></i>
@@ -95,14 +95,14 @@
 						</ul>
 					</div>
 				</div>
-
-				<a class="btn btn-outline-warning my-2 my-sm-0"
+				<div >
+					<a class="btn btn-outline-warning my-2 my-sm-0 "
 					th:href="@{/usuario/login}" th:if="${session.idUsuario} == null "><i
 					class="bi bi-person-circle"></i> Login / Register</a>&emsp; <a
 					class="btn btn-info my-2 my-sm-0" th:href="@{/getCart}"
 					th:if="${session.idUsuario} != 1 "><i class="bi bi-cart3"></i>
 					Carrito</a>
-
+				</div>
 			</div>
 		</nav>
 
@@ -137,11 +137,13 @@
 
 	<footer th:fragment="footer">
 		<div class="container mx-3">
-			<br><br>
+			<br>
+			<br>
 		</div>
 		<div class="py-3 bg-dark fixed-bottom">
 			<div class="d-flex justify-content-around text-white">
-				<span class="text-primary">Tienda Online Serbatic</span> <span
+				<span class="text-primary"><a style="text-decoration: none;"
+					href="https://www.serbatic.es/">Tienda Online Serbatic</a></span> <span
 					class="m-0">Copyright &copy; Enrique Pajares Briso-Montiano
 					2022 <a
 					href="https://github.com/Montiano/TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO.git"><i
@@ -153,11 +155,10 @@
 				</span>
 			</div>
 
-
 			<script th:src="@{/jquery/jquery.min.js}"></script>
 			<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 			<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
 		</div>
 	</footer>
 </body>
