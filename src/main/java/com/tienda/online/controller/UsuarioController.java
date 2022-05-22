@@ -101,7 +101,7 @@ public class UsuarioController {
 	public String access(Usuario usuario, HttpSession sesion) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
 		LOGGER.info("Acceso: {}", usuario);
-		LOGGER.info("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
+//		LOGGER.info("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
 		
 		//int id = Integer.parseInt(sesion.getAttribute("idUsuario").toString());	
 		
@@ -111,16 +111,16 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			sesion.setAttribute("idUsuario", user.get().getId());
 			if(user.get().getTipo().equals("ADMIN")) {
-				sesion.setAttribute("sessionActive", 1);
+//				sesion.setAttribute("sessionActive", 1);
 				return "redirect:/administrador";
 			} else {
-				sesion.setAttribute("sessionActive", 2);
-				LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
+//				sesion.setAttribute("sessionActive", 2);
+//				LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 				return "redirect:/";
 			}
 		} else {
-			sesion.setAttribute("sessionActive", null);
-			LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
+//			sesion.setAttribute("sessionActive", null);
+//			LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 			LOGGER.info("Usuario no existe");
 		}
 		
@@ -247,7 +247,11 @@ public class UsuarioController {
 		Rol rol = new Rol(2L,"USER");
 		usuario.setRol(rol);
 		usuario.setTipo("USER");
-		usuario.setPassword(passEncode.encode(usuario.getPassword()));
+		// Si hay cambios en la contraseña se recodifica
+		if(!usuario.getPassword().equals(usuarioModificado.getPassword())) {
+			usuario.setPassword(passEncode.encode(usuario.getPassword()));
+		}
+		
 		
 		usuarioService.update(usuario);
 		

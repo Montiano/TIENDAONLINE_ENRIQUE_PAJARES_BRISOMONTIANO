@@ -36,7 +36,7 @@
 								<option th:value="otros">Otros</option>
 							</select>
 						</div>
-						<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+						<button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="bi bi-search"></i> Buscar</button>
 					</div>
 				</form>
 
@@ -59,7 +59,7 @@
 									<input type="hidden" id="stock" name="stock"
 										th:value="${producto.stock}">
 									<button type="submit" th:href="@{/cart/} + ${producto.id}"
-										class="btn btn-success" th:if="${session.idUsuario} != 1">Comprar
+										class="btn btn-success" th:if="${session.idUsuario} != 1"><i class="bi bi-bag-plus"></i> Comprar
 										ya!</button>
 								</form>
 
@@ -68,23 +68,9 @@
 					</div>
 
 				</div>
-				<!-- /.row -->
-				<!-- <div class="d-flex justify-content-center">
-			<nav aria-label="pagination">
-				<ul class="pagination">
-					<li class="page-item disabled"><span class="page-link">Anterior</span>
-					</li>
-					
-					<li class="page-item active" aria-current="page"><span
-						class="page-link"> 1 <span class="sr-only">(current)</span>
-					</span></li>
-					
-					<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-				</ul>
-			</nav>
-		</div> -->
+
 			</div>
-			<!-- /.container -->
+			
 		</div>
 	</div>
 

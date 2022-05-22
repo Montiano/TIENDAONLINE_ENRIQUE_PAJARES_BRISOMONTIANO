@@ -9,75 +9,59 @@
 	<!-- Navigation -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
-<div class="big-banner">
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
-	<!-- Page Content -->
-	<div class="container">
+				<!-- Jumbotron Header -->
+				<header class="jumbotron mt-4 p-3 text-center text-success">
+					<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
+					<span>Tu tienda experta en tecnología</span>
+				</header>
 
-		<!-- Jumbotron Header -->
-		<header class="jumbotron mt-4 p-3 text-center text-success">
-			<h3>¡¡¡ Bienvenid@ a la Tienda Online de Enrique Pajares !!!</h3>
-			<span>Tu tienda experta en tecnología</span>
-		</header>
-
-		<form th:action="@{/search_category}" method="post" id="categoria">
-			<div class="form-group row d-flex justify-content-end">
-				<label class="col-form-label font-weight-bold" for="categoria">Seleccione categoría:</label>
-				<div class="col-sm-2">				
-					<select class="form-control" name="categoria">
-						<option th:value="todas" selected>Todas</option>
-						<option th:value="portatiles">Portátiles</option>
-						<option th:value="torres">Torres</option>
-						<option th:value="monitores">Monitores</option>
-						<option th:value="teclados">Teclados</option>
-						<option th:value="ratones">Ratones</option>
-						<option th:value="auriculares">Auriculares</option>
-						<option th:value="otros">Otros</option>
-					</select>
-				</div>
-				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-			</div>
-		</form>
-
-
-		<!-- Page Features -->
-		<div class="row text-center">
-
-			<div class="col-lg-3 col-md-6 mb-4"
-				th:each="producto:${listaProductos}">
-				<div class="card h-100">
-					<img class="card-img-top" th:src="@{/images/} + ${producto.imagen}"
-						alt="imagen">
-					<div class="card-body">
-						<p class="card-text" th:text="${producto.nombre}"></p>
+				<form th:action="@{/search_category}" method="post" id="categoria">
+					<div class="form-group row d-flex justify-content-end">
+						<label class="col-form-label font-weight-bold" for="categoria">Seleccione
+							categoría:</label>
+						<div class="col-sm-2">
+							<select class="form-control" name="categoria">
+								<option th:value="todas" selected>Todas</option>
+								<option th:value="portatiles">Portátiles</option>
+								<option th:value="torres">Torres</option>
+								<option th:value="monitores">Monitores</option>
+								<option th:value="teclados">Teclados</option>
+								<option th:value="ratones">Ratones</option>
+								<option th:value="auriculares">Auriculares</option>
+								<option th:value="otros">Otros</option>
+							</select>
+						</div>
+						<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
 					</div>
-					<div class="card-footer">
-						<a th:href="@{/producto_home/} + ${producto.id}"
-							class="btn btn-outline-info">Ver producto</a>
+				</form>
+
+
+				<!-- Page Features -->
+				<div class="row text-center">
+
+					<div class="col-lg-3 col-md-6 mb-4"
+						th:each="producto:${listaProductos}">
+						<div class="card h-100">
+							<img class="card-img-top"
+								th:src="@{/images/} + ${producto.imagen}" alt="imagen">
+							<div class="card-body">
+								<p class="card-text" th:text="${producto.nombre}"></p>
+							</div>
+							<div class="card-footer">
+								<a th:href="@{/producto_home/} + ${producto.id}"
+									class="btn btn-outline-info">Ver producto</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
-
-
 		</div>
-		<!-- /.row -->
-		<!-- <div class="d-flex justify-content-center">
-			<nav aria-label="pagination">
-				<ul class="pagination">
-					<li class="page-item disabled"><span class="page-link">Anterior</span>
-					</li>
-
-					<li class="page-item active" aria-current="page"><span
-						class="page-link"> 1 <span class="sr-only">(current)</span>
-					</span></li>
-
-					<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-				</ul>
-			</nav>
-		</div> -->
 	</div>
-</div>
 	<!-- Footer -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 

@@ -46,7 +46,7 @@
 									<td th:text="${detalle.precioUnidad}"></td>
 									<td th:text="${detalle.unidades}"></td>
 									<td th:text="${detalle.total}"></td>
-									<td><a th:href="@{/delete/cart/}+${detalle.producto.id}" class="btn btn-danger">Quitar</a></td>
+									<td><a th:href="@{/delete/cart/}+${detalle.producto.id}" class="btn btn-danger"><i class="bi bi-cart-dash"></i> Quitar</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -57,7 +57,7 @@
 
 						<ul class="list-group">
 							<li class="list-group-item"><h5 th:text="'Total: '+${pedido.total}+ ' €'"></h5></li>
-							<li class="list-group-item"><a th:href="@{/order}" class="btn btn-dark w-100">Ver Pedido</a></li>								
+							<li class="list-group-item"><a th:href="@{/order}" class="btn btn-info w-100">Ver Pedido</a></li>								
 						</ul>
 						
 					</div>

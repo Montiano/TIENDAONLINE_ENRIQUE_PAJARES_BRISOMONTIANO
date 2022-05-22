@@ -42,7 +42,7 @@ public class PDFHeaderFooter extends PdfPageEventHelper {
     		txtFecha = new Phrase(fecha, new Font(FontFactory.getFont("Sans", 8, Font.NORMAL, BaseColor.BLACK)));
 	    	ColumnText.showTextAligned(cb, Element.ALIGN_RIGHT, txtFecha, (document.right() - document.left()), document.top()+30, 0);	    	
 	    	
-	    	txtCabecera = new Phrase("Empresa: SERBATIC");
+	    	txtCabecera = new Phrase("SERBATIC");
 	    	ColumnText.showTextAligned(cb, Element.ALIGN_LEFT, txtCabecera, (document.right() - document.left() - 100), document.top(), 0);
 	      		    	
 	    	//linea de arriba
