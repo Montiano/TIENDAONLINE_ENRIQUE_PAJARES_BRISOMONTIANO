@@ -6,121 +6,113 @@
 
 <body>
 
-  <!-- Navigation -->
-  <!-- <div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
-  
-  	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div> -->
-  <header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<!-- Navigation -->
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
-    <!-- Page Content -->
-    <div class="container">
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
 
-      <h1 class="mt-4 mb-3">
-        Tienda Online <small>Editar perfil</small>
-      </h1>
+				<h1 class="mt-4 mb-3">
+					Tienda Online <small>Editar perfil</small>
+				</h1>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item"><a th:href="@{/usuario/detalle_perfil/}+${usuario.id}">Detalle</a></li>
-        <li class="breadcrumb-item active">Perfil</li>
-      </ol>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+					<li class="breadcrumb-item"><a
+						th:href="@{/usuario/detalle_perfil/}+${usuario.id}">Detalle</a></li>
+					<li class="breadcrumb-item active">Perfil</li>
+				</ol>
 
-	  
-	  <!-- <div class="container">
-	  	<a class="btn btn-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF}+${pedido.id}">Exportar factura a PDF</a>
-	  </div><br>	 -->
-	<div class="d-flex justify-content-center align-self-center">
+				<div class="d-flex justify-content-center align-self-center">
 
-		<div class="card mb-3" style="width: 34rem;">
-			<div class="card-header bg-dark text-light text-center">
-				<h2>[[${#httpServletRequest.remoteUser}]]</h2>
-			</div>
-			<div class="card-body">
+					<div class="card mb-3" style="width: 34rem;">
+						<div class="card-header bg-dark text-light text-center">
+							<h2>[[${#httpServletRequest.remoteUser}]]</h2>
+						</div>
+						<div class="card-body">
 
-				<form th:action="@{/usuario/detalle_perfil/update}" method="post">
-					<input type="hidden" name="id" th:value="${usuario.id}"> 
-					<div class="form-group">
-						<label for="email" class="form-label font-weight-bold">Email:</label>
-						<input type="text" class="form-control" id="email"
-							name="email" required
-							th:value="${usuario.email}" >
+							<form th:action="@{/usuario/detalle_perfil/update}" method="post">
+								<input type="hidden" name="id" th:value="${usuario.id}">
+								<div class="form-group">
+									<label for="email" class="form-label font-weight-bold">Email:</label>
+									<input type="text" class="form-control" id="email" name="email"
+										required th:value="${usuario.email}">
+								</div>
+								<div class="form-group">
+									<label for="password" class="form-label font-weight-bold">Password:</label><br>
+									<small class="text-info font-italic">Puede borrar el
+										campo, escribir otra contraseña y el programa volverá a
+										encriptarla.</small> <input type="text" class="form-control"
+										id="password" name="password" th:value="${usuario.password}"
+										onclick="if(this.value!=null) this.value=''">
+								</div>
+								<div class="form-group">
+									<label for="nombre" class="form-label font-weight-bold">Nombre:</label>
+									<input type="text" class="form-control" id="nombre"
+										name="nombre" required th:value="${usuario.nombre}">
+								</div>
+								<div class="form-group">
+									<label for="apellido1" class="form-label font-weight-bold">Primer
+										apellido:</label> <input type="text" class="form-control"
+										id="apellido1" name="apellido1" required
+										th:value="${usuario.apellido1}">
+								</div>
+								<div class="form-group">
+									<label for="apellido2" class="form-label font-weight-bold">Segundo
+										apellido:</label> <input type="text" class="form-control"
+										id="apellido2" name="apellido2" required
+										th:value="${usuario.apellido2}">
+								</div>
+								<div class="form-group">
+									<label for="direccion" class="form-label font-weight-bold">Dirección:</label>
+									<input type="text" class="form-control" id="direccion"
+										name="direccion" required th:value="${usuario.direccion}">
+								</div>
+								<div class="form-group">
+									<label for="localidad" class="form-label font-weight-bold">Localidad:</label>
+									<input type="text" class="form-control" id="localidad"
+										name="localidad" required th:value="${usuario.localidad}">
+								</div>
+								<div class="form-group">
+									<label for="provincia" class="form-label font-weight-bold">Provincia:</label>
+									<input type="text" class="form-control" id="provincia"
+										name="provincia" required th:value="${usuario.provincia}">
+								</div>
+								<div class="form-group">
+									<label for="telefono" class="form-label font-weight-bold">Teléfono:</label>
+									<input type="text" class="form-control" id="telefono"
+										name="telefono" required th:value="${usuario.telefono}">
+								</div>
+								<div class="form-group">
+									<label for="dni" class="form-label font-weight-bold">DNI:</label>
+									<input type="text" class="form-control" id="dni" name="dni"
+										required th:value="${usuario.dni}">
+								</div>
+								<div class="form-group">
+									<label for="tipo" class="form-label font-weight-bold">Tipo:</label>
+									<input type="text" class="form-control" id="tipo" name="tipo"
+										th:value="${usuario.tipo}" readonly="readonly">
+								</div>
+
+								<div class="card-footer text-center">
+									<button type="submit" class="btn btn-success">Guardar</button>
+									<a type="button" class="btn btn-outline-danger"
+										th:href="@{/administrador/detalle_perfil/}+${usuario.id}">Cancelar</a>
+								</div>
+							</form>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="password" class="form-label font-weight-bold">Password:</label><br> 
-						<small class="text-info font-italic">Puede borrar el campo, escribir otra contraseña y el programa volverá a encriptarla.</small>
-						<input type="text" class="form-control" id="password"
-							name="password" th:value="${usuario.password}" onclick = "if(this.value!=null) this.value=''">
-					</div>
-					<div class="form-group">
-						<label for="nombre" class="form-label font-weight-bold">Nombre:</label> <input
-							type="text" class="form-control" id="nombre" name="nombre"
-							required th:value="${usuario.nombre}" >
-					</div>					
-					<div class="form-group">
-						<label for="apellido1" class="form-label font-weight-bold">Primer apellido:</label> <input
-							type="text" class="form-control" id="apellido1" name="apellido1"
-							required th:value="${usuario.apellido1}" >
-					</div>
-					<div class="form-group">
-						<label for="apellido2" class="form-label font-weight-bold">Segundo apellido:</label> <input
-							type="text" class="form-control" id="apellido2" name="apellido2"
-							required th:value="${usuario.apellido2}">
-					</div>
-					<div class="form-group">
-						<label for="direccion" class="form-label font-weight-bold">Dirección:</label> <input
-							type="text" class="form-control" id="direccion" name="direccion"
-							required th:value="${usuario.direccion}" >
-					</div>
-					<div class="form-group">
-						<label for="localidad" class="form-label font-weight-bold">Localidad:</label> <input
-							type="text" class="form-control" id="localidad" name="localidad"
-							required th:value="${usuario.localidad}" >
-					</div>
-					<div class="form-group">
-						<label for="provincia" class="form-label font-weight-bold">Provincia:</label> <input
-							type="text" class="form-control" id="provincia" name="provincia" required
-							th:value="${usuario.provincia}" >
-					</div>
-					<div class="form-group">
-						<label for="telefono" class="form-label font-weight-bold">Teléfono:</label> <input
-							type="text" class="form-control" id="telefono"
-							name="telefono" required th:value="${usuario.telefono}" >
-					</div>
-					<div class="form-group">
-						<label for="dni" class="form-label font-weight-bold">DNI:</label> <input
-							type="text" class="form-control" id="dni"
-							name="dni" required th:value="${usuario.dni}" >
-					</div>
-					<div class="form-group">
-						<label for="tipo" class="form-label font-weight-bold">Tipo:</label> <input
-							type="text" class="form-control" id="tipo" name="tipo"
-							th:value="${usuario.tipo}" readonly="readonly">
-					</div>
-						
-					<div class="card-footer text-center">
-						<button type="submit" class="btn btn-success">Guardar</button>
-						<a type="button" class="btn btn-outline-danger" th:href="@{/administrador/detalle_perfil/}+${usuario.id}">Cancelar</a>
-					</div>
-				</form>				
+				</div>
 			</div>
 		</div>
 	</div>
-	<br>	
-      
-      
-  </div>
-  <!-- /.container -->
-
- <!-- Footer -->
- <footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
-	<!-- <div th:include="usuario/template_usuario.html::footer"></div>
-
-	Bootstrap core JavaScript
-	<script th:src="@{/jquery/jquery.min.js}"></script>
-	<script th:src="@{/js/bootstrap.bundle.min.js}"></script> -->
-	<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+	<br>
+	<br>
+	<!-- Footer -->
+	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 
 </body>
 

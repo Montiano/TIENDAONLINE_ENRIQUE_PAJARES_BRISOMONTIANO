@@ -6,94 +6,110 @@
 
 <body>
 
-  <!-- Navigation -->
-<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<!-- Navigation -->
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
 	<!-- Mensajes flash -->
-		<div class="alert alert-success alert-dismissible fade show" role="alert"
-			th:if="${pedidoGuardado != null}">
-			<label th:text="${pedidoGuardado}"></label>
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-			</button>
-		</div>
-		
-		<div class="alert alert-warning alert-dismissible fade show" role="alert"
-			th:if="${pedidoEditado != null}">
-			<label th:text="${pedidoEditado}"></label>
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-			</button>
-		</div>
-		
-		<div class="alert alert-danger alert-dismissible fade show" role="alert"
-			th:if="${pedidoEliminado != null}">
-			<label th:text="${pedidoEliminado}"></label>
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-			</button>
-		</div>
+	<div class="alert alert-success alert-dismissible fade show"
+		role="alert" th:if="${pedidoGuardado != null}">
+		<label th:text="${pedidoGuardado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
+
+	<div class="alert alert-warning alert-dismissible fade show"
+		role="alert" th:if="${pedidoEditado != null}">
+		<label th:text="${pedidoEditado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
+
+	<div class="alert alert-danger alert-dismissible fade show"
+		role="alert" th:if="${pedidoEliminado != null}">
+		<label th:text="${pedidoEliminado}"></label>
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+		</button>
+	</div>
+	<div class="eva-left">
+		<div class="eva-right">
+
+			<!-- Page Content -->
+			<div class="container">
 
 
-    <!-- Page Content -->
-    <div class="container">
-
-
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3 d-flex justify-content-between align-self-center">
-			<span>Pedidos</span>
+				<!-- Page Heading/Breadcrumbs -->
+				<h1
+					class="mt-4 mb-3 d-flex justify-content-between align-self-center">
+					<span>Pedidos</span>
 				</h1>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Pedidos</li>
-      </ol>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+					<li class="breadcrumb-item active">Pedidos</li>
+				</ol>
 
-      <!-- Blog Post -->
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="row">
-           <div class="col-lg-12">
-            <table class="table table-hover text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Nº de Factura</th>
-                  <th scope="col">Valor Total</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">Método de pago</th>
-                  <th scope="col">Fecha compra</th>                
-                  <th scope="col">Ver</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Eliminar</th>
-                  <th scope="col">Exportar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr th:each="pedido:${pedidos}">
-                  <td th:text="${pedido.estado == 'E'} ? ${pedido.numFactura} : 'S/N'" ></td>
-                  <td th:text="${pedido.total}+' €'"></td>
-                  <td th:text="${pedido.estado}"></td>
-                  <td th:text="${pedido.metodoPago}"></td>
-                  <td th:text="${pedido.fecha}"></td>
-                  <td><a th:href="@{/administrador/detalle/}+${pedido.id}" class="btn btn-info">Detalle</a></td>
-                  <td><a th:href="@{/administrador/pedidos/editar_pedido/}+${pedido.id}" class="btn btn-warning">Editar</a></td>
-                  <td><a th:href="@{/administrador/pedidos/eliminar_pedido/}+${pedido.id}" class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar?');">Eliminar</a></td>
-                  <td><a th:if="${pedido.estado == 'E'}" class="btn btn-outline-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}"> <i class="bi bi-file-earmark-pdf-fill"></i> PDF</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<br><br>
-<!-- Footer -->
-<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
+				<!-- Blog Post -->
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th scope="col">Nº de Factura</th>
+											<th scope="col">Valor Total</th>
+											<th scope="col">Estado</th>
+											<th scope="col">Método de pago</th>
+											<th scope="col">Fecha compra</th>
+											<th scope="col">Ver</th>
+											<th scope="col">Editar</th>
+											<th scope="col">Eliminar</th>
+											<th scope="col">Exportar</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="pedido:${pedidos}">
+											<td
+												th:text="${pedido.estado == 'E'} ? ${pedido.numFactura} : 'S/N'"></td>
+											<td th:text="${pedido.total}+' €'"></td>
+											<td th:text="${pedido.estado}"></td>
+											<td th:text="${pedido.metodoPago}"></td>
+											<td th:text="${pedido.fecha}"></td>
+											<td><a th:href="@{/administrador/detalle/}+${pedido.id}"
+												class="btn btn-info">Detalle</a></td>
+											<td><a
+												th:href="@{/administrador/pedidos/editar_pedido/}+${pedido.id}"
+												class="btn btn-warning">Editar</a></td>
+											<td><a
+												th:href="@{/administrador/pedidos/eliminar_pedido/}+${pedido.id}"
+												class="btn btn-danger"
+												onclick="return confirm('¿Está seguro de eliminar?');">Eliminar</a></td>
+											<td><a th:if="${pedido.estado == 'E'}"
+												class="btn btn-outline-danger justify-content-end"
+												th:href="@{/usuario/exportarFacturaPDF/}+${pedido.id}">
+													<i class="bi bi-file-earmark-pdf-fill"></i> PDF
+											</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<br> <br>
+			<!-- Footer -->
+			<footer
+				th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
+		</div>
+	</div>
 </body>
 
 </html>

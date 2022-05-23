@@ -6,100 +6,97 @@
 
 <body>
 
-  <!-- Navigation -->
-  <!-- <div th:include="usuario/template_usuario.html::header"></div> -->
-<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
-    <!-- Page Content -->
-    <div class="container">
+	<!-- Navigation -->
+	<!-- <div th:include="usuario/template_usuario.html::header"></div> -->
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
 
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-        Tienda Online <small>Resumen del pedido</small>
-      </h1>
+				<!-- Page Heading/Breadcrumbs -->
+				<h1 class="mt-4 mb-3">
+					Tienda Online <small>Resumen del pedido</small>
+				</h1>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item"><a th:href="@{/getCart}">Carrito</a></li>
-        <li class="breadcrumb-item active">Pedido</li>
-      </ol>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+					<li class="breadcrumb-item"><a th:href="@{/getCart}">Carrito</a></li>
+					<li class="breadcrumb-item active">Pedido</li>
+				</ol>
 
-      <!-- Blog Post -->
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="row">
-           <div class="col-lg-9">
-             <div class="card-body">
-              <h5 class="card-title">
-                DATOS PEDIDO
-              </h5>
-              <h6 th:text="'Nombre: '+${usuario.nombre}"></h6>
-              <h6 th:text="'Email: '+${usuario.email}"> </h6>
-              <h6 th:text="'Dirección: '+${usuario.direccion} + ' (' + ${usuario.localidad} + ')'"></h6>
-				<hr>
-              <h5 class="card-title">
-                PRODUCTOS
-              </h5>
-              <div class="alert alert-light" role="alert">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Producto</th>
-                      <th scope="col">Precio</th>
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr th:each="detalle:${detallesPedido}">
-						<td th:text="${detalle.nombre}"></td>
-						<td th:text="${detalle.precioUnidad}"></td>
-						<td th:text="${detalle.unidades}"></td>
-						<td th:text="${detalle.total}"></td>
-						
-					</tr>
-                 </tbody>
-               </table>
-             </div>
+				<!-- Blog Post -->
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-9">
+								<div class="card-body">
+									<h5 class="card-title">DATOS PEDIDO</h5>
+									<h6 th:text="'Nombre: '+${usuario.nombre}"></h6>
+									<h6 th:text="'Email: '+${usuario.email}"></h6>
+									<h6
+										th:text="'Dirección: '+${usuario.direccion} + ' (' + ${usuario.localidad} + ')'"></h6>
+									<hr>
+									<h5 class="card-title">PRODUCTOS</h5>
+									<div class="alert alert-light" role="alert">
+										<table class="table">
+											<thead>
+												<tr>
+													<th scope="col">Producto</th>
+													<th scope="col">Precio</th>
+													<th scope="col">Cantidad</th>
+													<th scope="col">Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="detalle:${detallesPedido}">
+													<td th:text="${detalle.nombre}"></td>
+													<td th:text="${detalle.precioUnidad}"></td>
+													<td th:text="${detalle.unidades}"></td>
+													<td th:text="${detalle.total}"></td>
 
-           </div>
-         </div>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</div>
 
 
-         <div class="col-lg-3">
-          <h2 class="card-title">Resumen pedido</h2>
+							<div class="col-lg-3">
+								<h2 class="card-title">Resumen pedido</h2>
 
-          <ul class="list-group">
-            <li class="list-group-item"><h5 th:text="'Total: '+${pedido.total}+ ' €'"></h5></li>
-            <li class="list-group-item">
-            	<form th:action="@{/saveOrder}" method="GET">
-            	<i class="bi bi-credit-card-2-back-fill"></i>
-	            	<select id="metodoPago" name="metodoPago">	            	
-	            		<option th:value="tarjeta">Tarjeta</option>
-	            		<option th:value="paypal">PayPal</option>
-	            	</select><hr>
-	            <button type="submit" class="btn btn-success">Realizar pedido </button>	
-            	</form>
-            	
-            </li>
-            <!-- <li class="list-group-item"><a th:href="@{/saveOrder}" class="btn btn-dark">Realizar pedido</a></li> -->
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <!-- /.container -->
+								<ul class="list-group">
+									<li class="list-group-item"><h5
+											th:text="'Total: '+${pedido.total}+ ' €'"></h5></li>
+									<li class="list-group-item">
+										<form th:action="@{/saveOrder}" method="GET">
+											<i class="bi bi-credit-card-2-back-fill"></i> <select
+												id="metodoPago" name="metodoPago">
+												<option th:value="tarjeta">Tarjeta</option>
+												<option th:value="paypal">PayPal</option>
+											</select>
+											<hr>
+											<button type="submit" class="btn btn-success">Realizar
+												pedido</button>
+										</form>
 
-  <!-- Footer -->
-  <footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
-	<!-- <div th:include="usuario/template_usuario.html::footer"></div>
+									</li>
+									<!-- <li class="list-group-item"><a th:href="@{/saveOrder}" class="btn btn-dark">Realizar pedido</a></li> -->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	Bootstrap core JavaScript
-	<script th:src="@{/jquery/jquery.min.js}"></script>
-	<script th:src="@{/js/bootstrap.bundle.min.js}"></script> -->
-	<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+
+	<!-- Footer -->
+	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 
 </body>
 

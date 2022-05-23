@@ -26,103 +26,133 @@
 		</div>
 	</nav>
 	<div class="alert alert-danger alert-dismissible fade show"
-			role="alert" th:if="${usuarioYaRegistrado != null}">
+		role="alert" th:if="${usuarioYaRegistrado != null}">
 		<label th:text="${usuarioYaRegistrado}"></label>
 		<button type="button" class="close" data-dismiss="alert"
 			aria-label="Close">
 			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
 		</button>
 	</div>
-	<br><br>
-	<!-- Page Content -->
-	<div class="d-flex justify-content-center align-self-center">
+	<br>
+	<br>
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="d-flex justify-content-center align-self-center">
 
-		<div class="card mb-3" style="width: 26rem;">
-			<div class="card-header bg-dark text-light text-center">
-				<h2>Registro</h2>
-			</div>
-			<div class="card-body">
+				<div class="card mb-3" style="width: 26rem;">
+					<div class="card-header bg-dark text-light text-center">
+						<h2>Registro</h2>
+					</div>
+					<div class="card-body">
 
-				<form th:action="@{/usuario/save}" method="post" th:object="${usuario}">
+						<form th:action="@{/usuario/save}" method="post"
+							th:object="${usuario}">
 
-					<div class="form-group">
-						<label for="nombre" class="form-label">Nombre:</label> 
-						<input
-							type="text" class="form-control" id="nombre"
-									name="nombre"
-							 placeholder="Introduzca su nombre" autocomplete="off" th:field="*{nombre}" th:errorclass="'form-control danger'" >
-							 <span class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
-					</div>
-					<div class="form-group">
-						<label for="apellido1" class="form-label">Primer apellido:</label>
-						<input type="text" class="form-control" id="apellido1"
-							name="apellido1" 
-							placeholder="Introduzca su primer apellido" autocomplete="off"th:field="*{apellido1}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido1')}" th:errors="*{apellido1}"></small>
-					</div>
-					<div class="form-group">
-						<label for="apellido2" class="form-label">Segundo
-							apellido:</label> <input type="text" class="form-control" id="apellido2"
-							name="apellido2" placeholder="Introduzca su segundo apellido"
-							autocomplete="off"th:field="*{apellido2}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido2')}" th:errors="*{apellido2}"></small>
-					</div>
-					<div class="form-group">
-						<label for="email" class="form-label">Email:</label> <input
-							type="email" class="form-control" id="email" name="email"
-							 placeholder="Introduzca su email" autocomplete="off"th:field="*{email}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
-					</div>
-					<div class="form-group">
-						<label for="telefono" class="form-label">Teléfono:</label> <input
-							type="text" class="form-control" id="telefono" name="telefono"
-							 placeholder="Introduzca su teléfono" autocomplete="off"th:field="*{telefono}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
-					</div>
-					<div class="form-group">
-						<label for="direccion" class="form-label">Dirección:</label> <input
-							type="text" class="form-control" id="direccion" name="direccion"
-							 placeholder="Introduzca su dirección" autocomplete="off"th:field="*{direccion}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></small>
-					</div>
-					<div class="form-group">
-						<label for="localidad" class="form-label">Localidad:</label> <input
-							type="text" class="form-control" id="localidad" name="localidad"
-							 placeholder="Introduzca su localidad" autocomplete="off"th:field="*{localidad}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('localidad')}" th:errors="*{localidad}"></small>
-					</div>
-					<div class="form-group">
-						<label for="provincia" class="form-label">Provincia:</label> <input
-							type="text" class="form-control" id="provincia" name="provincia"
-							 placeholder="Introduzca su provincia" autocomplete="off"th:field="*{provincia}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></small>
-					</div>
-					<div class="form-group">
-						<label for="dni" class="form-label">DNI:</label> <input
-							type="text" class="form-control" id="dni" name="dni" 
-							placeholder="Introduzca su dni" autocomplete="off" th:field="*{dni}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></small>
-					</div>
-					<div class="form-group">
-						<label for="password" class="form-label">Contraseña:</label> <input
-							type="password" class="form-control" id="password"
-							name="password"  placeholder="Introduzca su contraseña"
-							autocomplete="off"th:field="*{password}" >
-							 <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
-					</div>
+							<div class="form-group">
+								<label for="nombre" class="form-label">Nombre:</label> <input
+									type="text" class="form-control" id="nombre" name="nombre"
+									placeholder="Introduzca su nombre" autocomplete="off"
+									th:field="*{nombre}" th:errorclass="'form-control danger'">
+								<span class="form-text text-danger"
+									th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+							</div>
+							<div class="form-group">
+								<label for="apellido1" class="form-label">Primer
+									apellido:</label> <input type="text" class="form-control"
+									id="apellido1" name="apellido1"
+									placeholder="Introduzca su primer apellido" autocomplete="off"
+									th:field="*{apellido1}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('apellido1')}"
+									th:errors="*{apellido1}"></small>
+							</div>
+							<div class="form-group">
+								<label for="apellido2" class="form-label">Segundo
+									apellido:</label> <input type="text" class="form-control"
+									id="apellido2" name="apellido2"
+									placeholder="Introduzca su segundo apellido" autocomplete="off"
+									th:field="*{apellido2}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('apellido2')}"
+									th:errors="*{apellido2}"></small>
+							</div>
+							<div class="form-group">
+								<label for="email" class="form-label">Email:</label> <input
+									type="email" class="form-control" id="email" name="email"
+									placeholder="Introduzca su email" autocomplete="off"
+									th:field="*{email}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+							</div>
+							<div class="form-group">
+								<label for="telefono" class="form-label">Teléfono:</label> <input
+									type="text" class="form-control" id="telefono" name="telefono"
+									placeholder="Introduzca su teléfono" autocomplete="off"
+									th:field="*{telefono}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('telefono')}"
+									th:errors="*{telefono}"></small>
+							</div>
+							<div class="form-group">
+								<label for="direccion" class="form-label">Dirección:</label> <input
+									type="text" class="form-control" id="direccion"
+									name="direccion" placeholder="Introduzca su dirección"
+									autocomplete="off" th:field="*{direccion}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('direccion')}"
+									th:errors="*{direccion}"></small>
+							</div>
+							<div class="form-group">
+								<label for="localidad" class="form-label">Localidad:</label> <input
+									type="text" class="form-control" id="localidad"
+									name="localidad" placeholder="Introduzca su localidad"
+									autocomplete="off" th:field="*{localidad}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('localidad')}"
+									th:errors="*{localidad}"></small>
+							</div>
+							<div class="form-group">
+								<label for="provincia" class="form-label">Provincia:</label> <input
+									type="text" class="form-control" id="provincia"
+									name="provincia" placeholder="Introduzca su provincia"
+									autocomplete="off" th:field="*{provincia}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('provincia')}"
+									th:errors="*{provincia}"></small>
+							</div>
+							<div class="form-group">
+								<label for="dni" class="form-label">DNI:</label> <input
+									type="text" class="form-control" id="dni" name="dni"
+									placeholder="Introduzca su dni" autocomplete="off"
+									th:field="*{dni}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></small>
+							</div>
+							<div class="form-group">
+								<label for="password" class="form-label">Contraseña:</label> <input
+									type="password" class="form-control" id="password"
+									name="password" placeholder="Introduzca su contraseña"
+									autocomplete="off" th:field="*{password}"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('password')}"
+									th:errors="*{password}"></small>
+							</div>
 
-					<div class="card-footer text-center">
-						<button type="submit" class="btn btn-success">Guardar</button>
+							<div class="card-footer text-center">
+								<button type="submit" class="btn btn-success">Guardar</button>
+							</div>
+						</form>
 					</div>
-				</form>				
+				</div>
 			</div>
 		</div>
 	</div>
-	<br>	
+	<br>
 
 	<!-- Footer -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
-	
+
 
 </body>
 

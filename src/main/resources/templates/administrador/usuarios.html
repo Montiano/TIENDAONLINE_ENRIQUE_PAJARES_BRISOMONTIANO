@@ -8,61 +8,73 @@
 
 	<!-- Navigation -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
-	<!-- Page Content -->
-	<div class="container">
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
 
-		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3 d-flex justify-content-between align-self-center">
-			<span>Usuarios</span>
-				<span><a class="btn btn-primary"
-				th:href="@{/administrador/crear_usuario}"><i class="bi bi-person-plus-fill"></i> Crear Usuario</a></span>
-		</h1>
+				<!-- Page Heading/Breadcrumbs -->
+				<h1
+					class="mt-4 mb-3 d-flex justify-content-between align-self-center">
+					<span>Usuarios</span> <span><a class="btn btn-primary"
+						th:href="@{/administrador/crear_usuario}"><i
+							class="bi bi-person-plus-fill"></i> Crear Usuario</a></span>
+				</h1>
 
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-			<li class="breadcrumb-item active">Ver Usuarios</li>
-		</ol>
-		<div class="card mb-4">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-lg-12">
-						<table class="table table-hover text-center">
-							<thead>
-								<tr>
-									<th scope="col">Nombre</th>
-									<th scope="col">Apellido</th>
-									<th scope="col">Email</th>
-									<th scope="col">Teléfono</th>
-									<th scope="col">Tipo</th>
-									<th scope="col">Ver</th>
-									<th scope="col">Editar</th>
-									<th scope="col">Eliminar</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="usuario:${usuarios}">
-									<td th:text="${usuario.nombre}"></td>
-									<td th:text="${usuario.apellido1}"></td>
-									<td th:text="${usuario.email}"></td>
-									<td th:text="${usuario.telefono}"></td>
-									<td th:text="${usuario.tipo}"></td>
-									<td><a th:href="@{/administrador/detalle_perfil/}+${usuario.id}" class="btn btn-info">Detalle</a></td>
-									<td><a th:href="@{/administrador/detalle_perfil/editar_perfil/}+${usuario.id}" class="btn btn-warning">Editar</a></td>
-									<td><a th:href="@{/administrador/detalle_perfil/eliminar_perfil/}+${usuario.id}" class="btn btn-danger" onclick="return confirm('¿Está seguro de eliminar el usuario?');">Eliminar</a></td>
-								</tr>
-							</tbody>
-						</table>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+					<li class="breadcrumb-item active">Ver Usuarios</li>
+				</ol>
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th scope="col">Nombre</th>
+											<th scope="col">Apellido</th>
+											<th scope="col">Email</th>
+											<th scope="col">Teléfono</th>
+											<th scope="col">Tipo</th>
+											<th scope="col">Ver</th>
+											<th scope="col">Editar</th>
+											<th scope="col">Eliminar</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="usuario:${usuarios}">
+											<td th:text="${usuario.nombre}"></td>
+											<td th:text="${usuario.apellido1}"></td>
+											<td th:text="${usuario.email}"></td>
+											<td th:text="${usuario.telefono}"></td>
+											<td th:text="${usuario.tipo}"></td>
+											<td><a
+												th:href="@{/administrador/detalle_perfil/}+${usuario.id}"
+												class="btn btn-info">Detalle</a></td>
+											<td><a
+												th:href="@{/administrador/detalle_perfil/editar_perfil/}+${usuario.id}"
+												class="btn btn-warning">Editar</a></td>
+											<td><a
+												th:href="@{/administrador/detalle_perfil/eliminar_perfil/}+${usuario.id}"
+												class="btn btn-danger"
+												onclick="return confirm('¿Está seguro de eliminar el usuario?');">Eliminar</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<br> <br>
+			<!-- Footer -->
+			<footer
+				th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 		</div>
 	</div>
-	<br>
-	<br>
-	<!-- Footer -->
-	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
-
 </body>
 
 </html>

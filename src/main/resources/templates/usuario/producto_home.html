@@ -6,77 +6,74 @@
 
 <body>
 
-  	<!-- Navigation -->
- <!--  	<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
-  
-  	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div> -->
-  
-  <header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<!-- Navigation -->
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
 
-    <!-- Page Content -->
-    <div class="container">
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
 
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
-        Tienda Online <small>Producto</small>
-      </h1>
+				<!-- Page Heading/Breadcrumbs -->
+				<h1 class="mt-4 mb-3">
+					Tienda Online <small>Producto</small>
+				</h1>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Producto</li>
-      </ol>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+					<li class="breadcrumb-item active">Producto</li>
+				</ol>
 
-      <!-- Blog Post -->
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-6">
-              <a href="#"> <img class="img-fluid rounded"
-                th:src="@{/images/}+${producto.imagen}"  alt="imagen">
-              </a>
-            </div>
-            <div class="col-lg-6">
-              <form th:action="@{/cart}" method="POST">
-              <input type="hidden" th:value="${producto.id}" name="id">
-                <h2 class="card-title" th:text="${producto.nombre}"></h2>
+				<!-- Blog Post -->
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-6 text-center">
+								<a href="#"> <img class="img-fluid rounded"
+									th:src="@{/images/}+${producto.imagen}" alt="imagen">
+								</a>
+							</div>
+							<div class="col-lg-6">
+								<form th:action="@{/cart}" method="POST">
+									<input type="hidden" th:value="${producto.id}" name="id">
+									<h2 class="card-title" th:text="${producto.nombre}"></h2>
 
-                <ul class="list-group">
-                  <li class="list-group-item"><h5 th:text=" 'Precio: ' + ${producto.precio} + ' €'"></h5></li>
-                  <li class="list-group-item">
-                    <p th:text="'Descripción: ' + ${producto.descripcion}"></p>
-                  </li>
-                  <li class="list-group-item">
-	                  <h6>
-	                    Unidades: <input type="number" id="unidades" name="unidades" autocomplete="off"
-	                    min="1" max="10" value="1">&emsp;
-	                    <label class="text-danger font-italic">Stock: </label>
-	                    <input class="text-danger font-italic border-0" id="stock"
-	                     name="stock" th:value="${producto.stock}" ></input>
-	                  </h6>
-                	  
-                  </li>
-                </ul><br>	
-                <button type="submit" class="btn btn-success" th:if="${session.idUsuario} != 1"><i class="bi bi-cart-plus"></i> Añadir al carrito </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+									<ul class="list-group">
+										<li class="list-group-item"><h5
+												th:text=" 'Precio: ' + ${producto.precio} + ' €'"></h5></li>
+										<li class="list-group-item">
+											<p th:text="'Descripción: ' + ${producto.descripcion}"></p>
+										</li>
+										<li class="list-group-item">
+											<h6>
+												Unidades: <input type="number" id="unidades" name="unidades"
+													autocomplete="off" min="1" max="10" value="1">&emsp;
+												<label class="text-danger font-italic">Stock: </label> <input
+													class="text-danger font-italic border-0" id="stock"
+													name="stock" th:value="${producto.stock}"></input>
+											</h6>
 
+										</li>
+									</ul>
+									<br>
+									<button type="submit" class="btn btn-success"
+										th:if="${session.idUsuario} != 1">
+										<i class="bi bi-cart-plus"></i> Añadir al carrito
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 
-    </div>
-    <!-- /.container -->
+			</div>
+		</div>
+	</div>
+	<br>
 
-    <!-- Footer -->
-    <footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
-    <!-- <div th:include="usuario/template_usuario.html::footer"></div>
+	<!-- Footer -->
+	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
+</body>
 
-    Bootstrap core JavaScript
-    <script th:src="@{/jquery/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.bundle.min.js}"></script> -->
-    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
-  </body>
-
-  </html>
+</html>

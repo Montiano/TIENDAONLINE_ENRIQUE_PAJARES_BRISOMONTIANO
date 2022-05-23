@@ -6,121 +6,134 @@
 
 <body>
 
-  <!-- Navigation -->
-  <!-- <div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
-  
-  	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div> -->
-  <header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	<!-- Navigation -->
 
-	<div class="alert alert-success alert-dismissible fade show"
-		role="alert" th:if="${perfilEditado != null}">
-		<label th:text="${perfilEditado}"></label>
-		<button type="button" class="close" data-dismiss="alert"
-			aria-label="Close">
-			<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
-		</button>
-	</div>
+	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
+	
+			<div class="alert alert-success alert-dismissible fade show"
+				role="alert" th:if="${perfilEditado != null}">
+				<label th:text="${perfilEditado}"></label>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true"><i class="bi bi-x-circle-fill"></i></span>
+				</button>
+			</div>
+
+<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
 
-    <!-- Page Content -->
-    <div class="container">
+				<h1 class="mt-4 mb-3">
+					Tienda Online <small>Perfil</small>
+				</h1>
+
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/administrador}">Home</a></li>
+					<li class="breadcrumb-item active">Perfil</li>
+				</ol>
 
 
-      <h1 class="mt-4 mb-3">
-        Tienda Online <small>Perfil</small>
-      </h1>
-
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/administrador}">Home</a></li>
-        <li class="breadcrumb-item active">Perfil</li>
-      </ol>
-
-	  
-	  <!-- <div class="container">
+				<!-- <div class="container">
 	  	<a class="btn btn-danger justify-content-end" th:href="@{/usuario/exportarFacturaPDF}+${pedido.id}">Exportar factura a PDF</a>
 	  </div><br>	 -->
-	<div class="d-flex justify-content-center align-self-center">
+				<div class="d-flex justify-content-center align-self-center">
 
-		<div class="card mb-3" style="width: 34rem;">
-			<div class="card-header bg-dark text-light text-center">
-				<h2>[[${#httpServletRequest.remoteUser}]]</h2>
-			</div>
-			<div class="card-body">
+					<div class="card mb-3" style="width: 34rem;">
+						<div class="card-header bg-dark text-light text-center">
+							<h2>[[${#httpServletRequest.remoteUser}]]</h2>
+						</div>
+						<div class="card-body">
 
-				<form th:action="@{/administrador/detalle_perfil/editar_perfil}" method="get" th:object="${usuarioLoggeado}">
-					<input type="hidden" name="id" th:value="${usuarioLoggeado.id}"> 
-					<div class="form-group">
-						<label for="email" class="form-label font-weight-bold">Email:</label>
-						<input type="text" class="form-control" id="email"
-							name="email" required
-							th:value="${usuarioLoggeado.email}" readonly="readonly">
+							<form th:action="@{/administrador/detalle_perfil/editar_perfil}"
+								method="get" th:object="${usuarioLoggeado}">
+								<input type="hidden" name="id" th:value="${usuarioLoggeado.id}">
+								<div class="form-group">
+									<label for="email" class="form-label font-weight-bold">Email:</label>
+									<input type="text" class="form-control" id="email" name="email"
+										required th:value="${usuarioLoggeado.email}"
+										readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="password" class="form-label font-weight-bold">Password:</label>
+									<input type="text" class="form-control" id="password"
+										name="password" th:value="${usuarioLoggeado.password}"
+										readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="nombre" class="form-label font-weight-bold">Nombre:</label>
+									<input type="text" class="form-control" id="nombre"
+										name="nombre" required th:value="${usuarioLoggeado.nombre}"
+										readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="apellido1" class="form-label font-weight-bold">Primer
+										apellido:</label> <input type="text" class="form-control"
+										id="apellido1" name="apellido1" required
+										th:value="${usuarioLoggeado.apellido1}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="apellido2" class="form-label font-weight-bold">Segundo
+										apellido:</label> <input type="text" class="form-control"
+										id="apellido2" name="apellido2" required
+										th:value="${usuarioLoggeado.apellido2}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="direccion" class="form-label font-weight-bold">Dirección:</label>
+									<input type="text" class="form-control" id="direccion"
+										name="direccion" required
+										th:value="${usuarioLoggeado.direccion}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="localidad" class="form-label font-weight-bold">Localidad:</label>
+									<input type="text" class="form-control" id="localidad"
+										name="localidad" required
+										th:value="${usuarioLoggeado.localidad}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="provincia" class="form-label font-weight-bold">Provincia:</label>
+									<input type="text" class="form-control" id="provincia"
+										name="provincia" required
+										th:value="${usuarioLoggeado.provincia}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="telefono" class="form-label font-weight-bold">Teléfono:</label>
+									<input type="text" class="form-control" id="telefono"
+										name="telefono" required
+										th:value="${usuarioLoggeado.telefono}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="dni" class="form-label font-weight-bold">DNI:</label>
+									<input type="text" class="form-control" id="dni" name="dni"
+										required th:value="${usuarioLoggeado.dni}" readonly="readonly">
+								</div>
+								<div class="form-group">
+									<label for="tipo" class="form-label font-weight-bold">Tipo:</label>
+									<input type="text" class="form-control" id="tipo" name="tipo"
+										th:value="${usuarioLoggeado.tipo}" readonly="readonly">
+								</div>
+
+								<div class="card-footer text-center">
+									<!-- <button type="submit" class="btn btn-warning">Editar</button> -->
+									<a
+										th:href="@{/administrador/detalle_perfil/editar_perfil/}+${usuarioLoggeado.id}"
+										class="btn btn-info">Editar</a>
+								</div>
+							</form>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="password" class="form-label font-weight-bold">Password:</label> <input type="text" class="form-control" id="password"
-							name="password" th:value="${usuarioLoggeado.password}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="nombre" class="form-label font-weight-bold">Nombre:</label> <input
-							type="text" class="form-control" id="nombre" name="nombre"
-							required th:value="${usuarioLoggeado.nombre}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="apellido1" class="form-label font-weight-bold">Primer apellido:</label> <input
-							type="text" class="form-control" id="apellido1" name="apellido1"
-							required th:value="${usuarioLoggeado.apellido1}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="apellido2" class="form-label font-weight-bold">Segundo apellido:</label> <input
-							type="text" class="form-control" id="apellido2" name="apellido2"
-							required th:value="${usuarioLoggeado.apellido2}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="direccion" class="form-label font-weight-bold">Dirección:</label> <input
-							type="text" class="form-control" id="direccion" name="direccion"
-							required th:value="${usuarioLoggeado.direccion}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="localidad" class="form-label font-weight-bold">Localidad:</label> <input
-							type="text" class="form-control" id="localidad" name="localidad"
-							required th:value="${usuarioLoggeado.localidad}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="provincia" class="form-label font-weight-bold">Provincia:</label> <input
-							type="text" class="form-control" id="provincia" name="provincia" required
-							th:value="${usuarioLoggeado.provincia}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="telefono" class="form-label font-weight-bold">Teléfono:</label> <input
-							type="text" class="form-control" id="telefono"
-							name="telefono" required th:value="${usuarioLoggeado.telefono}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="dni" class="form-label font-weight-bold">DNI:</label> <input
-							type="text" class="form-control" id="dni"
-							name="dni" required th:value="${usuarioLoggeado.dni}" readonly="readonly">
-					</div>
-					<div class="form-group">
-						<label for="tipo" class="form-label font-weight-bold">Tipo:</label> <input
-							type="text" class="form-control" id="tipo" name="tipo"
-							th:value="${usuarioLoggeado.tipo}" readonly="readonly">
-					</div>
-					
-					<div class="card-footer text-center">
-						<!-- <button type="submit" class="btn btn-warning">Editar</button> -->
-						<a th:href="@{/administrador/detalle_perfil/editar_perfil/}+${usuarioLoggeado.id}" class="btn btn-info">Editar</a>
-					</div>
-				</form>				
+				</div>
 			</div>
 		</div>
-	</div>
-	<br>	
-      
-      
-  </div>
-  <!-- /.container -->
+		<br>
 
- <!-- Footer -->
- <footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 	<!-- <div th:include="usuario/template_usuario.html::footer"></div>
 
 	Bootstrap core JavaScript

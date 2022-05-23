@@ -100,10 +100,7 @@ public class UsuarioController {
 	@GetMapping("/access")
 	public String access(Usuario usuario, HttpSession sesion) {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
-		LOGGER.info("Acceso: {}", usuario);
-//		LOGGER.info("Dato del usuario es: " + sesion.getAttribute("idUsuario"));
-		
-		//int id = Integer.parseInt(sesion.getAttribute("idUsuario").toString());	
+		LOGGER.info("Acceso: {}", usuario);	
 		
 		Optional<Usuario> user = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString()));
 		
@@ -111,16 +108,11 @@ public class UsuarioController {
 		if(user.isPresent()) {
 			sesion.setAttribute("idUsuario", user.get().getId());
 			if(user.get().getTipo().equals("ADMIN")) {
-//				sesion.setAttribute("sessionActive", 1);
 				return "redirect:/administrador";
 			} else {
-//				sesion.setAttribute("sessionActive", 2);
-//				LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 				return "redirect:/";
 			}
 		} else {
-//			sesion.setAttribute("sessionActive", null);
-//			LOGGER.info("Sesión activa es: " + sesion.getAttribute("sessionActive"));
 			LOGGER.info("Usuario no existe");
 		}
 		

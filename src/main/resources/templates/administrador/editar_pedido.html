@@ -8,104 +8,111 @@
 
 	<!-- Navigation -->
 	<header th:replace="plantillas/plantilla_header_footer.html :: header"></header>
-	<!-- Page Content -->
-	<div class="container">
+	<div class="eva-left">
+		<div class="eva-right">
+			<!-- Page Content -->
+			<div class="container">
 
-		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">
-			Tienda Online <small>Pedidos</small>
-		</h1>
+				<!-- Page Heading/Breadcrumbs -->
+				<h1 class="mt-4 mb-3">
+					Tienda Online <small>Pedidos</small>
+				</h1>
 
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-			<li class="breadcrumb-item"><a
-				th:href="@{/administrador/pedidos}">Pedidos</a></li>
-			<li class="breadcrumb-item active">Actualizar Pedido</li>
-		</ol>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+					<li class="breadcrumb-item"><a
+						th:href="@{/administrador/pedidos}">Pedidos</a></li>
+					<li class="breadcrumb-item active">Actualizar Pedido</li>
+				</ol>
 
 
-		<div class="d-flex justify-content-center align-self-center">
+				<div class="d-flex justify-content-center align-self-center">
 
-			<div class="card mb-3" style="width: 46rem;">
-				<div class="card-header bg-dark text-light text-center">
-					<h2>Actualizar Pedido</h2>
-				</div>
-				<div class="card-body">
-
-					<form th:action="@{/administrador/pedidos/update}" method="post">
-						<input type="hidden" name="id" th:value="${pedido.id}">
-
-						<div class="form-group">
-							<label class="form-label font-weight-bold" for="numFactura">Nº
-								factura:</label>
-							<div class="col-sm-12">
-								<input type="text" class="form-control" id="numFactura"
-									name="numFactura" readonly="readonly" required
-									autocomplete="off" th:value="${pedido.estado == 'E'} ? ${pedido.numFactura} : 'S/N'">
-									
-							</div>
+					<div class="card mb-3" style="width: 46rem;">
+						<div class="card-header bg-dark text-light text-center">
+							<h2>Actualizar Pedido</h2>
 						</div>
-						<div class="form-group">
-							<label class="form-label font-weight-bold" for="total">Valor
-								total:</label>
-							<div class="col-sm-12">
-								<input type="number" step="any" class="form-control" id="total"
-									name="total" placeholder="Introduzca el total del pedido"
-									required autocomplete="off" th:value="${pedido.total}">
-							</div>
-						</div>
+						<div class="card-body">
 
-						<div class="form-group">
-							<label class="form-label font-weight-bold" for="estado">Estado:</label>
-							<div class="col-sm-12">
-								<select class="form-control" id="estado" name="estado"
-									th:value="${pedido.estado}" required>
-									<option th:value="PE">PE (Pendiente de envío)</option>
-									<option th:value="PC">PC (Pendiente de cancelación)</option>
-									<option th:value="E">E (Enviado)</option>
-									<option th:value="C">C (Cancelado)</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group text-center">
-							<div class="form-check form-check-inline col-auto">
-								<i class="bi bi-credit-card-2-back-fill"></i>&nbsp; <input
-									class="form-check-input" type="radio"
-									th:value="${pedido.metodoPago}" name="metodoPago" id="tarjeta"
-									value="tarjeta" checked> <label
-									class="form-check-label fw-bold" for="tarjeta"> Tarjeta
-								</label>
-							</div>
-							<div class="form-check form-check-inline col-auto">
-								<i class="bi bi-paypal"></i>&nbsp; <input
-									class="form-check-input" type="radio"
-									th:field="${pedido.metodoPago}" name="metodoPago" id="paypal"
-									value="paypal"> <label class="form-check-label fw-bold"
-									for="paypal"> Paypal </label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="form-label font-weight-bold" for="fecha">Fecha:</label>
-							<div class="col-sm-12">
-								<input type="date" class="form-control" id="fecha" name="fecha"
-									th:value="${pedido.fecha}" required>
-							</div>
-						</div>
+							<form th:action="@{/administrador/pedidos/update}" method="post">
+								<input type="hidden" name="id" th:value="${pedido.id}">
 
-						<div class="card-footer text-center">
-							<button type="submit" class="btn btn-success">Guardar</button>
-							<a type="button" class="btn btn-outline-danger"
-								th:href="@{/administrador/pedidos}">Cancelar</a>
+								<div class="form-group">
+									<label class="form-label font-weight-bold" for="numFactura">Nº
+										factura:</label>
+									<div class="col-sm-12">
+										<input type="text" class="form-control" id="numFactura"
+											name="numFactura" readonly="readonly" required
+											autocomplete="off"
+											th:value="${pedido.estado == 'E'} ? ${pedido.numFactura} : 'S/N'">
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="form-label font-weight-bold" for="total">Valor
+										total:</label>
+									<div class="col-sm-12">
+										<input type="number" step="any" class="form-control"
+											id="total" name="total"
+											placeholder="Introduzca el total del pedido" required
+											autocomplete="off" th:value="${pedido.total}">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="form-label font-weight-bold" for="estado">Estado:</label>
+									<div class="col-sm-12">
+										<select class="form-control" id="estado" name="estado"
+											th:value="${pedido.estado}" required>
+											<option th:value="PE">PE (Pendiente de envío)</option>
+											<option th:value="PC">PC (Pendiente de cancelación)</option>
+											<option th:value="E">E (Enviado)</option>
+											<option th:value="C">C (Cancelado)</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group text-center">
+									<div class="form-check form-check-inline col-auto">
+										<i class="bi bi-credit-card-2-back-fill"></i>&nbsp; <input
+											class="form-check-input" type="radio"
+											th:value="${pedido.metodoPago}" name="metodoPago"
+											id="tarjeta" value="tarjeta" checked> <label
+											class="form-check-label fw-bold" for="tarjeta">
+											Tarjeta </label>
+									</div>
+									<div class="form-check form-check-inline col-auto">
+										<i class="bi bi-paypal"></i>&nbsp; <input
+											class="form-check-input" type="radio"
+											th:field="${pedido.metodoPago}" name="metodoPago" id="paypal"
+											value="paypal"> <label
+											class="form-check-label fw-bold" for="paypal"> Paypal
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="form-label font-weight-bold" for="fecha">Fecha:</label>
+									<div class="col-sm-12">
+										<input type="date" class="form-control" id="fecha"
+											name="fecha" th:value="${pedido.fecha}" required>
+									</div>
+								</div>
+
+								<div class="card-footer text-center">
+									<button type="submit" class="btn btn-success">Guardar</button>
+									<a type="button" class="btn btn-outline-danger"
+										th:href="@{/administrador/pedidos}">Cancelar</a>
+								</div>
+
+
+							</form>
 						</div>
-
-
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
-	<br><br>
+	<br>
+	<br>
 	<!-- Footer -->
 	<footer th:replace="plantillas/plantilla_header_footer.html :: footer"></footer>
 

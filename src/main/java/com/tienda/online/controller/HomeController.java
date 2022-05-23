@@ -142,7 +142,9 @@ public class HomeController {
 
 			// Función anónima con la que cogemos todos los productos y los sumamos
 			sumaTotal = detallesPedido.stream().mapToDouble(dt->dt.getTotal()).sum();
-
+			
+			String.format("%.2f", sumaTotal);
+			
 			pedido.setTotal(sumaTotal);
 
 			// Cambiamos el stock y lo guardamos en la bd
@@ -182,7 +184,7 @@ public class HomeController {
 
 		double sumaTotal = 0;
 		sumaTotal = detallesPedido.stream().mapToDouble(dt->dt.getTotal()).sum();
-
+		String.format("%.2f", sumaTotal);
 		pedido.setTotal(sumaTotal);
 
 		modelo.addAttribute("detallesPedido", detallesPedido);
@@ -250,7 +252,7 @@ public class HomeController {
 		Date fechaCreacion = new Date(Calendar.getInstance().getTimeInMillis());
 
 		pedido.setFecha(fechaCreacion);
-		pedido.setNumFactura(pedidoService.generateNumFra());
+		//pedido.setNumFactura(pedidoService.generateNumFra());
 		Usuario usuario = usuarioService.findById(Long.parseLong(sesion.getAttribute("idUsuario").toString())).get();
 
 		// Se guarda el pedido
