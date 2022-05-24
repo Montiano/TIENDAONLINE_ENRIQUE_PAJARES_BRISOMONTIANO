@@ -297,3 +297,7 @@
 2022-05-24 21:02:35.445  INFO 24504 --- [http-nio-8080-exec-1] c.t.online.controller.UsuarioController  : Usuario registro: Usuario [id=null, email=, password=, nombre=, apellido1=, apellido2=, direccion=, provincia=, localidad=, telefono=, dni=, tipo=null]
 2022-05-24 21:02:45.833  INFO 24504 --- [http-nio-8080-exec-8] c.t.online.controller.UsuarioController  : Usuario registro: Usuario [id=null, email=, password=, nombre=, apellido1=, apellido2=, direccion=, provincia=, localidad=, telefono=55, dni=, tipo=null]
 2022-05-24 21:03:08.028  INFO 24504 --- [http-nio-8080-exec-5] c.t.online.controller.UsuarioController  : Usuario registro: Usuario [id=null, email=, password=, nombre=, apellido1=, apellido2=, direccion=, provincia=, localidad=, telefono=, dni=, tipo=null]
+2022-05-24 21:09:47.728  INFO 24504 --- [RMI TCP Connection(87)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-05-24 21:09:47.965  INFO 24504 --- [RMI TCP Connection(87)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-24 21:09:47.966  INFO 24504 --- [RMI TCP Connection(87)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2022-05-24 21:09:47.980  INFO 24504 --- [RMI TCP Connection(87)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
