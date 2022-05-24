@@ -26,7 +26,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	@Email
-	@NotEmpty
+	@NotEmpty(message="Debe introducir su email")
 	@Column(unique=true)
 	private String email;
 	@NotBlank(message="Debe introducir su contraseña")
@@ -44,7 +44,7 @@ public class Usuario {
 	@NotBlank(message="Debe introducir su localidad")
 	private String localidad;
 	@NotBlank(message="Debe introducir su teléfono")
-	@Pattern(regexp="[0-9]{9}")
+	@Pattern(regexp="[0-9]{9}", message="Debe componerse de 9 cifras")
 	private String telefono;
 	@NotBlank(message="Debe introducir su dni")
 	private String dni;

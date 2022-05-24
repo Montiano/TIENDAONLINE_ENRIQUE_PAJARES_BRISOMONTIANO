@@ -54,8 +54,8 @@
 									type="text" class="form-control" id="nombre" name="nombre"
 									placeholder="Introduzca su nombre" autocomplete="off"
 									th:field="*{nombre}" th:errorclass="'form-control danger'">
-								<span class="form-text text-danger"
-									th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+								<small class="form-text text-danger"
+									th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 							</div>
 							<div class="form-group">
 								<label for="apellido1" class="form-label">Primer

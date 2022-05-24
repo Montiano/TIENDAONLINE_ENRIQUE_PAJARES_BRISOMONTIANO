@@ -77,7 +77,6 @@
 				<div th:if="${session.idUsuario} != 1 ">
 					<div th:if="${session.idUsuario} != null ">
 						<ul class="navbar-nav mr-auto">
-
 							<li sec:authorize="hasRole('USER')" class="nav-item mx-3"><a
 								class="btn btn-outline-success my-2 my-sm-0"
 								th:href="@{/usuario/shopping}"><i class="bi bi-bag"></i>
