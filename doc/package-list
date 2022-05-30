@@ -1,0 +1,6 @@
+com.tienda.online
+com.tienda.online.controller
+com.tienda.online.model
+com.tienda.online.repository
+com.tienda.online.service
+com.tienda.online.utils
