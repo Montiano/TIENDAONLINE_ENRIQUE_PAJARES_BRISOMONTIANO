@@ -1,273 +1,53 @@
-2022-05-29 00:00:31.350  INFO 19476 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-05-29 00:00:31.650  INFO 19476 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 00:00:31.661  INFO 19476 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-05-29 00:00:31.671  INFO 19476 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-05-29 12:35:29.912  INFO 9240 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 9240 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
-2022-05-29 12:35:29.918  INFO 9240 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
-2022-05-29 12:35:30.066  INFO 9240 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Formacion\.m2\repository\javax\mail\mail\1.4\mail-1.4.jar referenced one or more files that do not exist: file:/C:/Users/Formacion/.m2/repository/javax/mail/mail/1.4/activation.jar
-2022-05-29 12:35:30.067  INFO 9240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-29 12:35:30.068  INFO 9240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-29 12:35:31.275  INFO 9240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-29 12:35:31.380  INFO 9240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 4 JPA repository interfaces.
-2022-05-29 12:35:32.282  INFO 9240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-29 12:35:32.366  INFO 9240 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-29 12:35:32.366  INFO 9240 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
-2022-05-29 12:35:32.544  INFO 9240 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-29 12:35:32.544  INFO 9240 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2476 ms
-2022-05-29 12:35:32.741  INFO 9240 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-29 12:35:32.822  INFO 9240 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-05-29 12:35:33.050  INFO 9240 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-29 12:35:33.208  INFO 9240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-05-29 12:35:34.012  INFO 9240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-05-29 12:35:34.053  INFO 9240 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-05-29 12:35:36.497  INFO 9240 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-29 12:35:36.517  INFO 9240 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:35:37.795  WARN 9240 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-29 12:35:38.243  INFO 9240 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72f0b0d9, org.springframework.security.web.context.SecurityContextPersistenceFilter@4deef592, org.springframework.security.web.header.HeaderWriterFilter@54482089, org.springframework.security.web.authentication.logout.LogoutFilter@50750f0a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@53179d7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14af044e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38d9cf03, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2224508e, org.springframework.security.web.session.SessionManagementFilter@7c425be1, org.springframework.security.web.access.ExceptionTranslationFilter@2a68a425, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d81e1f9]
-2022-05-29 12:35:39.344  WARN 9240 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
-2022-05-29 12:35:39.718  INFO 9240 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-29 12:35:39.816  INFO 9240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-29 12:35:39.836  INFO 9240 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Started TiendaonlineEnriquePajaresBrisomontianoApplication in 10.555 seconds (JVM running for 11.946)
-2022-05-29 12:35:40.335  INFO 9240 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-05-29 12:35:40.336  INFO 9240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-05-29 12:35:40.338  INFO 9240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-05-29 12:35:40.469  INFO 9240 --- [http-nio-8080-exec-1] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 12:35:41.302 ERROR 9240 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "usuario/home": Error resolving template [usuario/home], template might not exist or might not be accessible by any of the configured Template Resolvers
-
-org.thymeleaf.exceptions.TemplateInputException: Error resolving template [usuario/home], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) [thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) [thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401) [spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145) [spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084) [spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.19.jar:5.3.19]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) [tomcat-embed-core-9.0.62.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.19.jar:5.3.19]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.62.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:219) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:213) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) [spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) [spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_212]
-
-2022-05-29 12:35:41.314 ERROR 9240 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [usuario/home], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
-
-org.thymeleaf.exceptions.TemplateInputException: Error resolving template [usuario/home], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.62.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.19.jar:5.3.19]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.62.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:219) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:213) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.6.3.jar:5.6.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.19.jar:5.3.19]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.62.jar:9.0.62]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_212]
-
-2022-05-29 12:35:43.984  INFO 9240 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:35:43.990  INFO 9240 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-05-29 12:35:44.011  INFO 9240 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-05-29 12:35:48.849  INFO 9240 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 9240 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
-2022-05-29 12:35:48.849  INFO 9240 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
-2022-05-29 12:35:49.342  INFO 9240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-29 12:35:49.388  INFO 9240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
-2022-05-29 12:35:49.611  INFO 9240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-29 12:35:49.611  INFO 9240 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-29 12:35:49.612  INFO 9240 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
-2022-05-29 12:35:49.632  INFO 9240 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2022-05-29 12:35:49.632  INFO 9240 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 778 ms
-2022-05-29 12:35:49.673  INFO 9240 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-29 12:35:49.679  INFO 9240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2022-05-29 12:35:49.693  INFO 9240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2022-05-29 12:35:49.694  INFO 9240 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-05-29 12:35:49.880  INFO 9240 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-29 12:35:49.880  INFO 9240 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:35:50.041  WARN 9240 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-29 12:35:50.067  INFO 9240 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a7dca7f, org.springframework.security.web.context.SecurityContextPersistenceFilter@3924845c, org.springframework.security.web.header.HeaderWriterFilter@7bd3aa6c, org.springframework.security.web.authentication.logout.LogoutFilter@5deac19d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a942d70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4cd9e47d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2abfa740, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@707fb3a7, org.springframework.security.web.session.SessionManagementFilter@2b883581, org.springframework.security.web.access.ExceptionTranslationFilter@6873af7a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22b43795]
-2022-05-29 12:35:50.185  INFO 9240 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-29 12:35:50.199  INFO 9240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-29 12:35:50.203  INFO 9240 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Started TiendaonlineEnriquePajaresBrisomontianoApplication in 1.397 seconds (JVM running for 22.312)
-2022-05-29 12:35:50.205  INFO 9240 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2022-05-29 12:35:58.953  INFO 12168 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 12168 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
-2022-05-29 12:35:58.955  INFO 12168 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
-2022-05-29 12:35:59.048  INFO 12168 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Formacion\.m2\repository\javax\mail\mail\1.4\mail-1.4.jar referenced one or more files that do not exist: file:/C:/Users/Formacion/.m2/repository/javax/mail/mail/1.4/activation.jar
-2022-05-29 12:35:59.049  INFO 12168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-29 12:35:59.049  INFO 12168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-29 12:36:00.376  INFO 12168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-29 12:36:00.485  INFO 12168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 4 JPA repository interfaces.
-2022-05-29 12:36:01.410  INFO 12168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-29 12:36:01.423  INFO 12168 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-29 12:36:01.423  INFO 12168 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
-2022-05-29 12:36:01.592  INFO 12168 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-29 12:36:01.593  INFO 12168 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2543 ms
-2022-05-29 12:36:01.784  INFO 12168 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-29 12:36:01.849  INFO 12168 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-05-29 12:36:02.051  INFO 12168 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-29 12:36:02.213  INFO 12168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-05-29 12:36:02.922  INFO 12168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-05-29 12:36:02.945  INFO 12168 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-05-29 12:36:04.085  INFO 12168 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-29 12:36:04.097  INFO 12168 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:36:04.845  WARN 12168 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-29 12:36:05.070  INFO 12168 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@371edfaf, org.springframework.security.web.context.SecurityContextPersistenceFilter@63be1065, org.springframework.security.web.header.HeaderWriterFilter@751f93f3, org.springframework.security.web.authentication.logout.LogoutFilter@6991135, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d28dd3e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60199769, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f89282e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c69cfc9, org.springframework.security.web.session.SessionManagementFilter@4cfdc703, org.springframework.security.web.access.ExceptionTranslationFilter@22d81cc3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7a194b6a]
-2022-05-29 12:36:05.694  WARN 12168 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2022-05-29 12:36:05.733  WARN 12168 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-2022-05-29 12:36:05.737  INFO 12168 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:36:05.744  INFO 12168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-05-29 12:36:05.758  INFO 12168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-05-29 12:36:05.761  INFO 12168 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-05-29 12:36:05.778  INFO 12168 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+2022-05-30 12:23:56.899  INFO 20804 --- [main] iquePajaresBrisomontianoApplicationTests : Starting TiendaonlineEnriquePajaresBrisomontianoApplicationTests using Java 1.8.0_212 on serbatic-03888 with PID 20804 (started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
+2022-05-30 12:23:56.917  INFO 20804 --- [main] iquePajaresBrisomontianoApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2022-05-30 12:23:59.911  INFO 20804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-30 12:24:00.241  INFO 20804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 277 ms. Found 4 JPA repository interfaces.
+2022-05-30 12:24:01.592  INFO 20804 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-30 12:24:01.672  INFO 20804 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-05-30 12:24:02.131  INFO 20804 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-30 12:24:03.126  INFO 20804 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-30 12:24:04.395  INFO 20804 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-30 12:24:04.436  INFO 20804 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-30 12:24:06.700  INFO 20804 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-30 12:24:06.721  INFO 20804 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:24:08.246  WARN 20804 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-30 12:24:09.405  INFO 20804 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6da646b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@70f5f59d, org.springframework.security.web.header.HeaderWriterFilter@37caecda, org.springframework.security.web.authentication.logout.LogoutFilter@474ce6b8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45dc7be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6fa2a006, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@39695803, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a65e237, org.springframework.security.web.session.SessionManagementFilter@4ab9d160, org.springframework.security.web.access.ExceptionTranslationFilter@2d0f548a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d556461]
+2022-05-30 12:24:11.300  INFO 20804 --- [main] iquePajaresBrisomontianoApplicationTests : Started TiendaonlineEnriquePajaresBrisomontianoApplicationTests in 15.014 seconds (JVM running for 17.494)
+2022-05-30 12:24:11.594  INFO 20804 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:24:11.598  INFO 20804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-30 12:24:11.626  INFO 20804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-30 12:30:23.496  INFO 2696 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 2696 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
+2022-05-30 12:30:23.499  INFO 2696 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
+2022-05-30 12:30:23.576  INFO 2696 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Formacion\.m2\repository\javax\mail\mail\1.4\mail-1.4.jar referenced one or more files that do not exist: file:/C:/Users/Formacion/.m2/repository/javax/mail/mail/1.4/activation.jar
+2022-05-30 12:30:23.576  INFO 2696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-30 12:30:23.576  INFO 2696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-30 12:30:24.588  INFO 2696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-30 12:30:24.696  INFO 2696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 4 JPA repository interfaces.
+2022-05-30 12:30:25.572  INFO 2696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-30 12:30:25.654  INFO 2696 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-30 12:30:25.655  INFO 2696 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-30 12:30:25.896  INFO 2696 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-30 12:30:25.898  INFO 2696 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2321 ms
+2022-05-30 12:30:26.149  INFO 2696 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-30 12:30:26.244  INFO 2696 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-05-30 12:30:26.477  INFO 2696 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-30 12:30:26.617  INFO 2696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-30 12:30:27.298  INFO 2696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-30 12:30:27.326  INFO 2696 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-30 12:30:28.526  INFO 2696 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-30 12:30:28.537  INFO 2696 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:30:29.427  WARN 2696 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-30 12:30:29.658  INFO 2696 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6eb1cb21, org.springframework.security.web.context.SecurityContextPersistenceFilter@35c57211, org.springframework.security.web.header.HeaderWriterFilter@41050eb4, org.springframework.security.web.authentication.logout.LogoutFilter@1a779954, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@505e038d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4725325a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5305842, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3dae229f, org.springframework.security.web.session.SessionManagementFilter@105fcc10, org.springframework.security.web.access.ExceptionTranslationFilter@5d4b5a4e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f3fdf11]
+2022-05-30 12:30:30.142  INFO 2696 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-30 12:30:30.173  WARN 2696 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-05-30 12:30:30.177  INFO 2696 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:30:30.181  INFO 2696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-30 12:30:30.194  INFO 2696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-30 12:30:30.196  INFO 2696 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-05-30 12:30:30.212  INFO 2696 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-05-29 12:36:05.811 ERROR 12168 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2022-05-30 12:30:30.242 ERROR 2696 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
 ***************************
 APPLICATION FAILED TO START
@@ -281,120 +61,79 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
-2022-05-29 12:36:09.265  INFO 9240 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-05-29 12:36:09.500  INFO 9240 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:36:09.502  INFO 9240 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2022-05-29 12:36:09.517  INFO 9240 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2022-05-29 12:36:17.362  INFO 2920 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 2920 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
-2022-05-29 12:36:17.365  INFO 2920 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
-2022-05-29 12:36:17.454  INFO 2920 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Formacion\.m2\repository\javax\mail\mail\1.4\mail-1.4.jar referenced one or more files that do not exist: file:/C:/Users/Formacion/.m2/repository/javax/mail/mail/1.4/activation.jar
-2022-05-29 12:36:17.455  INFO 2920 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-29 12:36:17.455  INFO 2920 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-29 12:36:18.527  INFO 2920 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-05-29 12:36:18.632  INFO 2920 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 4 JPA repository interfaces.
-2022-05-29 12:36:19.534  INFO 2920 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-05-29 12:36:19.546  INFO 2920 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-05-29 12:36:19.547  INFO 2920 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
-2022-05-29 12:36:19.723  INFO 2920 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-05-29 12:36:19.724  INFO 2920 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2268 ms
-2022-05-29 12:36:19.938  INFO 2920 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-29 12:36:20.003  INFO 2920 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
-2022-05-29 12:36:20.206  INFO 2920 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-29 12:36:20.338  INFO 2920 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-05-29 12:36:20.944  INFO 2920 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-05-29 12:36:20.967  INFO 2920 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2022-05-29 12:36:22.228  INFO 2920 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-29 12:36:22.240  INFO 2920 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 12:36:22.965  WARN 2920 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-29 12:36:23.183  INFO 2920 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5206ebf4, org.springframework.security.web.context.SecurityContextPersistenceFilter@c3c4609, org.springframework.security.web.header.HeaderWriterFilter@1bcab4fd, org.springframework.security.web.authentication.logout.LogoutFilter@1d45740d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1cbacaa2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b1d403d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@144a8cb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@641e47dc, org.springframework.security.web.session.SessionManagementFilter@4b5877d1, org.springframework.security.web.access.ExceptionTranslationFilter@7a51611d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@767758c5]
-2022-05-29 12:36:23.664  INFO 2920 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-05-29 12:36:23.709  INFO 2920 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-29 12:36:23.720  INFO 2920 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Started TiendaonlineEnriquePajaresBrisomontianoApplication in 6.855 seconds (JVM running for 8.143)
-2022-05-29 12:36:28.785  INFO 2920 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-05-29 12:36:28.785  INFO 2920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-05-29 12:36:28.787  INFO 2920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-05-29 12:36:28.851  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:19:39.484  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:19:42.584  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Id producto enviado por parámetro 3
-2022-05-29 13:19:45.573  INFO 2920 --- [http-nio-8080-exec-8] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:24:53.292  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.HomeController     : Id producto enviado por parámetro 2
-2022-05-29 13:24:58.413  INFO 2920 --- [http-nio-8080-exec-9] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:25:00.710  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.controller.HomeController     : Id producto enviado por parámetro 7
-2022-05-29 13:25:03.842  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:25:05.275  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.HomeController     : Id producto enviado por parámetro 9
-2022-05-29 13:25:06.992  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:25:09.224  INFO 2920 --- [http-nio-8080-exec-8] c.t.online.controller.HomeController     : Id producto enviado por parámetro 8
-2022-05-29 13:25:11.100  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:27:28.114  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.controller.HomeController     : Producto añadido: Producto [id=2, nombre=PcCom Gold Elite, descripcion= Intel Core i5 11400F 16GB 500GBSSD RTX3060, categoria=torres, precio=1114.47, stock=255, fechaAlta=2022-05-23, fechaBaja=null, impuesto=0.21, imagen=1354-pccom-gold-elite-intel-core-i5-11400f-16gb-500gbssd-rtx3060-comprar.png]
-2022-05-29 13:27:28.116  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.controller.HomeController     : Unidades: 1
-2022-05-29 13:27:32.029  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:30:09.539  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Producto añadido: Producto [id=2, nombre=PcCom Gold Elite, descripcion= Intel Core i5 11400F 16GB 500GBSSD RTX3060, categoria=torres, precio=1114.47, stock=254, fechaAlta=2022-05-23, fechaBaja=null, impuesto=0.21, imagen=1354-pccom-gold-elite-intel-core-i5-11400f-16gb-500gbssd-rtx3060-comprar.png]
-2022-05-29 13:30:09.540  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Unidades: 1
-2022-05-29 13:39:34.648  INFO 2920 --- [http-nio-8080-exec-9] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:39:51.995  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.utils.UserDetailServiceImpl   : Este es el username
-2022-05-29 13:39:52.048  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 2
-2022-05-29 13:39:52.167  INFO 2920 --- [http-nio-8080-exec-2] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 13:39:52.167  INFO 2920 --- [http-nio-8080-exec-2] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
-2022-05-29 13:39:52.181  INFO 2920 --- [http-nio-8080-exec-6] c.t.online.controller.HomeController     : Sesión del usuario: 2
-2022-05-29 13:39:54.140  INFO 2920 --- [http-nio-8080-exec-8] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 13:53:34.824  INFO 2920 --- [http-nio-8080-exec-2] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 13:53:34.851  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:53:36.226  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Producto añadido: Producto [id=3, nombre=HP X27qc, descripcion= LED QHD 165Hz FreeSync Premium Curva, categoria=monitores, precio=329.0, stock=544, fechaAlta=2022-05-23, fechaBaja=null, impuesto=0.21, imagen=1825-hp-x27qc-27-led-qhd-165hz-freesync-premium-curva.png]
-2022-05-29 13:53:36.227  INFO 2920 --- [http-nio-8080-exec-3] c.t.online.controller.HomeController     : Unidades: 1
-2022-05-29 13:53:37.123  INFO 2920 --- [http-nio-8080-exec-9] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 13:53:37.124  INFO 2920 --- [http-nio-8080-exec-9] c.t.online.controller.HomeController     : Usuario no identificado
-2022-05-29 13:55:33.005  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.utils.UserDetailServiceImpl   : Este es el username
-2022-05-29 13:55:33.013  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 2
-2022-05-29 13:55:33.120  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 13:55:33.121  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
-2022-05-29 13:55:33.129  INFO 2920 --- [http-nio-8080-exec-6] c.t.online.controller.HomeController     : Sesión del usuario: 2
-2022-05-29 13:55:35.478  INFO 2920 --- [http-nio-8080-exec-2] c.t.online.controller.HomeController     : Sesión del usuario: 2
-2022-05-29 13:55:36.868  INFO 2920 --- [http-nio-8080-exec-8] c.t.online.controller.HomeController     : Sesión del usuario: 2
-2022-05-29 14:01:35.200  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.controller.HomeController     : Sesión del usuario: 2
-2022-05-29 14:01:35.289  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.HomeController     : Sesión del usuario: 2
-2022-05-29 14:02:49.275  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:03:54.131  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:03:54.132  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.UsuarioController  : Id del pedido: 4
-2022-05-29 14:03:56.485  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:03:57.588  INFO 2920 --- [http-nio-8080-exec-2] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:03:57.590  INFO 2920 --- [http-nio-8080-exec-2] c.t.online.controller.UsuarioController  : Id del pedido: 5
-2022-05-29 14:03:58.907  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:03:59.783  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:03:59.784  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.controller.UsuarioController  : Id del pedido: 4
-2022-05-29 14:04:01.165  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:04:02.439  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:04:02.442  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.controller.UsuarioController  : Id del pedido: 6
-2022-05-29 14:04:05.045  INFO 2920 --- [http-nio-8080-exec-8] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:04:11.316  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 14:04:11.316  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Id del pedido: 6
-2022-05-29 14:04:12.493  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
-2022-05-29 16:52:20.511  INFO 2920 --- [http-nio-8080-exec-9] c.t.online.controller.UsuarioController  : Sesión del usuario: null
-2022-05-29 16:52:20.519  INFO 2920 --- [http-nio-8080-exec-8] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 16:52:28.574  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.utils.UserDetailServiceImpl   : Este es el username
-2022-05-29 16:52:28.583  INFO 2920 --- [http-nio-8080-exec-4] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 1
-2022-05-29 16:52:28.700  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Sesión del usuario: 1
-2022-05-29 16:52:28.701  INFO 2920 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
-2022-05-29 16:52:51.686  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.HomeController     : Sesión del usuario: null
-2022-05-29 16:53:03.926  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.utils.UserDetailServiceImpl   : Este es el username
-2022-05-29 16:53:03.932  INFO 2920 --- [http-nio-8080-exec-1] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 1
-2022-05-29 16:53:04.074  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.UsuarioController  : Sesión del usuario: 1
-2022-05-29 16:53:04.075  INFO 2920 --- [http-nio-8080-exec-7] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
-2022-05-29 17:06:48.573  INFO 2920 --- [http-nio-8080-exec-6] c.t.o.controller.ProductoController      : Producto buscado: Producto [id=2, nombre=PcCom Gold Elite, descripcion= Intel Core i5 11400F 16GB 500GBSSD RTX3060, categoria=torres, precio=1114.47, stock=253, fechaAlta=2022-05-23, fechaBaja=null, impuesto=0.21, imagen=1354-pccom-gold-elite-intel-core-i5-11400f-16gb-500gbssd-rtx3060-comprar.png]
-2022-05-29 17:22:04.366  INFO 2920 --- [http-nio-8080-exec-5] c.t.o.c.AdministradorController          : Usuario buscado: Usuario [id=1, email=admin@admin, password=$2a$10$ESX/l72icPIb5MjjbitRReTGGsfUiRFR1FHmGnk7W6YR7n6e6Wwcy, nombre=admin, apellido1=admin, apellido2=admin, direccion=admin, provincia=admin, localidad=admin, telefono=666666666, dni=admin, tipo=ADMIN]
-2022-05-29 17:23:06.949  INFO 2920 --- [http-nio-8080-exec-7] c.t.o.c.AdministradorController          : Id del usuario: 1
-2022-05-29 17:23:35.729  INFO 2920 --- [http-nio-8080-exec-9] c.t.o.c.AdministradorController          : Usuario buscado: Usuario [id=1, email=admin@admin, password=$2a$10$ESX/l72icPIb5MjjbitRReTGGsfUiRFR1FHmGnk7W6YR7n6e6Wwcy, nombre=admin, apellido1=admin, apellido2=admin, direccion=admin, provincia=admin, localidad=admin, telefono=666666666, dni=admin, tipo=ADMIN]
-2022-05-29 17:24:34.706  INFO 2920 --- [http-nio-8080-exec-3] c.t.o.c.AdministradorController          : Id del usuario: 1
-2022-05-29 17:26:02.781  INFO 2920 --- [http-nio-8080-exec-1] c.t.o.c.AdministradorController          : Usuario buscado: Usuario [id=1, email=admin@admin, password=$2a$10$ESX/l72icPIb5MjjbitRReTGGsfUiRFR1FHmGnk7W6YR7n6e6Wwcy, nombre=admin, apellido1=admin, apellido2=admin, direccion=admin, provincia=admin, localidad=admin, telefono=666666666, dni=admin, tipo=ADMIN]
-2022-05-29 17:26:05.423  INFO 2920 --- [http-nio-8080-exec-10] c.t.o.c.AdministradorController          : Usuario buscado: Usuario [id=3, email=anaes@gmail.com, password=$2a$10$sHMXnA431XhGzsmP9Xqpxe.GTAgrVRlad0sdsWgrsCgbziC5cg/Aa, nombre=Anabel, apellido1=Escudero, apellido2=López, direccion=C/Ultramar 7, provincia=Valladolid, localidad=Valladolid, telefono=654897125, dni=71548764J, tipo=USER]
-2022-05-29 17:26:08.048  INFO 2920 --- [http-nio-8080-exec-6] c.t.o.c.AdministradorController          : Id del usuario: 3
-2022-05-29 17:26:11.372  INFO 2920 --- [http-nio-8080-exec-4] c.t.o.c.AdministradorController          : Id del usuario: 3
-2022-05-29 17:40:18.055  INFO 2920 --- [http-nio-8080-exec-10] c.t.o.c.AdministradorController          : Id del pedido: 1
-2022-05-29 17:40:22.189  INFO 2920 --- [http-nio-8080-exec-4] c.t.o.c.AdministradorController          : Id del pedido: 2
-2022-05-29 17:41:43.777  INFO 2920 --- [http-nio-8080-exec-9] c.t.o.c.AdministradorController          : Producto buscado: Pedido [id=1, fecha=2022-05-23, metodoPago=tarjeta, estado=E, numFactura=FRA.2022-05-23T21:11:38.466, total=401.64]
-2022-05-29 17:41:47.460  INFO 2920 --- [http-nio-8080-exec-7] c.t.o.c.AdministradorController          : Id del pedido: 1
-2022-05-29 17:41:49.716  INFO 2920 --- [http-nio-8080-exec-10] c.t.o.c.AdministradorController          : Producto buscado: Pedido [id=1, fecha=2022-05-23, metodoPago=tarjeta, estado=E, numFactura=FRA.2022-05-23T21:11:38.466, total=401.64]
-2022-05-29 17:52:25.644  INFO 2920 --- [http-nio-8080-exec-5] c.t.online.controller.HomeController     : Nombre del producto: 
-2022-05-29 20:21:36.704  INFO 2920 --- [RMI TCP Connection(124)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-05-29 20:21:37.015  INFO 2920 --- [RMI TCP Connection(124)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-29 20:21:37.031  INFO 2920 --- [RMI TCP Connection(124)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-05-29 20:21:37.039  INFO 2920 --- [RMI TCP Connection(124)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-30 12:32:47.651  INFO 19564 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 19564 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
+2022-05-30 12:32:47.653  INFO 19564 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
+2022-05-30 12:32:47.731  INFO 19564 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Formacion\.m2\repository\javax\mail\mail\1.4\mail-1.4.jar referenced one or more files that do not exist: file:/C:/Users/Formacion/.m2/repository/javax/mail/mail/1.4/activation.jar
+2022-05-30 12:32:47.731  INFO 19564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-30 12:32:47.732  INFO 19564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-30 12:32:48.752  INFO 19564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-30 12:32:48.905  INFO 19564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 4 JPA repository interfaces.
+2022-05-30 12:32:50.616  INFO 19564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-30 12:32:50.773  INFO 19564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-30 12:32:50.774  INFO 19564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-30 12:32:51.153  INFO 19564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-30 12:32:51.153  INFO 19564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3420 ms
+2022-05-30 12:32:51.602  INFO 19564 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-30 12:32:51.767  INFO 19564 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2022-05-30 12:32:52.248  INFO 19564 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-30 12:32:52.598  INFO 19564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-30 12:32:54.151  INFO 19564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-30 12:32:54.202  INFO 19564 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-30 12:32:56.601  INFO 19564 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-30 12:32:56.624  INFO 19564 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:32:58.345  WARN 19564 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-30 12:32:58.668  INFO 19564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43d3c4cd, org.springframework.security.web.context.SecurityContextPersistenceFilter@42366f7a, org.springframework.security.web.header.HeaderWriterFilter@3a05fe2d, org.springframework.security.web.authentication.logout.LogoutFilter@7470a37b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3f9dff83, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@619cd2ef, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c4e98c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d0de37e, org.springframework.security.web.session.SessionManagementFilter@2c1dc6fb, org.springframework.security.web.access.ExceptionTranslationFilter@5ed62609, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@47b2ef4c]
+2022-05-30 12:32:59.331  INFO 19564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-30 12:32:59.392  INFO 19564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-30 12:32:59.408  INFO 19564 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Started TiendaonlineEnriquePajaresBrisomontianoApplication in 12.238 seconds (JVM running for 13.768)
+2022-05-30 12:33:02.064  INFO 19564 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:33:02.068  INFO 19564 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-30 12:33:02.079  INFO 19564 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-30 12:33:02.361  INFO 19564 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Starting TiendaonlineEnriquePajaresBrisomontianoApplication using Java 1.8.0_212 on serbatic-03888 with PID 19564 (C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO\target\classes started by Formacion in C:\Users\Formacion\eclipse-workspace\TIENDAONLINE_ENRIQUE_PAJARES_BRISOMONTIANO)
+2022-05-30 12:33:02.362  INFO 19564 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : No active profile set, falling back to 1 default profile: "default"
+2022-05-30 12:33:02.839  INFO 19564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-30 12:33:02.891  INFO 19564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 4 JPA repository interfaces.
+2022-05-30 12:33:03.030  INFO 19564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-30 12:33:03.031  INFO 19564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-30 12:33:03.031  INFO 19564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-05-30 12:33:03.061  INFO 19564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-30 12:33:03.061  INFO 19564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 696 ms
+2022-05-30 12:33:03.113  INFO 19564 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-30 12:33:03.119  INFO 19564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-05-30 12:33:03.133  INFO 19564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2022-05-30 12:33:03.133  INFO 19564 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-05-30 12:33:03.332  INFO 19564 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-30 12:33:03.333  INFO 19564 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:33:03.504  WARN 19564 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-30 12:33:03.540  INFO 19564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6db24e6, org.springframework.security.web.context.SecurityContextPersistenceFilter@298a35c2, org.springframework.security.web.header.HeaderWriterFilter@79b4bf65, org.springframework.security.web.authentication.logout.LogoutFilter@4e14d0e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ffbc7c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63fce036, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f6f24bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61ea620, org.springframework.security.web.session.SessionManagementFilter@1adb3949, org.springframework.security.web.access.ExceptionTranslationFilter@239d3439, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@537b1e0a]
+2022-05-30 12:33:03.751  INFO 19564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-30 12:33:03.787  INFO 19564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-30 12:33:03.796  INFO 19564 --- [restartedMain] neEnriquePajaresBrisomontianoApplication : Started TiendaonlineEnriquePajaresBrisomontianoApplication in 1.484 seconds (JVM running for 18.157)
+2022-05-30 12:33:03.801  INFO 19564 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-05-30 12:33:12.855  INFO 19564 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-30 12:33:12.856  INFO 19564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-30 12:33:12.858  INFO 19564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-05-30 12:33:12.940  INFO 19564 --- [http-nio-8080-exec-1] c.t.online.controller.HomeController     : Sesión del usuario: null
+2022-05-30 12:33:29.132  INFO 19564 --- [http-nio-8080-exec-1] c.t.online.utils.UserDetailServiceImpl   : Este es el username
+2022-05-30 12:33:29.190  INFO 19564 --- [http-nio-8080-exec-1] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 1
+2022-05-30 12:33:29.317  INFO 19564 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Sesión del usuario: 1
+2022-05-30 12:33:29.318  INFO 19564 --- [http-nio-8080-exec-10] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
+2022-05-30 12:33:40.275  INFO 19564 --- [http-nio-8080-exec-4] c.t.online.controller.UsuarioController  : Sesión del usuario: 1
+2022-05-30 12:33:40.293  INFO 19564 --- [http-nio-8080-exec-2] c.t.online.controller.HomeController     : Sesión del usuario: null
+2022-05-30 12:33:56.227  INFO 19564 --- [http-nio-8080-exec-5] c.t.online.utils.UserDetailServiceImpl   : Este es el username
+2022-05-30 12:33:56.234  INFO 19564 --- [http-nio-8080-exec-5] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 2
+2022-05-30 12:33:56.349  INFO 19564 --- [http-nio-8080-exec-3] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
+2022-05-30 12:33:56.350  INFO 19564 --- [http-nio-8080-exec-3] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
+2022-05-30 12:33:56.362  INFO 19564 --- [http-nio-8080-exec-2] c.t.online.controller.HomeController     : Sesión del usuario: 2
+2022-05-30 12:34:02.036  INFO 19564 --- [http-nio-8080-exec-1] c.t.online.controller.UsuarioController  : Sesión del usuario: 2
+2022-05-30 12:34:02.045  INFO 19564 --- [http-nio-8080-exec-4] c.t.online.controller.HomeController     : Sesión del usuario: null
+2022-05-30 12:34:09.367  INFO 19564 --- [http-nio-8080-exec-6] c.t.online.utils.UserDetailServiceImpl   : Este es el username
+2022-05-30 12:34:09.374  INFO 19564 --- [http-nio-8080-exec-6] c.t.online.utils.UserDetailServiceImpl   : Este es el id del usuario 1
+2022-05-30 12:34:09.493  INFO 19564 --- [http-nio-8080-exec-3] c.t.online.controller.UsuarioController  : Sesión del usuario: 1
+2022-05-30 12:34:09.493  INFO 19564 --- [http-nio-8080-exec-3] c.t.online.controller.UsuarioController  : Acceso: Usuario [id=null, email=null, password=null, nombre=null, apellido1=null, apellido2=null, direccion=null, provincia=null, localidad=null, telefono=null, dni=null, tipo=null]
+2022-05-30 12:34:12.145  INFO 19564 --- [http-nio-8080-exec-1] c.t.online.controller.UsuarioController  : Sesión del usuario: 1
+2022-05-30 12:34:12.153  INFO 19564 --- [http-nio-8080-exec-5] c.t.online.controller.HomeController     : Sesión del usuario: null
+2022-05-30 12:34:19.334  INFO 19564 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-05-30 12:34:19.721  INFO 19564 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-30 12:34:19.723  INFO 19564 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2022-05-30 12:34:19.737  INFO 19564 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
