@@ -30,6 +30,9 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	
 	private Logger LOGGER = LoggerFactory.getLogger(UserDetailServiceImpl.class);
 	
+	/**
+	 * Método que carga un usuario según sus claves de acceso
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		LOGGER.info("Este es el username");

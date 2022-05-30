@@ -15,6 +15,11 @@ public class JavaMail {
 	
 	//static String destinatario = "kike_montiano@hotmail.com";
 	
+	/**
+	 * Método para enviar un email al usuario
+	 * @param destinatario El destinatario
+	 * @param texto El texto a enviar
+	 */
 	public static void enviarMail(String destinatario, String texto) {
 		
 	try {

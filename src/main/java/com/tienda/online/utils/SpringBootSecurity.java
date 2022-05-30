@@ -27,6 +27,9 @@ public class SpringBootSecurity extends WebSecurityConfigurerAdapter{
 		
 	}
 	
+	/**
+	 * Método que configura los permisos a las vistas según que rol tenga el usuario
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()

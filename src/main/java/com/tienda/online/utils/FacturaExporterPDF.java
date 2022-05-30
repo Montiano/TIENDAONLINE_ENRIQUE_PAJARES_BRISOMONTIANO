@@ -27,6 +27,12 @@ public class FacturaExporterPDF {
 		this.listaDetalles = listaDetalles;
 	}
 
+	/**
+	 * Método para exportar a pdf la lista de detalles de un pedido
+	 * @param response La respuesta HTTP
+	 * @throws DocumentException
+	 * @throws IOException
+	 */
 	public void exportar(HttpServletResponse response) throws DocumentException, IOException{
 		
 		PdfWriter writer;

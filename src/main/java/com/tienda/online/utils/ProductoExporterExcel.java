@@ -28,6 +28,9 @@ public class ProductoExporterExcel {
 		hoja = libro.createSheet("Productos");
 	}
 	
+	/**
+	 * Método para escribir la cabecera de la tabla excel
+	 */
 	private void escribirCabeceraTabla() {
 		Row fila = hoja.createRow(0);
 		
@@ -75,6 +78,9 @@ public class ProductoExporterExcel {
 		
 	}
 	
+	/**
+	 * Método para escribir los datos en la tabla excel
+	 */
 	private void escribirDatosTabla() {
 		
 		int numeroFilas = 1;
@@ -135,7 +141,11 @@ public class ProductoExporterExcel {
 		}
 	}
 	
-	
+	/**
+	 * Método para exportar el documento excel
+	 * @param response La respuesta HTTP
+	 * @throws IOException
+	 */
 	public void exportar(HttpServletResponse response) throws IOException {
 		escribirCabeceraTabla();
 		escribirDatosTabla();

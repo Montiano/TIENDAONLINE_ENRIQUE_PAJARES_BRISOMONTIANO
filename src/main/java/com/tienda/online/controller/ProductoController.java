@@ -39,17 +39,35 @@ public class ProductoController {
 	@Autowired
 	private UploadFileService upload;
 	
+	/**
+	 * Método get principal para mostrar la lista de productos
+	 * @param modelo El modelo que pasa la lista de productos
+	 * @return Retorna la vista de productos
+	 */
 	@GetMapping("")
 	public String show(Model modelo) {
 		modelo.addAttribute("listaProductos", productoService.findAll());
 		return "productos/show";
 	}
 	
+	/**
+	 * Método get que lleva a la vista para crear un producto
+	 * @return Retorna al formulario para crear un producto
+	 */
 	@GetMapping("/create")
 	public String create() {
 		return "productos/create";
 	}
 	
+	/**
+	 * Método post para guardar un producto. Se le asigna el usuario que lo ha creado. 
+	 * @param producto El producto
+	 * @param file El fichero de la imagen que se va a asociar
+	 * @param sesion La sesión del usuario
+	 * @param flash Atributo flash para enviar el mensaje a la vista
+	 * @return Redirecciona al método show
+	 * @throws IOException
+	 */
 	@PostMapping("/save")
 	public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession sesion, RedirectAttributes flash) throws IOException {
 		LOGGER.info("Sesión del usuario: {}", sesion.getAttribute("idUsuario"));
@@ -71,6 +89,12 @@ public class ProductoController {
 		return "redirect:/productos";
 	}
 	
+	/**
+	 * Método get para editar un producto a través de su id
+	 * @param id El id del producto
+	 * @param modelo El modelo que pasa el producto
+	 * @return Retorna a la vista de edit
+	 */
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable Long id, Model modelo) {
 		Producto producto = new Producto();
@@ -84,14 +108,21 @@ public class ProductoController {
 		return "productos/edit";
 	}
 	
+	/**
+	 * Método post para actualizar un producto. 
+	 * @param producto El producto
+	 * @param file El fichero de la imagen que se va a asociar
+	 * @param flash Atributo flash para enviar el mensaje a la vista
+	 * @return Redirecciona al método show
+	 * @throws IOException
+	 */
 	@PostMapping("/update")
 	public String update(Producto producto, @RequestParam("img") MultipartFile file, RedirectAttributes flash) throws IOException {
 		Producto p = new Producto();
 		p = productoService.get(producto.getId()).get();
 		
 		// En caso de editar el producto pero no cambiamos la imagen
-		if(file.isEmpty()) {
-			
+		if(file.isEmpty()) {			
 			producto.setImagen(p.getImagen());
 		// Cuando se edite también la imagen
 		} else {	
@@ -110,6 +141,12 @@ public class ProductoController {
 		return "redirect:/productos";
 	}
 	
+	/**
+	 * Método get para eliminar un producto a través de su id
+	 * @param id El id del producto
+	 * @param flash Atributo flash para enviar el mensaje a la vista
+	 * @return Redirecciona al método show
+	 */
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, RedirectAttributes flash) {
 		Producto p = new Producto();
